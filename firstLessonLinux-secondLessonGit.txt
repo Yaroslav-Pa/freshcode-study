@@ -1,0 +1,23 @@
+    1 sudo apt install ./code_1.82.2-1694671812_amd64.deb 2 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb 3 sudo dpkg -i --force-depends 
+    google-chrome-stable_current_amd64.deb 4 sudo apt-get install git 5 sudo add-apt-repository ppa:git-core/ppa 6 sudo apt update; apt install git 7 sudo apt install git 8 git -v 9 sudo apt-get 
+    update
+   10 sudo apt install dolphin 11 sudo apt-get install dolphin konsole 12 git -v 13 cd /home/yaroslav 14 git config --list 15 git config --global core.editor code 16 git config --list 17 git 
+   config --global init.defaultBranch main 18 git config --list 19 git config --list --show-origin 20 cd /home/yaroslav/.gitconfig 21 cd ./yaroslav/.gitconfig 22 nano .gitignore 23 nano 
+   .gitconfig 24 git config --list 25 git config --global core.editor code 26 git config --global core.autocrlf input 27 git config --list 28 touch readme.txt 29 git init 30 git add readme.txt 31 
+   git commit 32 git commit fist commit 33 git commit 'fist commit' 34 git commit 35 git log 36 git commit --help 37 git commit 38 git log 39 git commit 40 git config --global core.editor nano 41 
+   git commit 42 git log 43 nano readme.txt 44 git add readme.txt 45 git commit 46 touch index.html style.css 47 git add index.html style.css 48 git commit 49 git log 50 git config --global 
+   core.editor code 51 git add . 52 git commit 53 git config --global core.editor code -w 54 git commit 55 git config --global core.editor "code -w" 56 nano .gitconfig 57 git config --global 
+   core.editor "code -w" 58 git commit 59 git init 60 touch text.txt 61 git add . 62 git log 63 git commit 64 nano text.txt 65 git add . 66 git commit 67 git log 68 nano text.txt 69 git status 70 
+   git add . 71 git status 72 git restore 73 git restore text.txt 74 nano text.txt 75 git add . 76 git status 77 git restore text.txt 78 nano text.txt 79 nano --staget 80 git restore --staget 
+   text.txt 81 git restore -S text.txt 82 nano text.txt 83 git add . 84 git status 85 git restore text.txt 86 nano text.txt 87 git commit 88 git reflog 89 git restore -S text.txt 90 git reflog 91 
+   nano text.txt 92 git restore 93 git restore text.txt 94 git add text.txt 95 git status 96 git restore -S text.txt 97 git status 98 git restore text.txt 99 git add text.txt
+  100 git restore text.txt 101 git restore -S text.txt 102 git restore text.txt 103 touch text 104 touch text2 105 git add . 106 git commit 107 rm text2 108 git add . 109 git commit 110 git 
+  revert 111 git log 112 git reset 113 git log 114 git revert 2a2f2aa5c436551a56a1b5bf910bfe788fdb8898 115 git log 116 git reset 1f052b0a4413589c87ef691823f5cdc85a7cc0a8 117 git log 118 git reset 
+  --help 119 git reset~HEAD1 120 git reset --help 121 git reset^HEAD 122 git reset ^HEAD 123 git status 124 git reset 1f052b0a4413589c87ef691823f5cdc85a7cc0a8 125 git log 126 git reset 
+  1f052b0a4413589c87ef691823f5cdc85a7cc0a8 127 git log 128 git reset 129 git log 130 git reset HEAD~1 131 git log 132 git status 133 git init 134 git remote add origin Full stack js curses from 
+  freshcode compan 135 git branch --help 136 git branch -m git 137 git add . 138 git log 139 git commit 140 git log 141 git push --help 142 git push origin git 143 git remote remove origin 144 
+  git remote -v 145 git remote add origin https://github.com/Yaroslav-Pa/freshcode-study.git 146 git remote -v 147 git branch -m git 148 git push origin git 149 ls -l 150 ls -a 151 git add . 152 
+  git status 153 ls 154 ls -a 155 nano .gitignore 156 git status 157 git add . 158 git commit 159 git push origin git 160 git add . 161 git commit 162 git push origin git 163 git add . 164 git 
+  commit 165 git push origin git 166 git rm --cached first/.git second/.git 167 git rm --cached first/*.git second/*.git 168 git rm --cached first/.git/ second/.git 169 ls -ls 170 ls -la 171 ls 
+  -sa 172 ls -a 173 rm .git 174 rm .git/ 175 rm -r .git/ 176 history -h 177 history --help 178 history 179 touch firstLessonLinux-secondLessonGit.txt 180 history | nano 
+  firstLessonLinux-secondLessonGit.txt
