@@ -1,1 +1,3 @@
+<<<<<<< HEAD
  SomeChanges in file 
+=======
