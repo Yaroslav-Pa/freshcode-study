@@ -1,4 +1,4 @@
- OFFLINE
+Перше-друге заняття Git
 
 init—
 git init 
@@ -26,9 +26,28 @@ clone—
 git clone <url>
 
 
+Трете-четверте заняття Git
 
+info—
+git log --oneline - скорочений список
 
-ONLINE
+init—
+git remote <origin> add <url> - додає папку гіт 
+git pull <url> <branch> - скачує останнє оновлення гілки
 
 return—
 git revert <id> -робить новий коміт з поперднього, відміняючи усе що було зроблено
+
+branch—
+git branch - показує усі гілки
+git branch <name> - створює гілку
+git checkout *<id> - переносить HEAD на потрібний коміт
+git switch <name>
+git branch -D <name> - видалити гілку локально
+git push origin -D <nameBrenchToDelete> - видалити гілку у гіті
+git branch -M <name> - переіменувати гілку
+
+merge +error—
+git merge <nameГілкиПопереду> - НЕАD має бути на ГілціПозаду
+git rebase <nameГількиПозаду> - HEAD має бути на ГільціПопереду ++ git merge <nameГілкиПопереду> (стоя на ГільціПозаду)
+git merge —abort - просто відміна мерджа
