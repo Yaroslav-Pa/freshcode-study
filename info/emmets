@@ -1,0 +1,58 @@
+ul>li*3>a{sometext$}
+<ul>
+  <li><a href="">sometext1</a></li>
+  <li><a href="">sometext2</a></li>
+  <li><a href="">sometext3</a></li>
+</ul>
+
+ul>li>(a[href="#section$"]{section $})*5
+<ul>
+  <li><a href="#section1">section 1</a><a href="#section2">section 2</a><a href="#section3">section 3</a><a href="#section4">section 4</a><a href="#section5">section 5</a></li>
+</ul>
+
+nav.someClass
+<nav class="someClass"></nav>
+nav.link.Klas
+<nav class="link Klas"></nav>
+
+nav#someId
+<nav id="someId"></nav>
+
+header>(section#nub$>ol.section$>(li[text="text"].someClass)*3)*5
+<header>
+  <section id="nub1">
+    <ol class="section1">
+      <li text="text" class="someClass"></li>
+      <li text="text" class="someClass"></li>
+      <li text="text" class="someClass"></li>
+    </ol>
+  </section>
+  <section id="nub2">
+    <ol class="section2">
+      <li text="text" class="someClass"></li>
+      <li text="text" class="someClass"></li>
+      <li text="text" class="someClass"></li>
+    </ol>
+  </section>
+  <section id="nub3">
+    <ol class="section3">
+      <li text="text" class="someClass"></li>
+      <li text="text" class="someClass"></li>
+      <li text="text" class="someClass"></li>
+    </ol>
+  </section>
+  <section id="nub4">
+    <ol class="section4">
+      <li text="text" class="someClass"></li>
+      <li text="text" class="someClass"></li>
+      <li text="text" class="someClass"></li>
+    </ol>
+  </section>
+  <section id="nub5">
+    <ol class="section5">
+      <li text="text" class="someClass"></li>
+      <li text="text" class="someClass"></li>
+      <li text="text" class="someClass"></li>
+    </ol>
+  </section>
+</header>
