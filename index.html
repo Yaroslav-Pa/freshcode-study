@@ -4,83 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Songs</title>
-    <link rel="icon" href="./public/favicon.png" type="image/x-icon">
+    <link rel="icon" href="./public/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body
-    style="
-      padding: 0;
-      margin: 0;
-      display: grid;
-      background-image: url(https://media.istockphoto.com/id/838573742/vector/seamless-pattern-with-notes.jpg?b=1&s=612x612&w=0&k=20&c=7ArHDJawnPCwGalP83Ff_gkqk6cn08JgmmDnyGZjIHA=);
-    "
-  >
-    <header
-      style="
-        width: 100%;
-        padding-top: 10px;
-        color: #ffffff;
-        text-align: center;
-        background-color: lightseagreen;
-      "
-    >
+  <body style="background-image: url(https://media.istockphoto.com/id/838573742/vector/seamless-pattern-with-notes.jpg?b=1&s=612x612&w=0&k=20&c=7ArHDJawnPCwGalP83Ff_gkqk6cn08JgmmDnyGZjIHA=);">
+    <header>
       <h1 style="margin: 0">Some cool songs</h1>
-      <nav
-        style="
-          
-          display: flex;
-          flex-direction: row;
-          column-gap: 30px;
-          justify-content: center;
-          align-items: center;
-          padding: 20px 0;
-        "
-      >
-        <a style="cursor: pointer; color: #ffffff; font-weight: bold; text-decoration: none"
-          >Just the two of us</a
-        >
+      <nav>
+        <a class="currentPage">Just the two of us</a>
+        <a class="otherPage" href="./pages/someSong1.html">Some song v.1</a>
         <a
-          style="cursor: pointer; color: #dbdbdb; text-decoration: none"
-          href="./pages/someSong1.html"
-          >Some song v.1</a
-        >
-        <a
-          style="cursor: pointer; color: #dbdbdb; text-decoration: none; 	text-decoration-line: line-through;"
+          style="text-decoration-line: line-through"
+          class="otherPage"
           href="./index.html"
           >Some song v.2</a
         >
       </nav>
-      <nav style="padding-bottom: 10px">
+      <nav style="padding-top: 0px; padding-bottom: 10px">
         <a href="#text" style="color: aqua">to some important text</a>
       </nav>
     </header>
 
-    <main
-      style="
-        display: grid;
-        justify-self: center;
-        width: 50%;
-        background-color: rgb(240, 240, 240);
-      "
-    >
-      <article
-        style="
-          display: flex;
-          flex-direction: row;
-          margin-top: 30px;
-          justify-content: center;
-          column-gap: 50px;
-          max-width: fit-content;
-          justify-self: center;
-        "
-      >
-        <div
-          style="
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-          "
-        >
+    <main>
+      <article>
+        <div class="musicSection">
           <h2 style="margin-bottom: 5px; margin-top: 0">Just the two of us</h2>
           <h3 style="margin-top: 0; margin-bottom: 30px">
             We can make it if we try
@@ -135,73 +82,35 @@
             <p>...</p>
             <div>
               <h3 style="margin-bottom: 10px">Some input form</h3>
-              <section
-                style="
-                  display: flex;
-                  flex-direction: row;
-                  justify-content: center;
-                  column-gap: 10px;
-                "
-              >
+              <section class="buttonSection"*->
                 <input type="text" placeholder="Just input some text" />
                 <button type="submit">Submit</button>
               </section>
             </div>
           </section>
         </div>
-        <aside
-          style="
-            display: flex;
-            flex-direction: column;
-            border-style: groove;
-            border-radius: 20px;
-            padding: 10px;
-            max-height: 550px;
-            max-width: 200px;
-          "
-        >
+        <aside>
           <h2 style="text-align: center">The author</h2>
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Grover_Washington_1995.jpg/220px-Grover_Washington_1995.jpg"
             alt="GroverWashington"
           />
-          <section
-            style="
-              display: flex;
-              flex-direction: row;
-              justify-content: space-evenly;
-              column-gap: 20px;
-            "
-          >
+          <section class="tableSections">
             <p>Born-Died</p>
             <p>December 12, 1943 - December 17, 1999</p>
           </section>
-          <section
-            style="
-              display: flex;
-              flex-direction: row;
-              justify-content: space-evenly;
-              column-gap: 20px;
-            "
-          >
+          <section class="tableSections">
             <p>Birth name</p>
             <p>Grover Washington Jr.</p>
           </section>
-          <section
-            style="
-              display: flex;
-              flex-direction: row;
-              justify-content: space-evenly;
-              column-gap: 20px;
-            "
-          >
+          <section class="tableSections">
             <p>Genres</p>
             <p>Soul-jazz jazz-funk R&B smooth jazz</p>
           </section>
         </aside>
       </article>
       <div style="display: grid; text-align: center; margin-top: 50px">
-        <h3>The Big Scarry Text</h1>
+        <h3>The Big Scarry Text</h3>
         <p style="max-width: 200px; justify-self: center">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
           excepturi obcaecati corrupti adipisci quaerat, odit ea velit rerum
@@ -233,15 +142,7 @@
       </div>
     </main>
 
-    <footer
-      style="
-        width: 100%;
-        padding: 10px 0px;
-        color: #ffffff;
-        text-align: center;
-        background-color: lightseagreen;
-      "
-    >
+    <footer>
       <p>@justSomeSongs</p>
     </footer>
   </body>

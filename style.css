@@ -1,0 +1,91 @@
+.currentPage{
+  cursor: pointer;
+   color: #ffffff;
+   font-weight: bold;
+   text-decoration: none
+}
+.otherPage {
+  cursor: pointer; color: #dbdbdb; text-decoration: none;
+}
+.tableSections{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  column-gap: 20px;
+}
+
+.buttonSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: 10px;
+}
+
+.musicSection {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.center{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main {
+  display: grid;
+  justify-self: center;
+  width: 50%;
+  background-color: rgb(240, 240, 240);
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  display: grid;
+}
+
+aside{
+  display: flex;
+  flex-direction: column;
+  border-style: groove;
+  border-radius: 20px;
+  padding: 10px;
+  max-height: 550px;
+  max-width: 200px;
+}
+
+header{
+  width: 100%;
+  padding-top: 10px;
+  color: #ffffff;
+  text-align: center;
+  background-color: lightseagreen;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  column-gap: 30px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+article {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+  justify-content: center;
+  column-gap: 50px;
+  max-width: fit-content;
+  justify-self: center;
+}
+footer {
+  width: 100%;
+  padding: 10px 0px;
+  color: #ffffff;
+  text-align: center;
+  background-color: lightseagreen;
+}

@@ -5,104 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Songs</title>
     <link rel="icon" href="../public/favicon.png" type="image/x-icon" />
-    <style>
-      .center {
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-    </style>
+    <link rel="stylesheet" href="../style.css" />
   </head>
   <body
     style="
-      padding: 0;
-      margin: 0;
-      display: grid;
       background-image: url(https://garden.spoonflower.com/c/15413017/p/f/l/2Rgba7Et0eLn4DRk5uuCOwY_h98zVYlg1WMCyNYDajTdpoInuEjlY0w/Pirate%20Adventure.jpg);
     "
   >
-    <header
-      style="
-        width: 100%;
-        padding-top: 10px;
-        color: #ffffff;
-        text-align: center;
-        background-color: lightseagreen;
-      "
-    >
+    <header>
       <h1 style="margin: 0">Some cool songs</h1>
-      <nav
-        style="
-          display: flex;
-          flex-direction: row;
-          column-gap: 30px;
-          justify-content: center;
-          align-items: center;
-          padding: 20px 0;
-        "
-      >
+      <nav>
+        <a class="otherPage" href="../index.html">Just the two of us</a>
+        <a class="currentPage" href="./someSong1.html">Some song v.1</a>
         <a
-          style="cursor: pointer; color: #dbdbdb; text-decoration: none"
-          href="../index.html"
-          >Just the two of us</a
-        >
-        <a
-          style="
-            cursor: pointer;
-            font-weight: bold;
-            text-decoration: none;
-            color: #ffffff;
-          "
-          href="./someSong1.html"
-          >Some song v.1</a
-        >
-        <a
-          style="
-            cursor: pointer;
-            color: #dbdbdb;
-            text-decoration: none;
-            text-decoration-line: line-through;
-          "
+          style="text-decoration-line: line-through"
+          class="otherPage"
           href="../index.html"
           >Some song v.2</a
         >
       </nav>
-      <nav style="padding-bottom: 10px">
-        <a href="#text" style="color: aqua">to some important list</a>
+      <nav style="padding-top: 0px; padding-bottom: 10px">
+        <a href="#text" style="color: aqua">to some important text</a>
       </nav>
     </header>
-    <main
-      style="
-        display: grid;
-        justify-self: center;
-        width: 50%;
-        background-color: rgb(240, 240, 240);
-      "
-    >
-      <article
-        style="
-          display: flex;
-          flex-direction: row;
-          margin-top: 30px;
-          justify-content: center;
-          column-gap: 50px;
-          max-width: fit-content;
-          justify-self: center;
-        "
-      >
-        <div
-          style="
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-          "
-        >
-          <h2 style="margin-bottom: 5px; margin-top: 0; margin-bottom: 30px">
+
+    <main>
+      <article>
+        <div class="musicSection">
+          <h3 style="margin-bottom: 5px; margin-top: 0; margin-bottom: 30px">
             Wellerman
-          </h2>
+          </h3>
           <section>
             <p>
               There once was a ship that put to sea<br />
@@ -159,82 +91,34 @@
             <p>...</p>
             <div style="margin-bottom: 20px">
               <h3 style="margin-bottom: 10px">Some input form</h3>
-              <section
-                style="
-                  display: flex;
-                  flex-direction: row;
-                  justify-content: center;
-                  column-gap: 10px;
-                "
-              >
+              <section class="buttonSection" *->
                 <input type="text" placeholder="Just input some text" />
                 <button type="submit">Submit</button>
               </section>
             </div>
           </section>
-          <section></section>
         </div>
-        <aside
-          style="
-            display: flex;
-            flex-direction: column;
-            border-style: groove;
-            border-radius: 20px;
-            padding: 10px;
-            max-height: 550px;
-            max-width: 200px;
-          "
-        >
+        <aside>
           <h2 style="text-align: center">The author</h2>
           <img
             src="https://t2.gstatic.com/licensed-image?q=tbn:ANd9GcRQDlXi58uwi-RuS-P_aAZLvlFKetC0XwTXBi_jJ-kpTCz08V9QnXtoDrsyZWa3UaJk"
             alt="Nathan Evans"
           />
-          <section
-            style="
-              display: flex;
-              flex-direction: row;
-              justify-content: space-evenly;
-              column-gap: 20px;
-            "
-          >
+          <section class="tableSections">
             <p>Born</p>
             <p>19 December 1994</p>
           </section>
-          <section
-            style="
-              display: flex;
-              flex-direction: row;
-              justify-content: space-evenly;
-              column-gap: 20px;
-            "
-          >
+          <section class="tableSections">
             <p>Birth name</p>
             <p>Nathan Evans</p>
           </section>
-          <section
-            style="
-              display: flex;
-              flex-direction: row;
-              justify-content: space-evenly;
-              column-gap: 20px;
-            "
-          >
+          <section class="tableSections">
             <p>Genres</p>
             <p>Folksea shanty Pop acoustic</p>
           </section>
         </aside>
       </article>
-      <section
-        style="
-          text-align: center;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        "
-        id="text"
-      >
+      <section class="center" id="text">
         <h3 style="margin-bottom: 0">Music videos</h3>
         <ul style="row-gap: 20px">
           <li>"Wellerman (Sea Shanty / 220 KID x Billen Ted Remix)"</li>
@@ -244,8 +128,8 @@
           <li>"Driving Home for Christmas"</li>
         </ul>
       </section>
-      <section class="center" >
-        <h1 style="margin-bottom: 0;">Emmets</h1>
+      <section class="center">
+        <h1 style="margin-bottom: 0">Emmets</h1>
         <ol>
           <li>
             <p>something that I did with emmet №1</p>
@@ -266,15 +150,7 @@
       </section>
     </main>
 
-    <footer
-      style="
-        width: 100%;
-        padding: 10px 0px;
-        color: #ffffff;
-        text-align: center;
-        background-color: lightseagreen;
-      "
-    >
+    <footer>
       <p>@justSomeSongs</p>
     </footer>
   </body>
