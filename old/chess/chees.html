@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chees</title>
+  <style>
+    *{
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+    .black{
+      background-color: black;
+      width: 200px; height: 200px;
+    }
+    .white{
+      background-color: wheat;
+      width: 200px; height: 200px;
+    }
+    .line{
+      display: inline-block;
+    }
+    .fix{
+      font-size: 0;
+    }
+    .box{
+      width:600px;
+      height: 600px;
+      border: 1px solid red;
+      box-sizing: content-box;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="fix">
+      <div class="black line"></div>
+      <div class="white line"></div>
+      <div class="black line"></div>
+    </div>
+    <div class="fix">
+      <div class="white line"></div>
+      <div class="black line"></div>
+      <div class="white line"></div>
+    </div>
+    <div class="fix">
+      <div class="black line"></div>
+      <div class="white line"></div>
+      <div class="black line"></div>
+    </div>
+  </div>
+</body>
+</html>
