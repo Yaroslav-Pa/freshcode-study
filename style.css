@@ -1,0 +1,104 @@
+.color-dark{
+  background-color: rgb(231,231,231);
+}
+.color-darker{
+  background-color: rgb(219,219,219);
+}
+.color-white{
+  background-color: rgb(236,236,236);
+}
+.color-whiter{
+  background-color: rgb(243,243,243);
+}
+.color-whiteBlue{
+  background-color: rgb(120,135,171);
+}
+.color-blue{
+  background-color: rgb(79,98,142)
+}
+.color-darkBlue{
+  background-color: rgb(46,65,114);
+}
+.color-darkerBlue{
+  background-color: rgb(22,41,85);
+}
+.color-blackBlue{
+  background-color: rgb(6,21,57);
+}
+.small-text{
+  font-size: 18px;
+}
+.med-text{
+  font-size: 20px;
+}
+.big-text{
+  font-size: 30px;
+  text-wrap:wrap;
+}
+.biger-text{
+  font-size: 45px;
+  text-wrap:wrap;
+}
+
+.data-format{
+  line-height: 40px;
+}
+
+.text-center{
+  text-align: center;
+}
+.text-start{
+  padding: 0 20px;
+}
+
+.rouded-leftTop{
+  border-radius: 20px 0 0 0;
+}
+.rouded-rightTop{
+  border-radius: 0 20px 0 0;
+}
+.rouded-rightBottom{
+  border-radius: 0 0 20px 0;
+}
+.rouded-leftBottom{
+  border-radius: 0 0 0 20px;
+}
+
+.spacing-top{
+  display: block;
+  margin-top: 25px;
+}
+
+.like-a-button{
+  display: block;
+  padding: 3px 10px;
+  background-color: rgb(228, 224, 224);
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  line-height: 25px;
+  text-transform: uppercase;
+  border: 1px gainsboro solid;
+  width: 60%;
+  margin: 10px auto;
+  align-items: center;
+}
+
+.like-a-button:hover{
+  background-color: rgb(73, 73, 73);
+  color: #ffffff;
+}
+
+tfoot{
+  height: 50px;
+}
+
+.header-of-head,
+.head-text{
+  padding: 0 10px;
+  max-width: 150px;
+  vertical-align:middle;
+}
+.header-of-head{
+  max-width: 250px;
+}

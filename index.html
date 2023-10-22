@@ -3,93 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Homework Лендінг сторінка</title>
-  <style>
-    *{
-      padding: 0;
-      margin: 0;
-      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-      font-size: 17px;
-      line-height: 1.6;
-    }
-    .header{
-      height: 100vh;
-      width: 100%;
-      color: #926239;
-      background-image: url(https://lh3.googleusercontent.com/drive-storage/AKHj6E5kos-ESsyGEVTTzO4dH-M8Kx1Ukg8H-UZn-OhXeuZy5nu-E3t7xVGdKaD1kJ4_aa1dnuNJAHz12N3eqqUH2VqGn11AgBZ36ghJXUaycw=w2560-h1003);
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
-    .naming {
-      margin: 0 auto;
-      width: 60%;
-      padding-top: 40vh;
-      text-align: center;
-    }
-    .naming > h1{
-      font-size: 50px;
-    }
-    .naming > p{
-      font-size: 20px;
-    }
-    .naming > a{
-      font-size: 18px;
-    }
-    .spyButton{
-      display: block;
-      padding: 10px 20px;
-      color: inherit;
-      border: 1px solid #926239;
-      border-radius: 10px;
-      text-decoration: none;
-      max-width: fit-content;
-      margin: 0 auto;
-      margin-top: 20px;
-    }
-    .spyButton:hover {
-      color: rgb(255, 255, 255);
-      background-color: #926239;
-      border: 1px solid rgba(255, 255, 255, 0);
-    }
-    .block {
-      display: block;
-      padding: 20px;
-      text-align: center;
-    }
-    .inlineBlock {
-      display: inline-block;
-      padding: 20px;
-      text-align: center;
-      max-width: 33%;
-      box-sizing: border-box;
-    }
-    .brownBG{
-      background-color: #926239;
-      color: #fff;
-    }
-    .whiteBG{
-      background-color: #fff;
-      color: #926239;
-    }
-  </style>
+  <title>Table</title>
+  <link rel="stylesheet" href="./reset.css">
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <header class="header">
-      <section class="naming">
-        <h1>Welcome To The Beach</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi officiis ipsum officia numquam expedita ullam.</p>
-        <a href="https://classroom.google.com/c/NjI0NzI4NzQxNTEz/a/NjMxNzE2MTM2ODA4/details" class="spyButton">Read More</a>
-      </section>
-  </header>
-  <main>
-    <div class="block brownBG">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit minus impedit maxime, quae soluta quis cumque perferendis! Doloribus quaerat, placeat iste facere, aspernatur ex cum veritatis laudantium, officia, non porro exercitationem incidunt quis dolore? Officia ex accusamus expedita optio, voluptatem minus? In maiores omnis aperiam earum ab molestiae beatae laborum blanditiis incidunt, delectus dolor, id voluptates optio aspernatur aliquam saepe atque labore? Tempore reprehenderit ab ipsam perspiciatis ut, provident perferendis sapiente in numquam blanditiis, enim, illo error nulla incidunt quos quidem ratione repellat ipsa molestias veritatis? Mollitia, fugit dolore commodi porro repudiandae atque, eos, ipsum quam culpa fuga deleniti quae.</div>
-    <div class="block whiteBG">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit minus impedit maxime, quae soluta quis cumque perferendis! Doloribus quaerat, placeat iste facere, aspernatur ex cum veritatis laudantium, officia, non porro exercitationem incidunt quis dolore? Officia ex accusamus expedita optio, voluptatem minus? In maiores omnis aperiam earum ab molestiae beatae laborum blanditiis incidunt, delectus dolor, id voluptates optio aspernatur aliquam saepe atque labore? Tempore reprehenderit ab ipsam perspiciatis ut, provident perferendis sapiente in numquam blanditiis, enim, illo error nulla incidunt quos quidem ratione repellat ipsa molestias veritatis? Mollitia, fugit dolore commodi porro repudiandae atque, eos, ipsum quam culpa fuga deleniti quae.</div>
-  </main>
-  <footer>
-    <div class="brownBG inlineBlock">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa dolorum est, molestias dolores quis sunt nobis temporibus veritatis libero odio!</div>
-    <div class="whiteBG inlineBlock">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa dolorum est, molestias dolores quis sunt nobis temporibus veritatis libero odio!</div>
-    <div class="brownBG inlineBlock">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa dolorum est, molestias dolores quis sunt nobis temporibus veritatis libero odio!</div>
-  </footer>
+  <table style="margin: 20px;">
+    <thead >
+      <tr style="height: 200px; width: fit-content; color: #ffffff;">
+        <th class="header-of-head big-text color-whiteBlue rouded-leftTop">Choose your plan</th>
+        <th class="head-text big-text color-blue">starter <span class="biger-text spacing-top">$10</span> per month</th>
+        <th class="head-text big-text color-darkBlue">econom <span class="biger-text spacing-top">$30</span> per month</th>
+        <th class="head-text big-text color-darkerBlue">standart <span class="biger-text spacing-top">$59</span> per month</th>
+        <th class="head-text big-text color-blackBlue rouded-rightTop">professional <span class="biger-text spacing-top">$99</span> per month</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="med-text data-format">
+        <td class="text-start color-darker">Amount of space</td>
+        <td class="text-center color-dark">20GB</td>
+        <td class="text-center color-darker">40GB</td>
+        <td class="text-center color-dark">110GB</td>
+        <td class="text-center color-darker">Unlimeted</td>
+      </tr>
+      <tr class="med-text data-format">
+        <td class="text-start color-white">Bandwidht per month</td>
+        <td class="text-center color-whiter">120GB</td>
+        <td class="text-center color-white">240GB</td>
+        <td class="text-center color-whiter">610GB</td>
+        <td class="text-center color-white">1300GB</td>
+      </tr>
+      <tr class="med-text data-format">
+        <td class="text-start color-darker">Email accouts</td>
+        <td class="text-center color-dark">1</td>
+        <td class="text-center color-darker">15</td>
+        <td class="text-center color-dark">60</td>
+        <td class="text-center color-darker">Unlimeted</td>
+      </tr>
+      <tr class="med-text data-format">
+        <td class="text-start color-white">25h support</td>
+        <td class="text-center color-whiter">No</td>
+        <td class="text-center color-white">Yes</td>
+        <td class="text-center color-whiter">Yes</td>
+        <td class="text-center color-white">Yes</td>
+      </tr>
+      <tr class="med-text data-format">
+        <td class="text-start color-darker">Support tickets per mounth</td>
+        <td class="text-center color-dark">2</td>
+        <td class="text-center color-darker">6</td>
+        <td class="text-center color-dark">14</td>
+        <td class="text-center color-darker">20</td>
+      </tr>
+      
+    </tbody>
+    <tfoot>
+      <tr class="med-text data-format">
+        <td class="text-start rouded-leftBottom color-white"></td>
+        <td class="text-center color-whiter"><a href="#" class="like-a-button">start</a></td>
+        <td class="text-center color-white"><a href="#" class="like-a-button">start</a</td>
+        <td class="text-center color-whiter"><a href="#" class="like-a-button">start</a</td>
+        <td class="text-center rouded-rightBottom color-white"><a href="#" class="like-a-button">start</a</td>
+      </tr>
+    </tfoot>
+  </table>
 </body>
 </html>
