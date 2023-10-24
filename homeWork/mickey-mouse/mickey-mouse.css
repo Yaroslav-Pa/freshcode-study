@@ -1,34 +1,36 @@
 .box-for-mickey {
-  position: relative;
   border: 2px solid transparent;
   width: 400px;
   height: 300px;
   margin: 20px;
 }
 
-.left-ear, .right-ear, .main-round {
+.main-round {
+  position: relative;
+  background-color: black;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  top: 100px;
+  left: 100px;
+  box-sizing: border-box;
+}
+
+.left-ear, .right-ear{
   position: absolute;
   background-color: black;
   border-radius: 50%;
-}
-
-.main-round {
-  width: 200px;
-  height: 200px;
-  bottom: 0;
-  left: 100px;
-}
-
-.left-ear, .right-ear {
   width: 100px;
   height: 100px;
 }
 
 .left-ear {
-  top: 50px;
-  left: 50px;
+  /* margin-top: -50px;
+  margin-left: -40px; */
+  top: -45px;
+  left: -40px;
 }
 .right-ear {
-  top: 50px;
-  right: 50px;
+  top: -45px;
+  right: -40px;
 }
