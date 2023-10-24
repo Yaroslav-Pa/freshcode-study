@@ -1,18 +1,3 @@
-.color-dark{
-  background-color: rgb(231,231,231);
-}
-.color-darker{
-  background-color: rgb(219,219,219);
-}
-.color-white{
-  background-color: rgb(236,236,236);
-}
-.color-whiter{
-  background-color: rgb(243,243,243);
-}
-.color-whiteBlue{
-  background-color: rgb(120,135,171);
-}
 .color-blue{
   background-color: rgb(79,98,142)
 }
@@ -25,51 +10,79 @@
 .color-blackBlue{
   background-color: rgb(6,21,57);
 }
-.small-text{
-  font-size: 18px;
+
+tbody>tr:nth-child(even)>td:nth-child(even){
+  background-color: rgb(243,243,243);
 }
-.med-text{
-  font-size: 20px;
-}
-.big-text{
-  font-size: 30px;
-  text-wrap:wrap;
-}
-.biger-text{
-  font-size: 45px;
-  text-wrap:wrap;
+tbody>tr:nth-child(even)>td:nth-child(odd){
+  background-color: rgb(236,236,236);
 }
 
-.data-format{
-  line-height: 40px;
+tbody>tr:nth-child(odd)>td:nth-child(even){
+  background-color: rgb(231,231,231);
+}
+tbody>tr:nth-child(odd)>td:nth-child(odd){
+  background-color: rgb(219,219,219);
 }
 
-.text-center{
+tfoot>tr:nth-child(odd)>td:nth-child(even){
+  background-color: rgb(243,243,243);
+}
+tfoot>tr:nth-child(odd)>td:nth-child(odd){
+  background-color: rgb(236,236,236);
+}
+
+tr>td:nth-child(n+1) {
   text-align: center;
 }
-.text-start{
+tr>td:first-child{
   padding: 0 20px;
 }
 
-.rouded-leftTop{
-  border-radius: 20px 0 0 0;
-}
-.rouded-rightTop{
-  border-radius: 0 20px 0 0;
-}
-.rouded-rightBottom{
-  border-radius: 0 0 20px 0;
-}
-.rouded-leftBottom{
-  border-radius: 0 0 0 20px;
-}
-
-.spacing-top{
+span{
+  font-size: 45px;
+  text-wrap:wrap;
   display: block;
   margin-top: 25px;
 }
 
-.like-a-button{
+thead>tr>th:nth-child(n+1) {
+  font-size: 30px;
+  text-wrap:wrap;
+  padding: 0 10px;
+  max-width: 150px;
+  vertical-align:middle;
+}
+
+thead>tr>th:first-child{
+  background-color: rgb(120,135,171);
+  border-radius: 20px 0 0 0;
+  max-width: 250px;
+  font-size: 30px;
+  text-wrap:wrap;
+  padding: 0 10px;
+  max-width: 150px;
+  vertical-align:middle;
+}
+
+thead>tr>th:last-child{
+  border-radius: 0 20px 0 0;
+}
+
+tbody>tr, tfoot>tr {
+  font-size: 20px;
+  line-height: 40px;
+}
+
+tfoot>tr>td:first-child{
+  border-radius: 0 0 0 20px;
+}
+
+tfoot>tr>td:last-child{
+  border-radius: 0 0 20px 0;
+}
+
+tfoot a{
   display: block;
   padding: 3px 10px;
   background-color: rgb(228, 224, 224);
@@ -84,21 +97,11 @@
   align-items: center;
 }
 
-.like-a-button:hover{
+tfoot a:hover{
   background-color: rgb(73, 73, 73);
   color: #ffffff;
 }
 
 tfoot{
   height: 50px;
-}
-
-.header-of-head,
-.head-text{
-  padding: 0 10px;
-  max-width: 150px;
-  vertical-align:middle;
-}
-.header-of-head{
-  max-width: 250px;
 }
