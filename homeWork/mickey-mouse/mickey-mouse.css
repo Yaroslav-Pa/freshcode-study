@@ -16,7 +16,8 @@
   box-sizing: border-box;
 }
 
-.left-ear, .right-ear{
+.main-round::before, .main-round::after{
+  content:"";
   position: absolute;
   background-color: black;
   border-radius: 50%;
@@ -24,13 +25,13 @@
   height: 100px;
 }
 
-.left-ear {
+.main-round::before {
   /* margin-top: -50px;
   margin-left: -40px; */
   top: -45px;
   left: -40px;
 }
-.right-ear {
+.main-round::after {
   top: -45px;
   right: -40px;
 }
