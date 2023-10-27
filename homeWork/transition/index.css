@@ -1,0 +1,63 @@
+nav{
+  margin: 0 auto;
+  max-width: fit-content;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: blanchedalmond;
+  min-height: fit-content;
+}
+.psuedo-button {
+  padding: 10px 20px;
+  background-color: cadetblue;
+  display: inline-block;
+  margin: 10px 10px;
+  position: relative;
+}
+/* .psuedo-button::after, .psuedo-button::before{
+  content: "";
+  display:inline-block;
+  background-color: red;
+  height: 10px;
+  width: 0px;
+  transition:width .5s linear;
+}
+.psuedo-button::after{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.psuedo-button::before{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.psuedo-button:hover::after, .psuedo-button:hover::before{
+  width: 100%;
+} */
+
+.psuedo-button::after, .psuedo-button::before{
+  content: "";
+  display:inline-block;
+  background-color: red;
+  height: 0px;
+  width: 10px;
+  transition:height .5s linear;
+}
+.psuedo-button::after{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.psuedo-button::before{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.psuedo-button:hover::after, .psuedo-button:hover::before{
+  height: 100%;
+}

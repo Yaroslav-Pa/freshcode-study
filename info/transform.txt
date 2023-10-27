@@ -1,0 +1,22 @@
+27.10.23
+
+transform:
+
+  transform(X\Y): traslate(X, Y) перемішення на чогось у кудись
+
+  transform: traslate(50%, 50%)  змішує на 50% вверх й 50% у право (відсодсоток від довжини себе)
+
+
+  transform:scale(X, Y) змінення розміру 
+  transform:scaleX(X) scaleY(Y) змінення розміру v2 
+
+  transform:scale(1, 1) - стандартне значення
+
+  transform:scale(-X, Y) ефект "перевертання" по X
+  transform:scale(X, -Y) ефект "перевертання" по Y
+
+
+  transform: rotate(X) повертання чогось (deg/turn/rad)
+
+  transform: skew(X, Y) розтягання елемента по осям (deg/turn/rad)
+  transform: skewX(X) skewY(Y) розтягання елемента по осям (deg/turn/rad) v2
