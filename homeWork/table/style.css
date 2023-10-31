@@ -1,0 +1,95 @@
+thead th:nth-child(2) {
+  background-color: rgb(79, 98, 142);
+}
+thead th:nth-child(3) {
+  background-color: rgb(46, 65, 114);
+}
+thead th:nth-child(4) {
+  background-color: rgb(22, 41, 85);
+}
+
+tbody > tr:nth-child(even) > td:nth-child(even) {
+  background-color: rgb(243, 243, 243);
+}
+tbody > tr:nth-child(even) > td:nth-child(odd) {
+  background-color: rgb(236, 236, 236);
+}
+
+tbody > tr:nth-child(odd) > td:nth-child(even),
+tfoot > tr:nth-child(odd) > td:nth-child(even) {
+  background-color: rgb(231, 231, 231);
+}
+tbody > tr:nth-child(odd) > td:nth-child(odd),
+tfoot > tr:nth-child(odd) > td:nth-child(odd) {
+  background-color: rgb(219, 219, 219);
+}
+
+b {
+  font-weight: 600;
+}
+
+table {
+  margin: 20px;
+}
+tr > td:nth-child(n):not(:first-child) {
+  text-align: center;
+}
+tr > td,th:first-child {
+  padding: 2px 20px;
+  text-align: start;
+}
+
+span {
+  font-size: 45px;
+  display: block;
+  margin-top: 25px;
+}
+thead > tr > th:nth-child(n) {
+  color: #ffffff;
+  height: 200px;
+  font-size: 30px;
+  padding: 0 20px;
+  vertical-align: middle;
+}
+
+thead > tr > th:first-child {
+  background-color: rgb(120, 135, 171);
+  border-radius: 20px 0 0 0;
+  max-width: 400px;
+  padding: 0 20px;
+}
+thead > tr > th:last-child {
+  border-radius: 0 20px 0 0;
+  background-color: rgb(6, 21, 57);
+}
+tfoot > tr > td:first-child {
+  border-radius: 0 0 0 20px;
+}
+tfoot > tr > td:last-child {
+  border-radius: 0 0 20px 0;
+}
+
+tbody > tr,
+tfoot > tr {
+  font-size: 20px;
+  line-height: 40px;
+}
+
+tfoot a {
+  display: block;
+  padding: 3px 10px;
+  background-color: rgb(245, 245, 245);
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  line-height: 25px;
+  text-transform: uppercase;
+  border: 1px gainsboro solid;
+  width: 60%;
+  margin: 10px auto;
+}
+
+tfoot a:hover {
+  background-color: rgb(129, 129, 129);
+  color: #ffffff;
+}
