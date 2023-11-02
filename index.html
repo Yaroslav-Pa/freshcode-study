@@ -1,54 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flex</title>
-  <link rel="stylesheet" href="./reset.css">
-  <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-  <div class="flex-body">
-    <div class="child">1</div>
-    <div class="child">2</div>
-    <div class="child">3</div>
-    <div class="child">4</div>
-    <div class="child grow">5</div>
-    <!-- <div class="child">6</div>
-    <div class="child">7</div>
-    <div class="child">8</div>
-    <div class="child">9</div>
-    <div class="child">10</div>
-    <div class="child">11</div>
-    <div class="child">12</div>
-    <div class="child">13</div>
-    <div class="child">14</div>
-    <div class="child">15</div>
-    <div class="child">16</div>
-    <div class="child">17</div>
-    <div class="child">18</div>
-    <div class="child">19</div>
-    <div class="child">20</div>
-    <div class="child">21</div>
-    <div class="child">22</div>
-    <div class="child">23</div>
-    <div class="child">24</div>
-    <div class="child">25</div>
-    <div class="child">26</div>
-    <div class="child">27</div>
-    <div class="child">28</div>
-    <div class="child">29</div>
-    <div class="child">30</div>
-    <div class="child">31</div>
-    <div class="child">32</div>
-    <div class="child">33</div>
-    <div class="child">34</div>
-    <div class="child">35</div>
-    <div class="child">36</div>
-    <div class="child">37</div>
-    <div class="child">38</div>
-    <div class="child">39</div>
-    <div class="child">40</div> -->
-  </div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="./reset.css" /> -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <form>
+      <!-- варіанти надати назву інпуту -->
+      <input type="text" placeholder="small text" />
+      <label for="someText">TEXT</label>
+      <input type="text" id="someText" />
+      <label>
+        NoText
+        <input type="text" />
+      </label>
+      <!-- name потрібен для означення назви поля для сервера -->
+
+      <!-- 
+      <input type="text">
+      <input type="password">
+      <input type="email">
+      <input type="number">
+      <input type="date">      
+      <input type="file">
+      <input type="checkbox">
+      <input type="radio">
+
+
+      <input type="button">      
+      <input type="color">      
+      <input type="datetime-local">      
+      <input type="hidden">
+      <input type="image">
+      <input type="month">
+      <input type="range">
+      <input type="reset">
+      <input type="search">
+      <input type="submit">
+      <input type="tel">
+      <input type="time">
+      <input type="url">
+      <input type="week">
+      
+    -->
+    <!-- секція форми -->
+    <fieldset>
+      <!-- назва секції -->
+      <legend>Some section</legend>
+      <input name="firstname" placeholder="Ім'я" value="Початкове значення" required />
+      <label for="surname">Прізвище</label>
+      <input name="surname" id="surname" type="sadsafdfdsfdsfdsfdsds" />
+      <label>
+        По батькові
+        <input name="middlename" type="text" pattern="[A-Z][a-z]{0,32}"/>
+      </label>
+      <label>
+        Пароль
+        <input name="password" type="password">
+      </label>
+      <label>
+        Електронна пошта
+        <input name="email" type="email" pattern="[a-zA-Z0-9]{2,32}@[a-zA-Z]{1,64}\.[a-zA-Z]{1,64}">
+      </label>
+      <label>
+        Місто проживання
+        <select name="city">
+          <option value="Kharkiv">Kharkiv</option>
+          <option value="Odessa">Odessa</option>
+          <option value="Chernobul">Chernobul</option>
+          <option value="Kuiv">Kuiv</option>
+        </select>
+      </label>
+    </fieldset>
+    <textarea name="textarea" id="" cols="30" rows="10">SomeTextArea</textarea>
+      <!-- resize: none - CSS для відміни можливості ресайзу -->
+    <button type="submit">Submit</button>
+  </form>
+  </body>
 </html>
