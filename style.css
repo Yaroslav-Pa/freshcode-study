@@ -1,20 +1,12 @@
-body {
+@font-face {
+  font-family: 'Agbaluma';
+  src: url('./fonts/Agbalumo/Agbalumo-Regular.ttf');
+  font-weight: 400;
+}
+
+body{
+  font-family: Agbaluma;
+  font-size: 40px;
+  text-align: center;
   margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  max-width: 50%;
-  row-gap: 10px;
-}
-
-fieldset{
-  display: flex;
-  flex-direction: column;
-  row-gap: 10px;
 }

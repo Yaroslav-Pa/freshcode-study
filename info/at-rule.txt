@@ -1,0 +1,18 @@
+03.11.23 - At-rule (сss)
+
+  At = @
+
+  @charset = "UTF-8" - приклад (не потрібен у css бо усе на англ пишиться)
+
+  @import url- завантажити файл до файлу
+
+  @font-fase - іпортування шрифта до css файлу
+
+    @font-fase{
+      назва шрифта
+      font-family:"nameOfTheFont";
+      посилання до шрифта
+      src: url('./font1.ttf') format('truetype') **формат дивитись за .ttf та .otf ...;
+      встановлення жирності шрифту
+      font-weight: 400;
+    }
