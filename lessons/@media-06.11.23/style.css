@@ -1,0 +1,59 @@
+@font-face {
+  font-family: 'Agbaluma';
+  src: url('./fonts/Agbalumo/Agbalumo-Regular.ttf');
+  font-weight: 400;
+}
+body{
+  font-family: Agbaluma;
+  text-align: center;
+  font-size: 18px;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  background-color: rgb(89, 201, 89);
+  padding: 20px 40px;
+}
+
+header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+h2{
+  font-size: 24px;
+}
+.burger{
+  display: block;
+}
+ul{
+  display: none;
+}
+
+@media screen and (min-width: 700px) {
+  ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 20px;
+  }
+  h2{
+    font-size: 40px;
+  }
+  a{
+    font-size: 30px;
+    line-height: 35px;
+    color: black;
+    text-decoration: none;
+  }
+  
+  li:hover>a{
+    color: rgb(55, 43, 226);
+  }
+  
+  .burger{
+    display: none;
+  }
+}
