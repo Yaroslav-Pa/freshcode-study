@@ -1,0 +1,55 @@
+.pseudo-button-orange,
+.pseudo-button-white,
+.pseudo-button-orange-for-footer,
+.pseudo-button-white-for-footer {
+  transition: all 0.2s linear;
+}
+
+.pseudo-button-orange,
+.pseudo-button-white {
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+  padding: 10px 40px;
+}
+.pseudo-button-white:hover,
+.pseudo-button-orange {
+  color: white;
+  background: #fa4a0c;
+  border: 1px solid transparent;
+}
+.pseudo-button-orange:hover,
+.pseudo-button-white {
+  color: #fa4a0c;
+  background: transparent;
+  border: 1px solid #fa4a0c;
+}
+
+.pseudo-button-orange-for-footer,
+.pseudo-button-white-for-footer {
+  border-radius: 10px;
+  text-decoration: none;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: 0.2px;
+  padding: 16px 10px;
+  color: #fff;
+  border: 1px solid #fff;
+}
+.pseudo-button-white-for-footer:hover,
+.pseudo-button-orange-for-footer {
+  color: white;
+  background: #fa4a0c;
+  border: 1px solid transparent;
+}
+
+.pseudo-button-orange-for-footer:hover,
+.pseudo-button-white-for-footer {
+  color: #fff;
+  background: transparent;
+  border: 1px solid #fff;
+}

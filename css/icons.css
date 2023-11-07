@@ -1,0 +1,23 @@
+.two-phones {
+  max-width: 100%;
+  max-height: 100%;
+  margin-bottom: 30px;
+}
+
+.palka {
+  width: 100%;
+  margin: 50px 0;
+  border: #e4e4e4 1px solid;
+}
+
+.footer-conteiner-icons > i {
+  font-size: 40px;
+  color: #fa4a0c;
+  transition: color 0.2s linear;
+}
+.footer-conteiner-icons > i:hover {
+  color: black;
+}
+.footer-icon {
+  display: none;
+}
