@@ -1,34 +1,45 @@
-const num1 = 10;
-const num2 = 50;
+// let userNumb1 = +prompt("Enter your numb1");
+// let userNumb2= +prompt("Enter your Numb2");
 
-const task1 = num1+num2;
-console.log('num1+num2 = ' + task1);
+// console.log(userNumb1+" -- "+ userNumb2);
 
-const task2 = task1-50;
-console.log('task1-50 = ' + task2);
+// if (userNumb1 != userNumb1){
+//   alert("You entered text in userNumb1")
+// }else if (userNumb2 != userNumb2){
+//   alert("You entered text in userNumb2")
+// }
+// else{
+//   alert("Sum numbers: "+(userNumb1+userNumb2));
+// }
 
-const task3 = task2*task1;
-console.log('task2*task1 = ' + task3);
+// створення функцій
 
-const task4_1 = task3/2.687;
-console.log('task3/2.687 = ' + task4_1);
-const task4_2 = task3%2.687;
-console.log('task3%2.687 = ' + task4_2);
+// const functionOne = function() {
+//   console.log("One");
+// }
 
-const task5 = !!task1;
-console.log('!!task1 = ' + task5);
+// function functionTwo() {
+//   console.log("Two");
+// }
 
+// () => expression
 
-let num = 5;
+const functionSecond = function (numb1, numb2) {
+  console.log(numb1 + " -- " + numb2);
 
-num +=10;
-console.log('\n+10= '+num);
+  let answer = '';
 
-num *= 2;
-console.log('*2= '+num);
+  if (numb1 !== numb1 || typeof numb1 !== "number") {
+    answer = ("You entered text in userNumb1");
+  } else if (numb2 !== numb2 || typeof numb2 !== "number") {
+    answer = ("You entered text in userNumb2");
+  } else {
+    answer = ("Sum numbers: " + (numb1 + numb2));
+  }
+  return answer;
+};
 
-num -= 4;
-console.log('-4= '+num);
+let userNumb1 = +prompt("Enter your numb1");
+let userNumb2 = +prompt("Enter your Numb2");
 
-num /= 6;
-console.log('/6= '+num);
+console.log(functionSecond(userNumb1, userNumb2));
