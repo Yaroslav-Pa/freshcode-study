@@ -24,9 +24,12 @@
 
 // () => expression
 
+
+
+
 const functionSecond = function (numb1, numb2) {
   console.log(numb1 + " -- " + numb2);
-
+  debugger;
   let answer = '';
 
   if (numb1 !== numb1 || typeof numb1 !== "number") {
