@@ -8,7 +8,7 @@ const task1_f = () => {
 
 const task1_w = () => {
   let savedNumb = 0;
-  let i = 0
+  let i = 0;
   while (i !== 100) {
     savedNumb += i;
     i++;
@@ -18,15 +18,13 @@ const task1_w = () => {
 
 const task1_d = () => {
   let savedNumb = 0;
-  let i = 0
-  do{
+  let i = 0;
+  do {
     savedNumb += i;
     i++;
-  }while(i !== 100);
+  } while (i !== 100);
   console.log(savedNumb);
 };
-
-
 
 const task2_f = () => {
   let lives = 3;
@@ -34,19 +32,19 @@ const task2_f = () => {
   for (let answer; answer !== 2 + 2 * 2; lives--) {
     if (lives <= 0) {
       console.log('You lose');
-    } 
-    
+    }
+
     answer = +prompt('What is answer to 2 + 2 * 2? Enter Number');
-    
-    if (answer === 2 + 2 * 2 ) {
+
+    if (answer === 2 + 2 * 2) {
       console.log('True answer is ' + (2 + 2 * 2));
       console.log('You win');
       break;
     }
   }
-}
+};
 
-const task2_w= () => {
+const task2_w = () => {
   let lives = 3;
 
   while (true) {
@@ -68,7 +66,7 @@ const task2_w= () => {
   }
 };
 
-const task2_d= () => {
+const task2_d = () => {
   let lives = 3;
 
   do {
@@ -87,61 +85,59 @@ const task2_d= () => {
       }
       break;
     }
-  }while((true));
+  } while (true);
 };
-
-
 
 const task3 = () => {
   let numbTo = +prompt('Enter Number');
   let numbOn = +prompt('Enter Number');
-  if (checkIfCorrectTypeOf(numbTo) || checkIfCorrectTypeOf(numbOn)){
-    return "Entered incorect type of variable"
+  if (checkIfCorrectTypeOf(numbTo) || checkIfCorrectTypeOf(numbOn)) {
+    return 'Entered incorect type of variable';
   }
   let answer = 1;
-  for (let i = 0; i < Math.abs(numbOn); i++){
+  for (let i = 0; i < Math.abs(numbOn); i++) {
     answer *= numbTo;
   }
-  if (numbOn < 0){
-    (numbOn %2 === 0)? answer : -answer;
+  if (numbOn < 0) {
+    numbOn % 2 === 0 ? answer : -answer;
   }
 
   return answer;
-}
+};
 
 const task4 = () => {
   let numb = +prompt('Enter Number');
-  if (checkIfCorrectTypeOf(numb)){
-    return "Entered incorect type of variable"
+  if (checkIfCorrectTypeOf(numb)) {
+    return 'Entered incorect type of variable';
   }
   let temp = numb;
-  for (let i = 1; i < temp; i++){
+  for (let i = 1; i < temp; i++) {
     numb *= i;
   }
   return numb;
-}
+};
 
 const task5 = () => {
   // https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Primencomposite0100.svg/220px-Primencomposite0100.svg.png
   let numb = +prompt('Enter Number');
-  if (checkIfCorrectTypeOf(numb)){
-    return "Entered incorect type of variable"
+  if (checkIfCorrectTypeOf(numb)) {
+    return 'Entered incorect type of variable';
   }
   let sum = 0;
-  for (let i = 0; i <= numb; i++){
-    if (numb%i === 0 ){
-      sum +=i;
+  for (let i = 0; i <= numb; i++) {
+    if (numb % i === 0) {
+      sum += i;
     }
   }
-  if (sum === (numb+1) || (numb === (1 || 0))){
-    console.log("its simple number")
-  }else{
-    console.log("its NOT simple number")
+  if (sum === numb + 1 || numb === (1 || 0)) {
+    console.log('its simple number');
+  } else {
+    console.log('its NOT simple number');
   }
   return numb;
-}
+};
 
-function checkIfCorrectTypeOf(input){
-  return (input !== input || typeof input !== "number")
+function checkIfCorrectTypeOf(input) {
+  return input !== input || typeof input !== 'number';
 }
 console.log(task5());
