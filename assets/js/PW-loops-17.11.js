@@ -1,6 +1,6 @@
 const task1_f = () => {
   let savedNumb = 0;
-  for (i = 0; i < 100; i++) {
+  for (i = 0; i <= 100; i++) {
     savedNumb += i;
   }
   console.log(savedNumb);
@@ -9,7 +9,7 @@ const task1_f = () => {
 const task1_w = () => {
   let savedNumb = 0;
   let i = 0;
-  while (i !== 100) {
+  while (i <= 100) {
     savedNumb += i;
     i++;
   }
@@ -22,7 +22,7 @@ const task1_d = () => {
   do {
     savedNumb += i;
     i++;
-  } while (i !== 100);
+  } while (i <= 100);
   console.log(savedNumb);
 };
 
@@ -91,7 +91,7 @@ const task2_d = () => {
 const task3 = () => {
   let numbTo = +prompt('Enter Number');
   let numbOn = +prompt('Enter Number');
-  if (checkIfCorrectTypeOf(numbTo) || checkIfCorrectTypeOf(numbOn)) {
+  if (checkIsNumber(numbTo) || checkIsNumber(numbOn)) {
     return 'Entered incorect type of variable';
   }
   let answer = 1;
@@ -107,9 +107,15 @@ const task3 = () => {
 
 const task4 = () => {
   let numb = +prompt('Enter Number');
-  if (checkIfCorrectTypeOf(numb)) {
+  if (checkIsNumber(numb)) {
     return 'Entered incorect type of variable';
   }
+  if (numb === 0){
+    return 1;
+  }
+  if (numb < 0){
+    return "Error";
+  } 
   let temp = numb;
   for (let i = 1; i < temp; i++) {
     numb *= i;
@@ -117,12 +123,8 @@ const task4 = () => {
   return numb;
 };
 
-const task5 = () => {
+const task5 = (numb) => {
   // https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Primencomposite0100.svg/220px-Primencomposite0100.svg.png
-  let numb = +prompt('Enter Number');
-  if (checkIfCorrectTypeOf(numb)) {
-    return 'Entered incorect type of variable';
-  }
   let sum = 0;
   for (let i = 0; i <= numb; i++) {
     if (numb % i === 0) {
@@ -130,14 +132,20 @@ const task5 = () => {
     }
   }
   if (sum === numb + 1 || numb === (1 || 0)) {
-    console.log('its simple number');
+    return true;
   } else {
-    console.log('its NOT simple number');
+    return false;
   }
-  return numb;
 };
 
-function checkIfCorrectTypeOf(input) {
+function checkIsNumber(input) {
   return input !== input || typeof input !== 'number';
 }
-console.log(task5());
+
+window.addEventListener("load", (event) => {
+  let input = +prompt('Enter Number');
+  if (checkIsNumber(numb)) {
+    return 'Entered incorect type of variable';
+  }
+  task5(input);
+});
