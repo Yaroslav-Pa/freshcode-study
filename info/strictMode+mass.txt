@@ -1,0 +1,10 @@
+"use strict"; // включення суворого режиму
+
+this
+
+  function test1(){
+    console.log(this); //undefined(strict mode) || Window(default)
+  }
+  test1()
+
+  "this це спосіб доставання до батька" (+-)

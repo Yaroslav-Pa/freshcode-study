@@ -12,3 +12,12 @@ fun(x,y)
 
   arrow function - стрілкова функція 
     () => expression
+
+
+
+
+
+// 21.11.23 - дізнались про
+
+const funct1 = function() {...} // fucntion expression
+const funct2() {}  // function declaration

@@ -1,0 +1,14 @@
+20.11.23
+
+  Objects
+  назви властивостей у об'єктах === ключ
+  
+  також у них можна класти функції
+
+
+  let object = {
+  key1: "something",
+  speak: function(){
+    alert('asadsadsa');
+  }
+}
