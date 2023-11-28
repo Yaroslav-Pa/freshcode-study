@@ -37,23 +37,23 @@ const taskOne = (givenArray = givenFirstArray) => {
   givenArray.forEach((elem, id)=>{
     answer.push(`Item with index ${id} has value ${elem}`)
   })
-  console.log(answer);
+  return answer;
 }
 
 const taskTwo = (givenArray = givenSecondArray) => {
   answer = givenArray.filter((elem)=>{
     return elem.age >= 18;
   })
-  console.log(answer);
+  return answer;
 }
 
 const taskThree = (givenArray = givenSecondArray) => {
   answer = givenArray.findIndex((elem)=>{
       return elem.gender === 'female';  
   })
-  console.log(answer);
+  return answer;
 }
 
-taskOne();
-taskTwo();
-taskThree();
+console.log(taskOne());
+console.log(taskTwo());
+console.log(taskThree());
