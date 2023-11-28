@@ -1,0 +1,21 @@
+28.11.23
+
+  використовуємо такі error як: 
+  Error
+  RangeError
+  SyntaxError
+  ReferenceError
+  TypeError
+
+  .massage = 'фівфівфів' =  те що буде писати помилка
+  .stack = місце помилки
+
+  const someError = new Error('someError); //нічого не буде
+
+  щоб сказати коду зупинитися за цією помилкою потрібно зробити throw цієї помилки:
+  throw someError; 
+
+
+  try... catch 
+
+  
