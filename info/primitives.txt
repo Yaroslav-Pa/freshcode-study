@@ -1,5 +1,6 @@
 28.11.23
 
+  ///Number
 
   https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Number/EPSILON
 
@@ -26,3 +27,10 @@
 
 
   усі .toExponential() .toFixed() повертають саме рядок
+
+
+  /// String
+
+  ''
+  ""
+  `` // шаблоний рядок
