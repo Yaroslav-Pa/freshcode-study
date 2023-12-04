@@ -1,4 +1,4 @@
-const Task1 = (...params) => {
+const countOfStrings = (...params) => {
   let answer = 0;
   params.forEach((item) => {
     if (typeof item === 'string') answer++;
@@ -6,7 +6,7 @@ const Task1 = (...params) => {
   return answer;
 };
 
-const Task2 = (sign, ...allNumbers) => {
+const calculator = (sign, ...allNumbers) => {
   let answer = 0;
   if (sign === '+') {
     allNumbers.forEach((numb) => {
@@ -32,14 +32,14 @@ const Task2 = (sign, ...allNumbers) => {
   return answer;
 };
 
-const Task3 = (array, ...allNumbers) => {
+const findMaxNumber = (array, ...allNumbers) => {
   conArray = [...array, ...allNumbers]; //просто сподобались spread оператори)
   return Math.max(...conArray);
 };
 
-console.log(`Task 2 answer: ${Task2('/', 1, 2, 3, 4)}`);
+console.log(`Task 2 answer: ${calculator('/', 1, 2, 3, 4)}`);
 
-// const Task4 = (sign, ...allNumbers) => {
+// const calculatorWithSwitch = (sign, ...allNumbers) => {
 //   let answer = 0;
 //   switch (sign) {
 //     case '+': {

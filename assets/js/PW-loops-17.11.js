@@ -3,7 +3,7 @@ const task1_f = () => {
   for (i = 0; i <= 100; i++) {
     savedNumb += i;
   }
-  console.log(savedNumb);
+  return savedNumb;// зробив повернення відповіді у перших завданнях
 };
 
 const task1_w = () => {
@@ -13,7 +13,7 @@ const task1_w = () => {
     savedNumb += i;
     i++;
   }
-  console.log(savedNumb);
+  return savedNumb;
 };
 
 const task1_d = () => {
@@ -23,7 +23,7 @@ const task1_d = () => {
     savedNumb += i;
     i++;
   } while (i <= 100);
-  console.log(savedNumb);
+  return savedNumb;
 };
 
 const task2_f = () => {
@@ -32,6 +32,7 @@ const task2_f = () => {
   for (let answer; answer !== 2 + 2 * 2; lives--) {
     if (lives <= 0) {
       console.log('You lose');
+      break; // дописав забутий брейк
     }
 
     answer = +prompt('What is answer to 2 + 2 * 2? Enter Number');
@@ -88,28 +89,30 @@ const task2_d = () => {
   } while (true);
 };
 
-const task3 = () => {
-  let numbTo = +prompt('Enter Number');
-  let numbOn = +prompt('Enter Number');
-  if (checkIsNumber(numbTo) || checkIsNumber(numbOn)) {
-    return 'Entered incorect type of variable';
-  }
+const task3 = (numbTo, numbOn) => {
   let answer = 1;
-  for (let i = 0; i < Math.abs(numbOn); i++) {
-    answer *= numbTo;
+  for (let i = 0; i < Math.abs(numbOn); i++) { 
+    if (numbOn > 0){
+      answer *= numbTo;
+    }else{ //тут я не зрозумів що я робив, понаплутал усе що можна 
+      answer /= numbTo;
+    }
   }
-  if (numbOn < 0) {
-    numbOn % 2 === 0 ? answer : -answer;
-  }
-
   return answer;
 };
 
+
+
+
+
+
+
+
+
+
+
 const task4 = () => {
   let numb = +prompt('Enter Number');
-  if (checkIsNumber(numb)) {
-    return 'Entered incorect type of variable';
-  }
   if (numb === 0){
     return 1;
   }
@@ -137,15 +140,3 @@ const task5 = (numb) => {
     return false;
   }
 };
-
-function checkIsNumber(input) {
-  return input !== input || typeof input !== 'number';
-}
-
-window.addEventListener("load", (event) => {
-  let input = +prompt('Enter Number');
-  if (checkIsNumber(numb)) {
-    return 'Entered incorect type of variable';
-  }
-  task5(input);
-});
