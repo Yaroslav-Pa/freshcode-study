@@ -1,47 +1,19 @@
-const task1 = function(){
-  let numb1 = +prompt("Enter first number");
-  let numb2 = +prompt("Enter second number");
-
-  if (checkIfCorrectTypeOf(numb1) || checkIfCorrectTypeOf(numb2)){
-    return "Entered incorect type of variable"
-  }
-
+const findSmaller = function(numb1, numb2){
   if (numb1>numb2){
-    return 'numb1 is bigger'
-  }else if(numb1<numb2){
-    return 'numb2 is bigger'
+    return numb2;
   }else{
-    return 'numbs are equal'
+    return numb1
   }
 }
 
-console.log(task1);
-
-const task2 = function(){
-  let age = +prompt("Enter your age");
-  if (checkIfCorrectTypeOf(age)){
-    return "Entered incorect type of variable"
+const isAdult = function(age){
+  if (age>200){
+    return 'error';
   }
-  if (age>=18 && age<1000){
-    return 'you are adult'
-  }else if(age<18){
-    return 'you are a minor'
-  }else if(age>1000){
-    return 'wɪəd skwɪr rɪðnəl?'
-  }
+  return age>=18 ? true : false;
 }
 
-console.log(task2);
-
-const task3 = function(){
-  let numb1 = +prompt("Enter first number");
-  let numb2 = +prompt("Enter second number");
-
-  if (checkIfCorrectTypeOf(numb1) || checkIfCorrectTypeOf(numb2)){
-    return "Entered incorect type of variable"
-  }
-
-  let symbol = prompt("Enter symbol");
+const calculatorIfVersion = function(symbol, numb1, numb2){
   if (symbol === '+'){
     return (numb1+numb2);
   }else if(symbol === '-'){
@@ -55,17 +27,7 @@ const task3 = function(){
   }
 }
 
-console.log(task3);
-
-const task3_2 = function(){
-  let numb1 = +prompt("Enter first number");
-  let numb2 = +prompt("Enter second number");
-
-  if (checkIfCorrectTypeOf(numb1) || checkIfCorrectTypeOf(numb2)){
-    return "Entered incorect type of variable"
-  }
-
-  let symbol = prompt("Enter symbol");
+const calculatorSwitchVersion = function(symbol, numb1, numb2){
   switch(symbol){
     case '+':{
       return (numb1+numb2);
@@ -84,9 +46,7 @@ const task3_2 = function(){
     }
   }
 }
-
-console.log(task3_2());
-
-function checkIfCorrectTypeOf(input){
-  return (input !== input || typeof input !== "number")
-}
+console.log(findSmaller(9,2));
+console.log(isAdult(9));
+console.log(calculatorIfVersion('-',9,2));
+console.log(calculatorSwitchVersion('+',9,2));
