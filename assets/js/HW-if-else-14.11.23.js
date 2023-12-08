@@ -7,21 +7,21 @@ const findSmaller = function(numb1, numb2){
 }
 
 const isAdult = function(age){
-  if (age>200){
-    return 'error';
-  }
+  // if (age>200){
+  //   return 'error';
+  // }
   return age>=18 ? true : false;
 }
 
 const calculatorIfVersion = function(symbol, numb1, numb2){
   if (symbol === '+'){
-    return (numb1+numb2);
+    return numb1+numb2;
   }else if(symbol === '-'){
-    return (numb1-numb2);
+    return numb1-numb2;
   }else if(symbol === '*'){
-    return (numb1*numb2);
+    return numb1*numb2;
   }else if(symbol === '/'){
-    return (numb1/numb2);
+    return numb1/numb2;
   }else {
     return 'This function does not support this kind of symbol in this version'
   }
@@ -30,16 +30,16 @@ const calculatorIfVersion = function(symbol, numb1, numb2){
 const calculatorSwitchVersion = function(symbol, numb1, numb2){
   switch(symbol){
     case '+':{
-      return (numb1+numb2);
+      return numb1+numb2;
     }
     case '-':{
-      return (numb1-numb2);
+      return numb1-numb2;
     }
     case '/':{
-      return (numb1/numb2);
+      return numb1/numb2;
     }
     case '*':{
-      return (numb1*numb2);
+      return numb1*numb2;
     }
     default : {
       return 'This function does not support this kind of symbol in this version'
