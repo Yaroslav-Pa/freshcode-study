@@ -1,0 +1,80 @@
+//class це синтаксичний цукор для створення конструкторів
+
+  // тіло класу завжди виконується у стрікт режимі
+
+  // гетер - штучний замінник отримання певної зміної
+  //  product1.price запросити ціну
+
+  // сеттер - штучний замінник задавання певної зміної 
+  //  product1.price = 100 сетнути ціну
+
+  // _name це узгодження не змінювати на пряму цю змінну
+
+  //!!! гетер та сетери будуть стрюватись раніше самого конструктору тому:
+  //...ось цей рядок буде виконуватись як сетер 
+  // this.price = price;
+
+
+  class House {
+    // тіло класу
+    // завжди виконується у стрікт режимі
+
+    //метод конструктору - клас очікує його, тому підскажить
+    constructor(numberOfFloors = 1, adress = 'something 12', style = 'modern') {
+      this.numberOfFloors = numberOfFloors;
+      this.adress = adress;
+      this.style = style;
+    }
+
+    //далі методи конструктора
+    getHouseData() {
+      return `House address: ${this.adress}, flors ${this.numberOfFloors}`;
+    }
+    //властивість прототипу //не дуже роблять
+    isBuild = true;
+  }
+
+  // створення екземпляру класу
+  const house1 = new House(); // не буде працювати без new // error
+
+
+
+
+
+  class Product {
+  constructor(name, price, countInStock, isForAdult) {
+    if (price < 0) {
+      throw new RangeError('Ціна не може бути <0');
+    }
+    if ((typeof name === 'string') & name) {
+      throw new TypeError('Має бути назва у типі стоки');
+    }
+
+    this.name = name;
+    // _name це узгодження не змінювати на пряму цю змінну
+    this._price = price;
+    //!!!гетер та сетери будуть стрюватись раніше самого конструктору тому:
+    //...ось цей рядок буде виконуватись як сетер 
+    // this.price = price;
+    this.countInStock = countInStock;
+    this.isForAdult = isForAdult;
+  }
+
+  // гетер - штучний замінник отримання певної зміної
+  //  product1.price запросити ціну
+  get price() {
+    return this._price;
+  }
+
+  // сеттер - штучний замінник задавання певної зміної 
+  //  product1.price = 100 сетнути ціну
+  set price(newPrice) {
+    if (typeof newPrice !='number' & newPrice){
+      throw new Error('price cant be NaN or empty')
+    }
+    return (this._price = newPrice);
+  }
+
+  productPrice = () => this._price * this.countInStock;
+}
+
