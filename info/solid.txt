@@ -1,0 +1,105 @@
+SOLID
+S - SRP - Single responsibility principle - принцип єдиної відповідальності
+O - Open-closed principle - принцип відкритості\закритості
+L - LSP - Liskov substitution principle - правило підстановки Барбари Лісков
+I - ISP - Interface segregation principle - розподіл інтерфейсу
+D - DIP - Dependency inversion principle - правило інверсії залежностей
+
+
+
+S 
+Один клас - одна річ. Не робити клас А для задачі Б, зробити клас Б.
+
+O
+У коді немає бути хард кода(жорстко забитих даних). Код має бути максимально гнучким щоб не потрібно було б постійно його після змін ще раз тестувати при подачі на продакшн
+
+L
+правильне успадковання
+"Клас, що успадковується, повинен доповнювати, а не замінювати поведінку базового класу"
+
+I
+Схоже на S
+Методи та властвості мають бути створені при необхідності, щоб не таскати за собою непотрібності 
+
+D
+Схоже на O.
+Не залежити від деталій реалізації. Максимальна гнучкість та меньше хардкоду
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+I
+
+interface AutoSet {
+    getMercedesSet(): any;
+    getRenaultSet(): any;
+    getZaporozhetsSet(): any;
+}
+===
+class MercedesImplements AutoSet {
+    getMercedesSet(): any { };
+    getRenaultSet(): any { };
+    getZaporozhetsSet(): any { };
+}
+
+class ZaporozhetsImplements AutoSet {
+    getMercedesSet(): any { };
+    getRenaultSet(): any { };
+    getZaporozhetsSet(): any { };
+}
+
+class RenaultImplements AutoSet {
+    getMercedesSet(): any { };
+    getRenaultSet(): any { };
+    getZaporozhetsSet(): any { };
+}
+=================================
+МАЄ БУТИ:
+
+interface MercedesSet {
+    getMercedesSet(): any; 
+}
+
+interface RenaultSet {
+    getRenaultSet(): any;  
+}
+interface ZaporozhetsSet {
+    getZaporozhetsSet(): any;
+}
+
+class Mercedes implements MercedesSet {
+    getMercedesSet(): any { };
+}
+
+class Renault implements RenaultSet {
+    getRenaultSet(): any { };
+}
+
+class Zaporozhets implements ZaporozhetsSet {
+    getZaporozhetsSet(): any { };
+}
