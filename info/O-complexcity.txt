@@ -1,0 +1,6 @@
+O(n) - лінійна складність
+
+Приклад:
+  const numb=[1,3,45,4,5]
+
+  const funO = (numbs, val)=>{ numbs.find(val) }
