@@ -127,10 +127,10 @@ class LinkedList {
     */
     const newNode = new ListNode(data);
 
-    if (this.length === 0){
+    if (this.length === 0) {
       this.head = newNode;
       this.tail = newNode;
-    }else{
+    } else {
       const unshiftHead = this.head;
       unshiftHead.prev = newNode;
       newNode.next = unshiftHead;
@@ -151,28 +151,75 @@ class LinkedList {
         зменшуємо довжину
 			повертаємо видалений елемент
     */
-    if (this.length === 0){
+    if (this.length === 0) {
       return undefined;
     }
 
     const deleteHead = this.head;
-    if (this.length === 1){
+    if (this.length === 1) {
       this.head = null;
       this.tail = null;
-    }else{
+    } else {
       const newHead = this.head.next;
       newHead.prev = null;
       deleteHead.next = null;
       this.head = newHead;
     }
 
-    this.length --;
+    this.length--;
     return deleteHead;
   }
+
+  //заняття з ітератора
+
+  [Symbol.iterator] () {
+    return new LinkedListIterator(this);
+  }
+
 }
+
+
+
+class LinkedListIterator{
+  constructor(list){
+    this.currentNode = null;
+    this.list = list;
+  }
+
+  next(){
+    this.currentNode
+        ? (this.currentNode = this.currentNode.next)
+        : (this.currentNode = this.list.head);
+    return {
+      done: !this.currentNode,
+      value: this.currentNode,
+    };
+  }
+}
+
 
 const list1 = new LinkedList();
 
 list1.push('first');
 list1.push('second');
+
+
+for (let item of list1){
+  console.log(item.data);
+}
+
+// list1[Symbol.iterator] = function () {
+//   let currentNode = null;
+//   return {
+//     next: function () {
+//       currentNode
+//         ? (currentNode = currentNode.next)
+//         : (currentNode = list1.head);
+//       return {
+//         done: !currentNode,
+//         value: currentNode,
+//       };
+//     },
+//   };
+// };
 // list1.push('last');
