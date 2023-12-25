@@ -66,3 +66,99 @@ const setAskedNumberDouble = (event) =>
   event.target.nextElementSibling.textContent += prompt('enter your number')**2
 
 button1.addEventListener('click', setAskedNumberDouble);
+
+
+
+
+
+
+
+
+
+
+
+// 25.11.23
+
+
+const clickHandler = (event) => {
+  // console.log(event);
+  // console.log(event.target); // найглибший елемент з ким відбулась подія
+  console.log(event.currentTarget); // елемент, на якому висить обробник який запустився
+};
+
+
+// -Бульбашковий механізм
+
+// btn.addEventListener('click', clickHandler); // button 1
+// document.body.addEventListener('click', clickHandler); // body 2
+// document.addEventListener('click', clickHandler); // html 3
+// window.addEventListener('click', clickHandler); // сторінка 4
+
+// btn.addEventListener('click', clickHandler, true); // button 4
+// document.body.addEventListener('click', clickHandler, {capture: true}); // body 3
+// document.addEventListener('click', clickHandler, true); // html 2
+// window.addEventListener('click', clickHandler, true); // сторінка 1
+
+// btn.addEventListener('click', clickHandler, true); // button 2
+// document.body.addEventListener('click', clickHandler, {capture: false}); // body 3
+// document.addEventListener('click', clickHandler); // html 4
+// window.addEventListener('click', clickHandler, true); // сторінка 1
+
+
+// btn.addEventListener('click', (event)=>{ event.stopPropagation() }); // button 1
+// document.body.addEventListener('click', clickHandler); // body не виконається через event.stopPropagation() 
+// document.addEventListener('click', clickHandler); // html не виконається через event.stopPropagation() 
+// window.addEventListener('click', clickHandler); // сторінка не виконається через event.stopPropagation() 
+
+
+// !!! event.stopPropagation() // відміняє виконання сплиття або занурення
+// !!! event.stopImmediantPropagation(); // відміняє виконання усіх наступних івентів на цьому елементі
+
+
+// -Делегування подій
+
+const divContainer = document.getElementById('container-buttons');
+divContainer.addEventListener('click',(e)=>{
+  if (e.target.tagName === 'BUTTON'){
+    divContainer.style.backgroundColor = e.target.textContent;
+  }
+})
+
+// form
+
+// const form1 = document.querySelector('#form');
+
+// form1.addEventListener('submit', (e) => {
+//   // зупиняє стандартну поведінку
+//   e.preventDefault(); 
+
+//   // припиняє подальше сплиття або занурення
+//   // e.stopPropagation();
+
+//   console.log('test');
+//   console.log(e.target); // form
+//   console.log(e.target.elements) // всі інтерактивні елементи форми
+// });
+
+
+////// ДЗ
+
+const form2 = document.getElementById('form');
+
+form2.addEventListener('submit', (e) =>{
+  e.preventDefault();
+
+  const paragraf = document.querySelector('form > p');
+  const inputVal = e.target.elements[0].value;
+
+  paragraf.style.color = 'black';
+
+  if (+inputVal === +inputVal & inputVal.trim() !== ''){
+    paragraf.textContent = `Doble of your input is ${inputVal**2}`;
+  }else{
+    paragraf.textContent = `Error input correct type (number)`;
+    paragraf.style.color = 'red';
+  } 
+  
+  e.target.elements[0].value = '';
+})
