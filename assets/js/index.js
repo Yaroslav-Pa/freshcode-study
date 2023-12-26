@@ -144,21 +144,24 @@ divContainer.addEventListener('click',(e)=>{
 ////// ДЗ
 
 const form2 = document.getElementById('form');
+const paragraf = document.querySelector('form > p');
 
 form2.addEventListener('submit', (e) =>{
   e.preventDefault();
 
-  const paragraf = document.querySelector('form > p');
   const inputVal = e.target.elements[0].value;
 
-  paragraf.style.color = 'black';
-
-  if (+inputVal === +inputVal & inputVal.trim() !== ''){
+  // if (+inputVal === +inputVal & inputVal.trim() !== ''){
+  if (!isNaN(inputVal) & inputVal.trim() !== ''){ // isNaN неявно переводить типи у намбер
+    paragraf.style.color = 'black';
     paragraf.textContent = `Doble of your input is ${inputVal**2}`;
   }else{
-    paragraf.textContent = `Error input correct type (number)`;
     paragraf.style.color = 'red';
+    paragraf.textContent = `Error input correct type (number)`;
   } 
   
-  e.target.elements[0].value = '';
+  // e.target.elements[0].value = '';
+  e.target.reset();
 })
+
+
