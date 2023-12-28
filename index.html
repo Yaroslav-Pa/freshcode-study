@@ -3,85 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- defer необхідний якщо у head, якщо у кінці body, можна без нього -->
     <script defer src="./assets/js/index.js"></script>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <title>DOM</title>
   </head>
   <body>
-    <!-- <h1>Hello DOM</h1>
-    <button id="clicableButton">Click me</button>
-    <h1>Your number^2 =</h1>
-    <div>
-      <h1>H1 2</h1>
-
-      <section>
-        <h1>Find ME</h1>
-        <img src="" alt="" />
-        <p>
-          par1
-          <span>asdasdasd</span>
-        </p>
+    <div class="divHolder">
+      <section class="listBox" id="listBox">
+        <form id="toDoForm" class="toDoForm">
+          <input type="text" class="addingInput" placeholder="Name your task" name="thisIsName">
+          <button type="submit" class="addingButton">Add</button>
+        </form>
       </section>
-      <img src="" alt="Find me">
     </div>
-    <section>
-      <h2>aasdasd</h2>
-      <p>FIND ME</p>
-    </section> -->
-    <!-- 25.12.23 -->
-    <!--
-    <section>
-      Делегування подій
-      <div style="background-color: aqua; padding: 20px; border: 2px solid black" id="container-buttons">
-        <button>green</button>
-        <button>brown</button>
-        <button>teal</button>
-        <button>white</button>
-      </div>
-      form ДЗ
-      <form id="form" style="padding: 20px;">
-        <label>
-          Input number:
-          <input type="text" name="thisIsName">
-        </label>
-        <p></p>
-        <button type="submit">Submit form</button>
-        <button type="reset">Reset form</button>
-      </form>
-    </section>-->
-    <!-- 26.12.23 -->
-    <!-- <section>
-      атрибути - це cпецифікація, яка визначає властивість елемента бувають:
-      голобальні унікальні булеві (new!)користувацькі
-      <img
-        src="https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/hfpqyV7B-IMG-Dubai-UAE.jpg"
-        style="max-width: 300px"
-        alt="img"
-        id="testAttr"
-      />
-      <button id="changeImg">Change the img</button>
-      <button
-        id="dataBtn"
-        data-key="localhost:3000/login"
-        data-some-long-name="snjbdsjfnbdskjfdsbfkds"
-      >
-        Login
-      </button>
-      <div style="background-color: aqua; padding: 20px; border: 2px solid black" id="colorButtonsContainer">
-        <button data-color="green">Зелений</button>
-        <button data-color="brown">Коричнивий</button>
-        <button data-color="teal">Чирковий</button>
-        <button data-color="white">Білий</button>
-      </div>
-    </section> -->
-    <!-- ДЗ -->
-    <form id="toDoForm">
-      <label>
-        Input:
-        <input type="text">
-      </label>
-      <button type="submit">Create To Do</button>
-    </form>
   </body>
 </html>

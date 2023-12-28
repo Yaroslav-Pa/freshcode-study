@@ -1,5 +1,91 @@
-section {
+*{
+  padding: 0;
+  margin: 0;
+  font-family:Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+}
+
+p, label {
+  font-size: 20px;
+}
+
+.divHolder{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 95vh;
+  padding: 24px 40px;
+  background-color: rgb(65, 123, 238);
+}
+
+.listBox {
+  min-width: 450px;
+  min-height: 400px;
+  border-radius: 10px;
+  border: 2px rgb(44,107,236) solid;
+  background-color: white;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
+
+.addingInput{
+  padding: 10px;
+  border-radius: 10px;
+  transition: all 0.2s;
+}
+.addingInput:focus-visible{
+  outline: none;
+  border: 2px solid rgb(44,107,236);
+}
+
+.addingButton, 
+.taskButton{
+  padding: 13px;
+  background-color: rgb(44,107,236);
+  color: white;
+  border-radius: 10px;
+  border: 0px;
+  transition: all .2s;
+  border: 2px solid rgb(44,107,236);
+} 
+
+.taskButton{
+  background-color: rgb(26,23,163);
+  border: 2px solid rgb(26,23,163);
+  padding: 10px;
+}
+
+.addingButton:hover,
+.taskButton:hover{
+  background-color: transparent;
+  color: black;
+}
+
+.toDoForm {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 10px;
+}
+
+.task {
+  display: grid;
+  grid-template-columns: 300px 100px;
+  justify-content:center;
+  align-items: center;
+
+  border: 2px solid rgb(188,206,209);
+  background-color: rgb(197,225,229);
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+
+.taskDone{
+  border: 2px solid rgb(110, 211, 148);
+  background-color: rgb(99, 233, 152);
+}
+
