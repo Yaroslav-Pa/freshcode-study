@@ -12,8 +12,6 @@ doToForm.addEventListener('submit', (e) => {
     throw new Error('Task need to be not empty');
   }
 
-  const createdId = createId();
-
   const paragraf = document.createElement('p');
   paragraf.textContent = inputToDo.value;
 
@@ -22,16 +20,17 @@ doToForm.addEventListener('submit', (e) => {
   deleteButton.className = 'taskButton';
 
   const createdDiv = document.createElement('div');
-  createdDiv.className = `task ${createdId}`;
+  createdDiv.className = `task`;
+  createdDiv.dataset.id = createId();
   createdDiv.addEventListener('click', divListener);
 
   createdDiv.appendChild(paragraf);
   createdDiv.appendChild(deleteButton);
 
-  todos.push({ id:createdId, isDone: false, text: inputToDo.value });
+  todos.push({ id:createdDiv.dataset.id, isDone: false, text: inputToDo.value });
 
   inputToDo.style.border = '';
-  inputToDo.value = '';
+  doToForm.reset();
   taskList.append(createdDiv);
 });
 
@@ -49,16 +48,15 @@ const createId = () => {
 
 
 const divListener = (e) => {
-  console.log(todos);
   if (e.target.tagName === 'BUTTON') {
     todos = todos.filter(
-      (item) => !e.currentTarget.classList.contains(item.id)
+      (item) => !(e.currentTarget.dataset.id === item.id)
     );
     e.currentTarget.remove();
   }else
   {
     for (const item of todos){
-      if (item.id === +e.currentTarget.classList[1]){
+      if (item.id === e.currentTarget.dataset.id){
         item.isDone ? item.isDone = false : item.isDone = true;
         e.currentTarget.classList.toggle('taskDone');
       }

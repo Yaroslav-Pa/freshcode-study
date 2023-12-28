@@ -13,20 +13,20 @@ p, label {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 95vh;
-  padding: 24px 40px;
+  min-height: 100vh;
   background-color: rgb(65, 123, 238);
 }
 
 .listBox {
-  min-width: 450px;
-  min-height: 400px;
+  min-height: fit-content;
+  min-width: fit-content;
   border-radius: 10px;
   border: 2px rgb(44,107,236) solid;
   background-color: white;
   padding: 20px;
   display: flex;
   flex-direction: column;
+  margin: 40px;
   gap: 20px;
 }
 
@@ -52,9 +52,12 @@ p, label {
 } 
 
 .taskButton{
+  max-width: 100px;
   background-color: rgb(26,23,163);
   border: 2px solid rgb(26,23,163);
   padding: 10px;
+  font-size: 14px;
+
 }
 
 .addingButton:hover,
@@ -65,18 +68,17 @@ p, label {
 
 .toDoForm {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  gap: 40px;
   margin-bottom: 10px;
+  gap: 20px;
 }
 
 .task {
-  display: grid;
-  grid-template-columns: 300px 100px;
-  justify-content:center;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-
+  gap: 10px;
   border: 2px solid rgb(188,206,209);
   background-color: rgb(197,225,229);
   padding: 10px 20px;
@@ -89,3 +91,26 @@ p, label {
   background-color: rgb(99, 233, 152);
 }
 
+@media screen and (min-width: 534px) {
+  .task {
+    display: grid;
+    grid-template-columns: 300px 100px;
+    justify-content:center;
+    align-items: center;
+  }
+  .listBox {
+    min-width: 450px;
+    min-height: 400px;
+  }
+  .toDoForm {
+    flex-direction: row;
+    gap: 40px;
+  }
+  p, label {
+    font-size: 20px;
+  }
+  .taskButton{
+    font-size: 18px;
+    max-width: none;
+  }
+}
