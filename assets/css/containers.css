@@ -1,0 +1,41 @@
+.divHolder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: rgb(65, 123, 238);
+}
+.listBox {
+  min-height: fit-content;
+  min-width: fit-content;
+  border-radius: 10px;
+  border: 2px rgb(44, 107, 236) solid;
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  margin: 40px;
+  gap: 20px;
+}
+.toDoForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 10px;
+  gap: 20px;
+}
+.task {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  border: 2px solid rgb(188, 206, 209);
+  background-color: rgb(197, 225, 229);
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+.taskDone {
+  border: 2px solid rgb(110, 211, 148);
+  background-color: rgb(99, 233, 152);
+}
