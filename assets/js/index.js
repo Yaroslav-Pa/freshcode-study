@@ -259,7 +259,7 @@ elem.setAttribute('title', 'sdffds');
 // елемент "elem" може 
 
 ///// ДЗ
-
+/*
 const doToForm = document.getElementById('toDoForm');
 const inputToDo = doToForm.elements[0];
 
@@ -277,3 +277,37 @@ doToForm.addEventListener('submit', (e)=>{
   inputToDo.value = '';
   document.body.append(paragraf);
 })
+*/
+
+
+
+
+/////28.12.23
+
+// самовидалення елемента
+// elem.remove();
+
+// видалення вузла у іншого вузла
+// parentNode.removeChild(childNode);
+
+/*
+  створити кнопку яка при натисканні на себе буде видаляти себе
+*/
+
+const selfDestructBtn = document.getElementById('selfDestructBtn');
+
+selfDestructBtn.addEventListener('click', (e) => {
+  // selfDestructBtn.remove();
+  // e.currentTarget.remove();
+  e.target.remove();
+});
+
+// робота з класами елемента
+
+// заміна класів напряму
+hometaskForm.className = 'bigText redBorder';
+
+// методи додавання / прибирання класів
+root.classList.add('bigText', 'redBorder'); // додавання класів до існуючих
+root.classList.remove('root-2', 'redBorder'); // видаляє вказані класи
+root.classList.toggle('test'); // "перемикає" клас
