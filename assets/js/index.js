@@ -294,20 +294,30 @@ doToForm.addEventListener('submit', (e)=>{
   створити кнопку яка при натисканні на себе буде видаляти себе
 */
 
-const selfDestructBtn = document.getElementById('selfDestructBtn');
+// const selfDestructBtn = document.getElementById('selfDestructBtn');
 
-selfDestructBtn.addEventListener('click', (e) => {
-  // selfDestructBtn.remove();
-  // e.currentTarget.remove();
-  e.target.remove();
-});
+// selfDestructBtn.addEventListener('click', (e) => {
+//   // selfDestructBtn.remove();
+//   // e.currentTarget.remove();
+//   e.target.remove();
+// });
 
-// робота з класами елемента
+// // робота з класами елемента
 
-// заміна класів напряму
-hometaskForm.className = 'bigText redBorder';
+// // заміна класів напряму
+// hometaskForm.className = 'bigText redBorder';
 
-// методи додавання / прибирання класів
-root.classList.add('bigText', 'redBorder'); // додавання класів до існуючих
-root.classList.remove('root-2', 'redBorder'); // видаляє вказані класи
-root.classList.toggle('test'); // "перемикає" клас
+// // методи додавання / прибирання класів
+// root.classList.add('bigText', 'redBorder'); // додавання класів до існуючих
+// root.classList.remove('root-2', 'redBorder'); // видаляє вказані класи
+// root.classList.toggle('test'); // "перемикає" клас
+
+
+/////29.12.23
+
+// ./destructuring.js
+
+
+
+
+/// асинхроність
