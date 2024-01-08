@@ -1,6 +1,10 @@
 const url = 'https://jsonplaceholder.typicode.com/users';
 const placeToSpawn = document.getElementById('grid');
 
+document.getElementById('async').addEventListener('click', createCardsAsyncAwait);
+document.getElementById('promise').addEventListener('click', createCardsPromise);
+
+
 async function createCardsAsyncAwait() {
   try {
     let userArr = await (await fetch(url)).json();
