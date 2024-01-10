@@ -22,15 +22,15 @@ function createCardsPromise() {
         createUserCard(user);
       })
     )
-    .catch((err) => new Error(err));
+    .catch((err) => {throw new Error(err)});
 }
 
 const createUserCard = ({ name, email, website }) => {
-  const createdDiv = createElementWithText('', 'div', ['card']);
+  const createdDiv = createElem('div', '', ['card']);
   createdDiv.append(
-    createElementWithText(name),
-    createElementWithText(email),
-    createElementWithText(website)
+    createElem('p', name),
+    createElem('p', email),
+    createElem('p', website)
   );
   createdDiv.addEventListener('click', (event)=>{
     event.currentTarget.remove();
@@ -38,7 +38,7 @@ const createUserCard = ({ name, email, website }) => {
   placeToSpawn.append(createdDiv);
 };
 
-const createElementWithText = (text, elemType = 'p', styleClasses = []) => {
+const createElem = (elemType, text = '', styleClasses = []) => {
   const textElem = document.createElement(elemType);
   textElem.textContent = text;
   for (let style of styleClasses){
