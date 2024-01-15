@@ -1,24 +1,55 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import Phone from './components/Phone';
 
-function App() {
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isPhoneShown: true,
+    };
+  }
+
+  handleVisibility = () => {
+    this.setState({
+      isPhoneShown: !this.state.isPhoneShown,
+    });
+  };
+
+  render() {
+    const { isPhoneShown } = this.state;
+
+    const elems = (
+      <>
+        <Phone color="black" price={15999.99} />
+        <button>sdsadsa</button>
+      </>
+    );
+
+    return (
+      <>
+        <button onClick={this.handleVisibility}>Toggle phone visibility</button>
+        {/* {isPhoneShown ? <Phone color="black" price={15999.99} /> : null} */}
+        {isPhoneShown && (
+          <>
+            <Phone color="black" price={15999.99} />
+            <button>sdsadsa</button>
+          </>
+        )}
+        {isPhoneShown && elems}
+        {isPhoneShown && <OtherComponent />}
+      </>
+    );
+  }
+}
+
+function OtherComponent() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Phone color="black" price={15999.99} />
+      <button>sdsadsa</button>
+    </>
   );
 }
 

@@ -2,15 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import './style.css';
-
-import Greetings from './components/Greetings';
-import NavList from './components/NavList';
-import ParagrafFunction from './components/ParagrafFunction';
-import SomeComponent from './components/SomeComponent';
-
-const user = {
-  name: "Jon"
-}
+import App from './App.js'
 /*
   Два види компонентів:
     класові
@@ -31,6 +23,7 @@ const user = {
 
 
 ////функціональний компонент
+/*
 function HeadingFunction () {
   // має повертати реакт елeмент\копонент
   return <h1 className='someStyle'>Some heading fun</h1>;
@@ -46,15 +39,13 @@ class Header extends React.Component {
     );
   }
 }
-
+*/
 
 //відмалювання компонента
 //варіант 1
 // const headerComponent = React.createElement(Heading); // старий варіант
 // const headerComponent = <Heading/>
 
-const text = 'asdasdasdas dasd asd asdad asd asdasd asd asdas dasd asd asda';
-const title = 'Some cool text'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -63,13 +54,7 @@ root.render(
   // використовувати якщо треба порендирити декілька елементівв без видимого контейнеру
   // ! не передавати атрибути / пропси
   // <></> === <React.Fragment></React.Fragment> === React.createElement(React.Fragment)
-  <>
-    <HeadingFunction/>
-    <ParagrafFunction></ParagrafFunction>
-    <Header></Header>
-    <Greetings user={user}/>
-    <SomeComponent text={text} title={title}/>
-  </>
+  <App/>
 );
 
 
