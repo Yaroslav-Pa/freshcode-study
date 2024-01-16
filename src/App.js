@@ -1,6 +1,7 @@
 import './App.css';
 import UserCard from './components/userCard';
-const users = [
+import React from 'react';
+const usersArr = [
   {
     id: 1,
     name: 'Іван',
@@ -82,24 +83,39 @@ const users = [
     dislike: ['затримки в аеропорту', 'неякісний інтернет'],
   },
 ];
-function App() {
-  return (
-    <div className="flex justify-center">
-      <article className="grid grid-cols-4 justify-center items-start justify-items-center gap-x-9 gap-y-8  p-5">
-        {users.map(({ id, name, isMan, photo, like, dislike }) => (
-          <UserCard
-            id={id}
-            name={name}
-            isMan={isMan}
-            photo={photo}
-            like={like}
-            dislike={dislike}
-            key={id}
-          />
-        ))}
-      </article>
-    </div>
-  );
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      users: usersArr,
+    };
+  }
+
+  removeUser = (id) => {
+    const newUsers = this.state.users.filter((user)=> user.id !== id)
+    console.log(newUsers);
+    this.setState({
+      users:newUsers,
+    })
+  };
+
+  render() {
+    const { users } = this.state;
+    return (
+      <div className="flex justify-center">
+        <article className="grid grid-cols-4 justify-center items-start justify-items-center gap-x-9 gap-y-8  p-5">
+          {users.map((user) => (
+            <UserCard
+              user={user}
+              key={user.id}
+              removeUser = {this.removeUser}
+            />
+          ))}
+        </article>
+      </div>
+    );
+  }
 }
 
 export default App;
