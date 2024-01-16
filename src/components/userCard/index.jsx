@@ -1,24 +1,12 @@
 import React from 'react';
 class UserCard extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isSelected: false,
-    };
-  }
-
-  toggleSelect = (e) => {
-    if (e.target.tagName !== 'BUTTON') {
-      this.setState({ isSelected: !this.state.isSelected });
-    }
-  };
 
   render() {
     const {
-      user: { id, name, isMan, photo, like, dislike},
-      removeUser
+      user: { id, name, isMan, photo, like, dislike, isSelected},
+      removeUser,
+      togleSelect
     } = this.props;
-    const { isSelected } = this.state;
     return (
       <section
         className={
@@ -28,7 +16,7 @@ class UserCard extends React.Component {
             : ' bg-sky-400 border-sky-400  border-solid')
         }
         onClick={(e) => {
-          this.toggleSelect(e);
+          togleSelect(e,id);
         }}
       >
         <img

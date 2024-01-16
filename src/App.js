@@ -1,5 +1,6 @@
 import './App.css';
 import UserCard from './components/userCard';
+import SelectBox from './components/selectBox';
 import React from 'react';
 const usersArr = [
   {
@@ -9,6 +10,7 @@ const usersArr = [
     photo: '1.jpg',
     like: ['спорт', 'музика'],
     dislike: ['дощ', 'фастфуд'],
+    isSelected: false,
   },
   {
     id: 2,
@@ -17,6 +19,7 @@ const usersArr = [
     photo: '2.jpg',
     like: ['мистецтво', 'книги'],
     dislike: ['пізні підйоми', 'політика'],
+    isSelected: false,
   },
   {
     id: 3,
@@ -25,6 +28,7 @@ const usersArr = [
     photo: '3.jpg',
     like: ['подорожі', 'гірський велосипед'],
     dislike: ['недостатньо сну', 'швидка їжа'],
+    isSelected: false,
   },
   {
     id: 4,
@@ -33,6 +37,7 @@ const usersArr = [
     photo: '4.jpg',
     like: ['театр', 'кава'],
     dislike: ['пробки', 'неопрятність'],
+    isSelected: false,
   },
   {
     id: 5,
@@ -41,6 +46,7 @@ const usersArr = [
     photo: '5.jpg',
     like: ['велосипед', 'компютерні ігри'],
     dislike: ['холод', 'нудота'],
+    isSelected: false,
   },
   {
     id: 6,
@@ -49,6 +55,7 @@ const usersArr = [
     photo: '6.jpg',
     like: ['мода', 'кіно'],
     dislike: ['пил', 'брудні посуди'],
+    isSelected: false,
   },
   {
     id: 7,
@@ -57,6 +64,7 @@ const usersArr = [
     photo: '7.jpg',
     like: ['політика', 'географія'],
     dislike: ['затяжні наради', 'зіпсовані плани'],
+    isSelected: false,
   },
   {
     id: 8,
@@ -65,6 +73,7 @@ const usersArr = [
     photo: '8.jpg',
     like: ['фотографія', 'гуртки по інтересах'],
     dislike: ['серіали романтики', 'недостатньо часу'],
+    isSelected: false,
   },
   {
     id: 9,
@@ -73,6 +82,7 @@ const usersArr = [
     photo: '9.jpg',
     like: ['вишивання', 'музейні експозиції'],
     dislike: ['сутінки', 'розтрату часу'],
+    isSelected: false,
   },
   {
     id: 10,
@@ -81,6 +91,7 @@ const usersArr = [
     photo: '10.jpg',
     like: ['автомобілі', 'спортивні заходи'],
     dislike: ['затримки в аеропорту', 'неякісний інтернет'],
+    isSelected: false,
   },
 ];
 
@@ -92,27 +103,51 @@ class App extends React.Component {
     };
   }
 
-  removeUser = (id) => {
-    const newUsers = this.state.users.filter((user)=> user.id !== id)
-    console.log(newUsers);
-    this.setState({
-      users:newUsers,
-    })
+  togleSelect = (e, id) => {
+    if (e.target.tagName !== 'BUTTON') {
+      const newUsers = this.state.users.filter((user) => {
+        if (user.id === id) {
+          user.isSelected = !user.isSelected;
+        }
+        return user;
+      });
+      this.updateUsersState(newUsers);
+    }
   };
+
+  removeUser = (id) => {
+    const newUsers = this.state.users.filter((user) => user.id !== id);
+    this.updateUsersState(newUsers);
+  };
+
+  updateUsersState = (newUsers) =>{
+    this.setState({
+      users: newUsers,
+    });
+  }
 
   render() {
     const { users } = this.state;
+
+    const userCard = users.map((user) => (
+      <UserCard
+        user={user}
+        key={user.id}
+        removeUser={this.removeUser}
+        togleSelect={this.togleSelect}
+      />
+    ))
+
     return (
-      <div className="flex justify-center">
-        <article className="grid grid-cols-4 justify-center items-start justify-items-center gap-x-9 gap-y-8  p-5">
-          {users.map((user) => (
-            <UserCard
-              user={user}
-              key={user.id}
-              removeUser = {this.removeUser}
-            />
-          ))}
-        </article>
+      <div className="relative">
+        <div className="flex justify-center">
+          <article className="grid grid-cols-4 jus-*tify-center items-start justify-items-center gap-x-9 gap-y-8  p-5">
+            {userCard}
+          </article>
+        </div>
+        <div className=" absolute top-10 left-10">
+          <SelectBox users={users} />
+        </div>
       </div>
     );
   }
