@@ -1,32 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
-import PhoneList from './components/PhoneList/PhoneList';
+import PhoneDashboard from './components/PhoneDashboard';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      isPhoneShown: true,
-    };
-  }
-
-  handleVisibility = () => {
-    this.setState({
-      isPhoneShown: !this.state.isPhoneShown,
-    });
-  };
-  
-  render() {
-    const { isPhoneShown } = this.state;
-    
-    return (
-      <>
-        <button onClick={this.handleVisibility}>Toggle phone visibility</button>
-        {isPhoneShown && <PhoneList />}
-      </>
-    );
-  }
+function App(props) {
+  return (
+    <>
+      <PhoneDashboard />
+    </>
+  );
 }
 
 export default App;

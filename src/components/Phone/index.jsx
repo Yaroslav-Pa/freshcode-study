@@ -45,7 +45,7 @@ class Phone extends React.Component {
     // function phoneStateChange(){
     //   this.state.phoneState = 'on'; // краще писати вище
     // }
-    const { color, price } = this.props;
+    const { color, price, isFavorite } = this.props;
     const { isOn } = this.state;
 
     // let phoneStatus;
@@ -66,12 +66,14 @@ class Phone extends React.Component {
         <p>Phone price is {price}</p>
         {/* умовний рендерінг */}
         {phoneStatus}
+        {isFavorite && <p>Phone is Favorite</p>}
         <button onClick={this.handleToggle}>
           Switch {isOn ? 'on' : 'off'}
         </button>
-        <button onClick={isOn ? this.handleToggleOff : this.handleToggleOn}>
+        {/* <button onClick={isOn ? this.handleToggleOff : this.handleToggleOn}>
           Switch {isOn ? 'on' : 'off'} v2
-        </button>
+        </button> */}
+        <button>{isFavorite? 'Make':'Remove from'} favorite</button>
       </div>
     );
   }

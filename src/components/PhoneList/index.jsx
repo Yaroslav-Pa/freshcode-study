@@ -12,16 +12,19 @@ class PhoneList extends React.Component {
           id: 0,
           color: 'black',
           price: 15999.99,
+          isFavorite: false,
         },
         {
           id: 1,
           color: 'white',
           price: 9999.99,
+          isFavorite: false,
         },
         {
           id: 2,
           color: 'gold',
           price: 59999.99,
+          isFavorite: false,
         },
       ],
     };
@@ -65,13 +68,13 @@ class PhoneList extends React.Component {
     // НЕОБХІДНО вказати унікальний для цього списка службовий проп
     // key
     const phonesComponents = phones.map((phone) => (
-      <Phone key={phone.id} color={phone.color} price={phone.price} />
+      <Phone key={phone.id} color={phone.color} price={phone.price} isFavorite={phone.isFavorite} />
     ));
 
     // тут вже можна такий самий набір ключів як і у phonesComponents
-    const phonesComponents2 = phones.map((phone) => (
-      <Phone key={phone.id} color={phone.color} price={phone.price} />
-    ));
+    // const phonesComponents2 = phones.map((phone) => (
+    //   <Phone key={phone.id} color={phone.color} price={phone.price} />
+    // ));
 
     return (
       <>
