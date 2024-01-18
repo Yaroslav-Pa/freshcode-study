@@ -11,7 +11,6 @@ class StopWatch extends React.Component {
 
   componentDidMount() {
     this.startTimer();
-    console.log(style);
   }
 
   startTimer = () => {
