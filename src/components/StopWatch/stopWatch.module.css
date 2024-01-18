@@ -9,18 +9,18 @@
   align-items: center;
   height: 100vh;
 }
-.watch-block {
+.watchBlock {
   padding: 10px;
   border-radius: 10px;
   border: 2px solid gainsboro;
 }
-.time-text {
+.timeText {
   font-size: 40px;
   padding: 5px;
   border: 2px solid gainsboro;
   border-radius: 5px;
 }
-.small-text{
+.smallText{
   font-size: 10px;
   display: flex;
   flex-direction: row;
@@ -28,7 +28,7 @@
   padding-right: 5px;
   padding-left: 10px;
 }
-.button-section{
+.buttonSection{
   display: flex;
   flex-direction: row;
   padding-top: 10px;
@@ -36,7 +36,7 @@
 }
 
 button, 
-.small-button{
+.smallButton{
   padding: 5px 10px;
   font-size: 16px;
   font-weight: bold;
@@ -51,11 +51,11 @@ button:hover{
   background-color: lightgray;
   color:white ;
 }
-.small-button{
+.smallButton{
   padding: 2px;
   font-size: 12px;
 }
-.small-button-container{
+.smallButtonContainer{
   display: flex;
   flex-direction: row;
   justify-content: flex-end;

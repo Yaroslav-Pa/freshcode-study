@@ -1,6 +1,6 @@
 import React from 'react';
 import { format, addMilliseconds } from 'date-fns';
-import './stopWatch.css';
+import style from './stopWatch.module.css';
 class StopWatch extends React.Component {
   constructor(props) {
     super(props);
@@ -11,6 +11,7 @@ class StopWatch extends React.Component {
 
   componentDidMount() {
     this.startTimer();
+    console.log(style);
   }
 
   startTimer = () => {
@@ -40,34 +41,34 @@ class StopWatch extends React.Component {
   };
 
   clearTime = () =>{
-    const newDate = new Date(0, 0, 0, 0, 0, 0, 0);
     this.setState({
-      date: newDate,
+      date: new Date(0, 0, 0, 0, 0, 0, 0),
     })
+    this.stopTimer();
   }
   render() {
     const { date } = this.state;
     const timeDate = format(date, 'HH:mm:ss:SS');
     return (
-      <div className="container">
-        <section className="watch-block">
-          <div className='small-button-container'>
+      <div className={style.container}>
+        <section className={style.watchBlock}>
+          <div className={style.smallButtonContainer}>
             <button
               type="button"
-              className="small-button"
+              className={style.smallButton}
               onClick={this.clearTime}
             >
               Clear
             </button>
           </div>
-          <div className="time-text">
-            <div className="small-text">
+          <div className={style.timeText}>
+            <div className={style.smallText}>
               <p>hours</p> <p>minutes</p> <p>seconds</p> <p>millisec</p>
             </div>
 
             <p>{timeDate}</p>
           </div>
-          <div className="button-section">
+          <div className={style.buttonSection}>
             <button type="button" onClick={this.startTimer}>
               Start
             </button>
