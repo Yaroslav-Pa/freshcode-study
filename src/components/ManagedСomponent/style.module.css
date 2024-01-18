@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+  border: 5px solid black;
+}
+
+.input {
+  border: 5px solid black;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+
+.validInput {
+  border-color: limegreen;
+}
+
+.invalidInput {
+  border-color: red;
+}
