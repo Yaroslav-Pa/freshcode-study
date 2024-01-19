@@ -1,25 +1,124 @@
-import React from 'react';
 import './App.css';
-import List from './components/Composition/list';
-import Bordered from './components/Composition/BorderedTask';
-function App() {
-  return (
-    <>
-      <List listname="numbers">
-        <li>1123</li>
-        <li>1123</li>
-        <li>1123</li>
-      </List>
-      <Bordered isFlex padding="25px" border="30px solid black" radius='40px'>
-        <div>asdasdasdasdasd</div>
-        <List listname="numbers 2">
-          <li>2</li>
-          <li>1</li>
-          <li>3</li>
-        </List>
-      </Bordered>
-    </>
-  );
+import React from 'react';
+import ImageAndButtons from './components/ImageAndButtons';
+import TextAndLink from './components/TextAndLink';
+const data = [
+  {
+    imgUrl:
+      'https://hubblesite.org/files/live/sites/hubble/files/home/mission-and-telescope/hubble-30th-anniversary/iconic-images/_images/hubble_30th_images/hubble-30th-lagoon-nebula.jpg?t=tn2400',
+    topic: 'Lagoon Nebula',
+    description:
+      'The Lagoon Nebula, a vast stellar nursery located 4,000 light-years away, provides an extraordinary tapestry of star birth.',
+    linkUrl:
+      'https://hubblesite.org/contents/media/images/2015/01/3471-Image.html',
+  },
+  {
+    imgUrl:
+      'https://hubblesite.org/files/live/sites/hubble/files/home/mission-and-telescope/hubble-30th-anniversary/iconic-images/_images/hubble_30th_images/hubble-30th-eagle-nebula.jpg?t=tn2400',
+    topic: 'Eagle Nebula',
+    description:
+      'The newborn star in Herbig-Haro 24 (HH 24) is hidden from direct view, but jets blasting out along its rotation axis create a series of glowing shock fronts, revealing the new star’s presence.',
+    linkUrl:
+      'https://hubblesite.org/contents/media/images/2015/42/3656-Image.html',
+  },
+  {
+    imgUrl:
+      'https://hubblesite.org/files/live/sites/hubble/files/home/mission-and-telescope/hubble-30th-anniversary/iconic-images/_images/hubble_30th_images/hubble-30th-hh24.jpg?t=tn2400',
+    topic: 'HH24 "light saber"',
+    description:
+      'The newborn star in Herbig-Haro 24 (HH 24) is hidden from direct view, but jets blasting out along its rotation axis create a series of glowing shock fronts, revealing the new star’s presence.',
+    linkUrl:
+      'https://hubblesite.org/contents/media/images/2015/42/3656-Image',
+  },
+  {
+    imgUrl:
+      'https://hubblesite.org/files/live/sites/hubble/files/home/mission-and-telescope/hubble-30th-anniversary/iconic-images/_images/hubble_30th_images/hubble-30th-saturn.jpg?t=tn2400',
+    topic: 'Saturn',
+    description:
+      'Hubble captured exquisite views of Saturn’s ring system and atmospheric details that once could only be provided by spacecraft visiting the distant world.',
+    linkUrl:
+      'https://hubblesite.org/contents/media/images/2019/43/4565-Image',
+  },
+  {
+    imgUrl:
+      'https://hubblesite.org/files/live/sites/hubble/files/home/mission-and-telescope/hubble-30th-anniversary/iconic-images/_images/hubble_30th_images/hubble-30th-milky-way-bulge.jpg?t=tn2400',
+    topic: 'Milky Way Bulge',
+    description:
+      'The Milky Way’s bulge is a crowded and dynamic region of variously aged stars zipping around at different speeds at the heart of our galaxy.',
+    linkUrl:
+      'https://hubblesite.org/contents/media/images/2018/01/4101-Image.html',
+  },
+];
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: data,
+      nowIndex: 0,
+      delay: 1000,
+      isInSliding: false,
+    };
+  }
+
+  slider = (isToRight) => {
+    const nowIndex = this.state.nowIndex;
+    const lastIndex = this.state.data.length - 1;
+
+    let newIndex = isToRight
+      ? nowIndex + 1
+      : nowIndex - 1;
+
+    if (newIndex > lastIndex)
+      newIndex = 0;
+    
+    if (newIndex < 0) 
+      newIndex = lastIndex;
+
+    this.setState({
+      nowIndex: newIndex,
+    });
+  };
+
+  autoSlideOn = () => {
+    if (!this.intervalId){
+      this.intervalId = setInterval(()=>{this.slider(true)},this.state.delay)
+      this.setState({isInSliding : true})
+    }
+    
+  }
+
+  autoSlideOff = () => {
+    clearInterval(this.intervalId);
+    this.intervalId = null;
+    this.setState({isInSliding : false})
+  }
+
+  setDelay = (value) =>{
+    this.setState({
+      delay:value,
+    })
+  }
+
+  render() {
+    const { data, nowIndex, delay, isInSliding} = this.state;
+    return (
+      <section className="flexContainer">
+        <ImageAndButtons
+          funOnClick={this.slider}
+          imgSrc={data[nowIndex].imgUrl}
+        />
+        <TextAndLink
+          text={data[nowIndex].description}
+          topic={data[nowIndex].topic}
+          linkUrl={data[nowIndex].linkUrl}
+        />
+        <input type='text' value={delay} onChange={(e)=>this.setDelay(e.target.value)} disabled={isInSliding}/>
+        <button onClick={this.autoSlideOn} disabled={isInSliding}>turn on</button>
+        <button onClick={this.autoSlideOff}>turn off</button>
+      </section>
+    );
+  }
 }
 
 export default App;

@@ -1,0 +1,10 @@
+.buttonOnImg {
+  position: absolute;
+  top: 50%;
+  border-radius: 30px;
+  background-color:blueviolet;
+  color: white;
+  min-height: 33.3px;
+  min-width: 33.3px;
+  border: 0;
+}
