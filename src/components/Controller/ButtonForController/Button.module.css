@@ -4,16 +4,14 @@
   border-radius: 10px;
   font-weight: bold;
   border: 1px solid transparent;
-  transition: all .2s;
+  transition: all 0.2s;
 }
-.button:disabled{
+.button:disabled {
   background-color: #8c9a8d;
 }
-.button:hover:disabled{
+.button:hover:disabled {
   background-color: #8c9a8d;
   border: 1px solid transparent;
   color: white;
   cursor: default;
 }
-
-

@@ -4,12 +4,11 @@ import ImageAndButtons from './components/ImageAndButtons';
 import TextAndLink from './components/TextAndLink';
 import Controller from './components/Controller';
 
-const catsFetchUrl='https://api.thecatapi.com/v1/images/search?limit=10';
+const catsFetchUrl = 'https://api.thecatapi.com/v1/images/search?limit=10';
 
 const data = [
   {
-    imgUrl:
-      'https://hubblesite.org/files/live/sites/hubble/files/home/mission-and-telescope/hubble-30th-anniversary/iconic-images/_images/hubble_30th_images/hubble-30th-lagoon-nebula.jpg?t=tn2400',
+    url: 'https://hubblesite.org/files/live/sites/hubble/files/home/mission-and-telescope/hubble-30th-anniversary/iconic-images/_images/hubble_30th_images/hubble-30th-lagoon-nebula.jpg?t=tn2400',
     topic: 'Lagoon Nebula',
     description:
       'The Lagoon Nebula, a vast stellar nursery located 4,000 light-years away, provides an extraordinary tapestry of star birth.',
@@ -17,8 +16,7 @@ const data = [
       'https://hubblesite.org/contents/media/images/2015/01/3471-Image.html',
   },
   {
-    imgUrl:
-      'https://hubblesite.org/files/live/sites/hubble/files/home/mission-and-telescope/hubble-30th-anniversary/iconic-images/_images/hubble_30th_images/hubble-30th-eagle-nebula.jpg?t=tn2400',
+    url: 'https://hubblesite.org/files/live/sites/hubble/files/home/mission-and-telescope/hubble-30th-anniversary/iconic-images/_images/hubble_30th_images/hubble-30th-eagle-nebula.jpg?t=tn2400',
     topic: 'Eagle Nebula',
     description:
       'The newborn star in Herbig-Haro 24 (HH 24) is hidden from direct view, but jets blasting out along its rotation axis create a series of glowing shock fronts, revealing the new star’s presence.',
@@ -26,24 +24,21 @@ const data = [
       'https://hubblesite.org/contents/media/images/2015/42/3656-Image.html',
   },
   {
-    imgUrl:
-      'https://hubblesite.org/files/live/sites/hubble/files/home/mission-and-telescope/hubble-30th-anniversary/iconic-images/_images/hubble_30th_images/hubble-30th-hh24.jpg?t=tn2400',
+    url: 'https://hubblesite.org/files/live/sites/hubble/files/home/mission-and-telescope/hubble-30th-anniversary/iconic-images/_images/hubble_30th_images/hubble-30th-hh24.jpg?t=tn2400',
     topic: 'HH24 "light saber"',
     description:
       'The newborn star in Herbig-Haro 24 (HH 24) is hidden from direct view, but jets blasting out along its rotation axis create a series of glowing shock fronts, revealing the new star’s presence.',
     linkUrl: 'https://hubblesite.org/contents/media/images/2015/42/3656-Image',
   },
   {
-    imgUrl:
-      'https://hubblesite.org/files/live/sites/hubble/files/home/mission-and-telescope/hubble-30th-anniversary/iconic-images/_images/hubble_30th_images/hubble-30th-saturn.jpg?t=tn2400',
+    url: 'https://hubblesite.org/files/live/sites/hubble/files/home/mission-and-telescope/hubble-30th-anniversary/iconic-images/_images/hubble_30th_images/hubble-30th-saturn.jpg?t=tn2400',
     topic: 'Saturn',
     description:
       'Hubble captured exquisite views of Saturn’s ring system and atmospheric details that once could only be provided by spacecraft visiting the distant world.',
     linkUrl: 'https://hubblesite.org/contents/media/images/2019/43/4565-Image',
   },
   {
-    imgUrl:
-      'https://hubblesite.org/files/live/sites/hubble/files/home/mission-and-telescope/hubble-30th-anniversary/iconic-images/_images/hubble_30th_images/hubble-30th-milky-way-bulge.jpg?t=tn2400',
+    url: 'https://hubblesite.org/files/live/sites/hubble/files/home/mission-and-telescope/hubble-30th-anniversary/iconic-images/_images/hubble_30th_images/hubble-30th-milky-way-bulge.jpg?t=tn2400',
     topic: 'Milky Way Bulge',
     description:
       'The Milky Way’s bulge is a crowded and dynamic region of variously aged stars zipping around at different speeds at the heart of our galaxy.',
@@ -60,7 +55,7 @@ class App extends React.Component {
       nowIndex: 0,
       delay: 5000,
       isInSliding: false,
-      isGettingCats: false
+      isGettingCats: false,
     };
   }
 
@@ -104,32 +99,38 @@ class App extends React.Component {
 
   // Just for fun
 
-  getCoolCats= async () =>{
-    // fetch(catsFetchUrl).then((json)=>{JSON.stringify(json)}).then((data)=>{console.log(data)})
-    console.log( await JSON.parse(await fetch(catsFetchUrl)));
-  }
+  getCoolCats = async () => {
+    this.setState({
+      data: await (await fetch(catsFetchUrl)).json(),
+    });
+  };
 
-  togleGetingCats = (value)=>{
+  toggleGetingCats = (value) => {
     console.log(value);
     this.setState({
       isGettingCats: value,
-    })
-  }
+    });
+    value
+      ? this.getCoolCats()
+      : this.setState({ isGettingCats: false, data: data });
+  };
 
   render() {
     const { data, nowIndex, delay, isInSliding, isGettingCats } = this.state;
     return (
       <>
-        <section className="flexContainer" onClick={this.getCoolCats}>
+        <section className="flexContainer">
           <ImageAndButtons
             funOnClick={this.slideByDerection}
-            imgSrc={data[nowIndex].imgUrl}
+            imgSrc={data[nowIndex].url}
           />
-          {!isGettingCats && <TextAndLink
-            text={data[nowIndex].description}
-            topic={data[nowIndex].topic}
-            linkUrl={data[nowIndex].linkUrl}
-          />}
+          {!isGettingCats && (
+            <TextAndLink
+              text={data[nowIndex].description}
+              topic={data[nowIndex].topic}
+              linkUrl={data[nowIndex].linkUrl}
+            />
+          )}
         </section>
         <Controller
           delay={delay}
@@ -137,9 +138,8 @@ class App extends React.Component {
           setDelay={this.setDelay}
           autoSlideOn={this.autoSlideOn}
           autoSlideOff={this.autoSlideOff}
-
-          togleValue={isGettingCats}
-          togleFunction={this.togleGetingCats}
+          toggleValue={isGettingCats}
+          toggleFunction={this.toggleGetingCats}
         />
       </>
     );

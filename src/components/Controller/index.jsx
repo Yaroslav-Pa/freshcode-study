@@ -16,7 +16,7 @@ class AutoSliderController extends React.Component {
       autoSlideOn,
       autoSlideOff,
       isGettingCats,
-      togleFunction,
+      toggleFunction,
     } = this.props;
     return (
       <div className={style.container}>
@@ -57,7 +57,7 @@ class AutoSliderController extends React.Component {
             type="checkbox"
             value={isGettingCats}
             onChange={(e) => {
-              togleFunction(e.target.checked);
+              toggleFunction(e.target.checked);
             }}
           />
         </label>

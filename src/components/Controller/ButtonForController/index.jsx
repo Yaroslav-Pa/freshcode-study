@@ -1,6 +1,6 @@
-import style from './Button.module.css'
+import style from './Button.module.css';
 
-function Button({buttonStyle, onClickFun, isDisabled, text}) {
+function Button({ buttonStyle, onClickFun, isDisabled, text }) {
   return (
     <button
       className={`${style.button} ${buttonStyle}`}

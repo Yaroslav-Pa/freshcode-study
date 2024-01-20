@@ -2,16 +2,16 @@
   position: absolute;
   top: 50%;
   border-radius: 30px;
-  background-color:blueviolet;
+  background-color: blueviolet;
   color: white;
   min-height: 33.3px;
   min-width: 33.3px;
   border: 0;
   cursor: pointer;
   border: 2px solid transparent;
-  transition: all .3s;
+  transition: all 0.3s;
 }
-.buttonOnImg:hover{
-  background-color:rgb(169, 78, 255);
+.buttonOnImg:hover {
+  background-color: rgb(169, 78, 255);
   border: 2px solid blueviolet;
 }
