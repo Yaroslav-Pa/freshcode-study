@@ -1,0 +1,93 @@
+.container {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border: solid 1px #ccc;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+}
+
+
+.inputWrapper {
+  margin: 0 5px;
+  gap: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.input {
+  max-width: 150px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+
+.nameText,
+.statusText{
+  font-size: medium;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  font-weight: 400;
+}
+.statusText{
+  font-size: 14px;
+}
+
+.textContainer{
+  display: flex;
+  flex-direction: column;
+  gap:5px;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: space-around;
+  gap: 5px;
+}
+
+.button {
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  font-weight: bold;
+  border: 1px solid transparent;
+  transition: all .2s;
+}
+.button:disabled{
+  background-color: #8c9a8d;
+}
+.button:hover:disabled{
+  background-color: #8c9a8d;
+  border: 1px solid transparent;
+  color: white;
+  cursor: default;
+}
+
+.buttonOn {
+  background-color: #6eb471;
+  color: white;
+}
+.buttonOn:hover{
+  background-color: transparent;
+  color: #6eb471;
+  border-color: #6eb471;
+}
+
+.buttonOff {
+  background-color: #ea6960;
+  color: white;
+}
+.buttonOff:hover{
+  background-color: transparent;
+  color: #ea6960;
+  border-color: #ea6960;
+}

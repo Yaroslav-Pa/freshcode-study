@@ -2,6 +2,7 @@ import './App.css';
 import React from 'react';
 import ImageAndButtons from './components/ImageAndButtons';
 import TextAndLink from './components/TextAndLink';
+import AutoSliderController from './components/AutoSliderController';
 const data = [
   {
     imgUrl:
@@ -27,8 +28,7 @@ const data = [
     topic: 'HH24 "light saber"',
     description:
       'The newborn star in Herbig-Haro 24 (HH 24) is hidden from direct view, but jets blasting out along its rotation axis create a series of glowing shock fronts, revealing the new star’s presence.',
-    linkUrl:
-      'https://hubblesite.org/contents/media/images/2015/42/3656-Image',
+    linkUrl: 'https://hubblesite.org/contents/media/images/2015/42/3656-Image',
   },
   {
     imgUrl:
@@ -36,8 +36,7 @@ const data = [
     topic: 'Saturn',
     description:
       'Hubble captured exquisite views of Saturn’s ring system and atmospheric details that once could only be provided by spacecraft visiting the distant world.',
-    linkUrl:
-      'https://hubblesite.org/contents/media/images/2019/43/4565-Image',
+    linkUrl: 'https://hubblesite.org/contents/media/images/2019/43/4565-Image',
   },
   {
     imgUrl:
@@ -56,67 +55,72 @@ class App extends React.Component {
     this.state = {
       data: data,
       nowIndex: 0,
-      delay: 1000,
+      delay: 5000,
       isInSliding: false,
     };
   }
 
-  slider = (isToRight) => {
-    const nowIndex = this.state.nowIndex;
-    const lastIndex = this.state.data.length - 1;
+  slideByDerection = (isToRight) => {
+    const {
+      nowIndex,
+      data: { length: lastIndex },
+    } = this.state;
 
-    let newIndex = isToRight
-      ? nowIndex + 1
-      : nowIndex - 1;
-
-    if (newIndex > lastIndex)
-      newIndex = 0;
-    
-    if (newIndex < 0) 
-      newIndex = lastIndex;
-
+    let newIndex = isToRight ? nowIndex + 1 : nowIndex - 1;
+    if (newIndex < 0) newIndex = lastIndex - 1;
     this.setState({
-      nowIndex: newIndex,
+      nowIndex: newIndex % lastIndex,
     });
   };
 
   autoSlideOn = () => {
-    if (!this.intervalId){
-      this.intervalId = setInterval(()=>{this.slider(true)},this.state.delay)
-      this.setState({isInSliding : true})
+    if (!this.intervalId) {
+      this.intervalId = setInterval(() => {
+        this.slideByDerection(true);
+      }, this.state.delay);
+      this.setState({ isInSliding: true });
     }
-    
-  }
+  };
 
   autoSlideOff = () => {
     clearInterval(this.intervalId);
     this.intervalId = null;
-    this.setState({isInSliding : false})
-  }
+    this.setState({ isInSliding: false });
+  };
 
-  setDelay = (value) =>{
+  setDelay = (value) => {
     this.setState({
-      delay:value,
-    })
+      delay: value,
+    });
+  };
+
+  componentDidMount(){
+    this.autoSlideOn();
   }
 
   render() {
-    const { data, nowIndex, delay, isInSliding} = this.state;
+    const { data, nowIndex, delay, isInSliding } = this.state;
     return (
-      <section className="flexContainer">
-        <ImageAndButtons
-          funOnClick={this.slider}
-          imgSrc={data[nowIndex].imgUrl}
+      <>
+        <section className="flexContainer">
+          <ImageAndButtons
+            funOnClick={this.slideByDerection}
+            imgSrc={data[nowIndex].imgUrl}
+          />
+          <TextAndLink
+            text={data[nowIndex].description}
+            topic={data[nowIndex].topic}
+            linkUrl={data[nowIndex].linkUrl}
+          />
+        </section>
+        <AutoSliderController
+          delay={delay}
+          isInSliding={isInSliding}
+          setDelay={this.setDelay}
+          autoSlideOn={this.autoSlideOn}
+          autoSlideOff={this.autoSlideOff}
         />
-        <TextAndLink
-          text={data[nowIndex].description}
-          topic={data[nowIndex].topic}
-          linkUrl={data[nowIndex].linkUrl}
-        />
-        <input type='text' value={delay} onChange={(e)=>this.setDelay(e.target.value)} disabled={isInSliding}/>
-        <button onClick={this.autoSlideOn} disabled={isInSliding}>turn on</button>
-        <button onClick={this.autoSlideOff}>turn off</button>
-      </section>
+      </>
     );
   }
 }
