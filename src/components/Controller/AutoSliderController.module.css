@@ -48,28 +48,11 @@
   gap:5px;
 }
 
+
 .buttonWrapper {
   display: flex;
   justify-content: space-around;
   gap: 5px;
-}
-
-.button {
-  padding: 5px 10px;
-  cursor: pointer;
-  border-radius: 10px;
-  font-weight: bold;
-  border: 1px solid transparent;
-  transition: all .2s;
-}
-.button:disabled{
-  background-color: #8c9a8d;
-}
-.button:hover:disabled{
-  background-color: #8c9a8d;
-  border: 1px solid transparent;
-  color: white;
-  cursor: default;
 }
 
 .buttonOn {
@@ -90,4 +73,9 @@
   background-color: transparent;
   color: #ea6960;
   border-color: #ea6960;
+}
+
+.catsText{
+  font-size: small;
+  text-align: center;
 }

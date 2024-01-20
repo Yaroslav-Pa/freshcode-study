@@ -2,7 +2,10 @@ import './App.css';
 import React from 'react';
 import ImageAndButtons from './components/ImageAndButtons';
 import TextAndLink from './components/TextAndLink';
-import AutoSliderController from './components/AutoSliderController';
+import Controller from './components/Controller';
+
+const catsFetchUrl='https://api.thecatapi.com/v1/images/search?limit=10';
+
 const data = [
   {
     imgUrl:
@@ -57,6 +60,7 @@ class App extends React.Component {
       nowIndex: 0,
       delay: 5000,
       isInSliding: false,
+      isGettingCats: false
     };
   }
 
@@ -94,31 +98,48 @@ class App extends React.Component {
     });
   };
 
-  componentDidMount(){
+  componentDidMount() {
     this.autoSlideOn();
   }
 
+  // Just for fun
+
+  getCoolCats= async () =>{
+    // fetch(catsFetchUrl).then((json)=>{JSON.stringify(json)}).then((data)=>{console.log(data)})
+    console.log( await JSON.parse(await fetch(catsFetchUrl)));
+  }
+
+  togleGetingCats = (value)=>{
+    console.log(value);
+    this.setState({
+      isGettingCats: value,
+    })
+  }
+
   render() {
-    const { data, nowIndex, delay, isInSliding } = this.state;
+    const { data, nowIndex, delay, isInSliding, isGettingCats } = this.state;
     return (
       <>
-        <section className="flexContainer">
+        <section className="flexContainer" onClick={this.getCoolCats}>
           <ImageAndButtons
             funOnClick={this.slideByDerection}
             imgSrc={data[nowIndex].imgUrl}
           />
-          <TextAndLink
+          {!isGettingCats && <TextAndLink
             text={data[nowIndex].description}
             topic={data[nowIndex].topic}
             linkUrl={data[nowIndex].linkUrl}
-          />
+          />}
         </section>
-        <AutoSliderController
+        <Controller
           delay={delay}
           isInSliding={isInSliding}
           setDelay={this.setDelay}
           autoSlideOn={this.autoSlideOn}
           autoSlideOff={this.autoSlideOff}
+
+          togleValue={isGettingCats}
+          togleFunction={this.togleGetingCats}
         />
       </>
     );

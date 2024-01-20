@@ -1,4 +1,4 @@
-import Button from './Button';
+import Button from './ButtonForImg';
 import style from './imageAndButtons.module.css';
 
 function ImageAndButtons({funOnClick, imgSrc}) {
