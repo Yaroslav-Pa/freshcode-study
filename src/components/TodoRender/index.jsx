@@ -1,9 +1,13 @@
 import { Component } from 'react';
 import classNames from 'classnames';
 import styles from './style.module.scss';
+import CONSTANTS from '../../constants';
+import { withTheme } from '../../hocs';
+const {THEMES} = CONSTANTS;
 class TodoRender extends Component {
   render() {
     const {
+      theme,
       data: {
         data,
         isLoading,
@@ -11,7 +15,7 @@ class TodoRender extends Component {
       },
     } = this.props;
 
-    const classes = classNames(styles.todoCard);
+    const classes = classNames(styles.todoCard, {[styles.todoCardLight]: theme === THEMES.LIGHT, [styles.todoCardDark]: theme === THEMES.DARK});
 
     return (
       <>
@@ -30,4 +34,4 @@ class TodoRender extends Component {
   }
 }
 
-export default TodoRender;
+export default withTheme(TodoRender);
