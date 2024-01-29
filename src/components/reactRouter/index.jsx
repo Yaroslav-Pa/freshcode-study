@@ -1,5 +1,5 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { Link, NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 
 function NewrRouter() {
   return (
@@ -51,7 +51,8 @@ function Something() {
 function Navigation() {
   return (
     <>
-      <Link to="/">Home</Link>
+    {/* NavLink знає на якої сторінці ти сидиш, потрібно наприклад для змінення стилів якщо ти на цій сторінці */}
+      <NavLink to="/">Home</NavLink> 
       <Link to="/Contacts">Contacts</Link>
       <Link to="/Something">Something</Link>
     </>
