@@ -1,0 +1,24 @@
+.todoCard{
+  display: flex;
+  flex-direction: row;
+  padding: 0 40px;
+  justify-content: space-between;
+  border: 2px solid;
+  border-radius: 20px;
+  max-width: 500px;
+  margin: 5px auto;
+  h1{
+    font-size: 18px;
+  }
+
+  &Light{
+    border-color: black;
+    background-color: wheat;
+  }
+  &Dark{
+    border-color: rgb(167, 167, 167);
+    color: white;
+    background-color: rgb(68, 68, 68);
+  }
+}
+
