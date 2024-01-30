@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import NewrRouter from './components/reactRouter';
+import FormikTest from './components/FormikTest';
 class App extends Component {
   render() {
     return (
       <>
-      <NewrRouter></NewrRouter>
-
+        <FormikTest />
       </>
     );
   }
