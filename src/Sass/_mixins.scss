@@ -1,0 +1,6 @@
+@mixin flex($direction: 'row', $gap: 10px) {
+  display: flex;
+  flex-direction: $direction;
+  gap: $gap;
+  align-items: center;
+}

@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
-import FormikTest from './components/FormikTest';
+import Header from './components/Header';
+import RegisterForm from './components/RegisterForm';
 class App extends Component {
   render() {
     return (
       <>
-        <FormikTest />
+        <Header />  
+        <RegisterForm/>        
       </>
     );
   }
