@@ -34,8 +34,8 @@ class RegisterForm extends Component {
         .max(20, 'Must be 20 characters or less')
         .required('Required'),
       email: yup.string().email().matches(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,4}$/, 'Invalid email address').required('Required'),
-      password: yup.string().required('Required'),
-      passwordCofirm: yup.string().required('Required'),
+      password: yup.string().min(8, 'password must be at least 8 characters').required('Required'),
+      passwordCofirm: yup.string().oneOf([yup.ref('password'), null], 'Passwords must match').required('Required'),
       dateOfBirth: yup.date().min(new Date('02.02.1800'), 'Not valid date').max(new Date('02.02.2006'), 'To create new account must be at least 18 years old').required('Required'),
     });
     const OnSubmit = (values) => {
