@@ -17,3 +17,5 @@ setState({ ...state, nowClicks: state.nowClicks + state.step });
 // краще розбити цей об'єкт на два useState
 let [nowClicks, setNowClicks] = useState(0);
 let [step, setStep] = useState( 1 );
+
+//об'єкти краще обробляти іншою штукою
