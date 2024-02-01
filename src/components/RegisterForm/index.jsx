@@ -11,7 +11,7 @@ class RegisterForm extends Component {
   render() {
     const defaultValues = {
       login: '',
-      name: '',
+      firstName: '',
       lastName: '',
       email: '',
       password: '',
@@ -101,8 +101,8 @@ class RegisterForm extends Component {
                     </label>
                     <ErrorMessage name="dateOfBirth" component="div" />
                   </div>
+                  <button type="submit">Register a new account</button>
                 </Form>
-                <button type="submit">Register a new account</button>
               </>
             )}
           </Formik>
