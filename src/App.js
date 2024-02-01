@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import FormikTest from './components/FormikTest';
+import Hooks from './components/Hooks';
 class App extends Component {
   render() {
     return (
       <>
-        <FormikTest />
+        <Hooks/>
       </>
     );
   }
