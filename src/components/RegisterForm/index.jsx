@@ -1,7 +1,8 @@
 import { Component } from 'react';
 import style from '../../Sass/register.module.scss';
 import * as yup from 'yup';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form } from 'formik';
+import FieldComponent from '../FieldComponent';
 class RegisterForm extends Component {
   constructor(props) {
     super(props);
@@ -32,13 +33,14 @@ class RegisterForm extends Component {
         .string()
         .max(20, 'Must be 20 characters or less')
         .required('Required'),
-      email: yup.string().email('Invalid email address').required('Required'),
+      email: yup.string().email().matches(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,4}$/, 'Invalid email address').required('Required'),
       password: yup.string().required('Required'),
       passwordCofirm: yup.string().required('Required'),
-      dateOfBirth: yup.date().required('Required'),
+      dateOfBirth: yup.date().min(new Date('02.02.1800'), 'Not valid date').max(new Date('02.02.2006'), 'To create new account must be at least 18 years old').required('Required'),
     });
     const OnSubmit = (values) => {
       console.log('yeeeeeeeeee');
+      console.log(new Date(18))
     };
     return (
       <div className={style.warper}>
@@ -52,56 +54,14 @@ class RegisterForm extends Component {
             {({ isSubmitting }) => (
               <>
                 <Form>
-                  <div>
-                    <label>
-                      Login
-                      <Field type="text" name="login" />
-                    </label>
-                    <ErrorMessage name="login" component="div" />
-                  </div>
-                  <div>
-                    <label>
-                      First name
-                      <Field type="text" name="firstName" />
-                    </label>
-                    <ErrorMessage name="firstName" component="div" />
-                  </div>
-                  <div>
-                    <label>
-                      Last name
-                      <Field type="text" name="lastName" />
-                    </label>
-                    <ErrorMessage name="lastName" component="div" />
-                  </div>
-                  <div>
-                    <label>
-                      Email
-                      <Field type="email" name="email" />
-                    </label>
-                    <ErrorMessage name="email" component="div" />
-                  </div>
-                  <div>
-                    <label>
-                      Password
-                      <Field type="password" name="password" />
-                    </label>
-                    <ErrorMessage name="password" component="div" />
-                  </div>
-                  <div>
-                    <label>
-                      Cofirm password
-                      <Field type="password" name="passwordCofirm" />
-                    </label>
-                    <ErrorMessage name="passwordCofirm" component="div" />
-                  </div>
-                  <div>
-                    <label>
-                      Date Of Birth
-                      <Field type="date" name="dateOfBirth" />
-                    </label>
-                    <ErrorMessage name="dateOfBirth" component="div" />
-                  </div>
-                  <button type="submit">Register a new account</button>
+                  <FieldComponent name={'login'}/>
+                  <FieldComponent name={'firstName'} label={'First name'}/>
+                  <FieldComponent name={'lastName'} label={'Last name'}/>
+                  <FieldComponent name={'email'}/>
+                  <FieldComponent name={'password'} type='password'/>
+                  <FieldComponent name={'passwordCofirm'} label={'Cofirm password'} type='password'/>
+                  <FieldComponent name={'dateOfBirth'} label={'Date Of Birth'} type='date'/>
+                  <button type="submit" className={style.button}>Register a new account</button>
                 </Form>
               </>
             )}

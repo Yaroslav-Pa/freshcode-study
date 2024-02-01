@@ -1,14 +1,14 @@
 @use 'mixins';
-@use "colors";
+@use 'colors';
 
-.warper{
+.warper {
   @include mixins.flex($direction: column);
   justify-content: center;
   align-items: center;
   height: calc(100vh - 92px);
 }
 
-.registerForm{
+.registerForm {
   @include mixins.flex($direction: column, $gap: 25px);
   border: 2px solid colors.$skyblue;
   background-color: colors.$skyblue;
@@ -16,14 +16,39 @@
   min-height: 300px;
   min-width: 300px;
   padding: 10px;
-  h1{
+  h1 {
     margin: 0;
   }
 }
-form{
+form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 5px;
-} 
+  gap: 10px;
+  label{
+    @include mixins.flex($direction: column, $gap: 3px);
+  }
+  div{
+    @include mixins.flex($direction: column, $gap: 2px);
+  }
+  p {
+    margin: 0;
+    font-size: 12px;
+  }
+}
+
+.error {
+  color: colors.$red;
+  font-weight: bold;
+}
+.button{
+  margin-top: 20px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 1px solid black;
+  transition: all .3s;
+  &:hover{
+    background: transparent;
+  }
+}
