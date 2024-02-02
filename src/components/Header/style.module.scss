@@ -1,4 +1,6 @@
-.newHeader{
+@use '../../scss/themes';
+
+.newHeader {
   min-width: 100px;
   width: 100%;
   padding: 10px;
@@ -8,16 +10,13 @@
   border-bottom: 2px solid black;
   justify-content: space-evenly;
   align-items: center;
-  h1{
+  h1 {
     font-size: 24px;
   }
-  &Light{
-    border-color: black;
-    background-color: wheat;
+  &Light {
+    @include themes.light;
   }
-  &Dark{
-    border-color: rgb(167, 167, 167);
-    color: white;
-    background-color: rgb(68, 68, 68);
+  &Dark {
+    @include themes.dark;
   }
 }

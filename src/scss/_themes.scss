@@ -1,0 +1,10 @@
+@mixin light(){
+  border-color: black;
+  background-color: wheat;
+}
+
+@mixin dark(){
+  border-color: rgb(167, 167, 167);
+  color: white;
+  background-color: rgb(68, 68, 68);
+}

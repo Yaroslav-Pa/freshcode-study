@@ -1,3 +1,5 @@
+@use '../../scss/themes';
+
 .todoCard{
   display: flex;
   flex-direction: row;
@@ -12,13 +14,10 @@
   }
 
   &Light{
-    border-color: black;
-    background-color: wheat;
+    @include themes.light;
   }
   &Dark{
-    border-color: rgb(167, 167, 167);
-    color: white;
-    background-color: rgb(68, 68, 68);
+    @include themes.dark;
   }
 }
 
