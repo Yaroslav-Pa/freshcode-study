@@ -33,7 +33,7 @@ const calculator = (sign, ...allNumbers) => {
 };
 
 const findMaxNumber = (array, ...allNumbers) => {
-  conArray = [...array, ...allNumbers]; //просто сподобались spread оператори)
+  const conArray = [...array, ...allNumbers]; //просто сподобались spread оператори)
   return Math.max(...conArray);
 };
 
