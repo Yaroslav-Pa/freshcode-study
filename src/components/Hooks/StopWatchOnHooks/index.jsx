@@ -4,6 +4,7 @@ import style from './stopWatch.module.css';
 
 function StopWatchHooks() {
   const [date, setDate] = useState(new Date(0, 0, 0, 0, 0, 0, 0));
+  const [isVisible, setIsVisible] = useState(true);
   const [timeId, setTimeId] = useState(null);
   const timeDate = format(date, 'HH:mm:ss:SS');
 
@@ -13,7 +14,7 @@ function StopWatchHooks() {
     }
   };
 
-  useEffect(startTimer, []);
+  useEffect(startTimer, []); //DidMount
 
   const recursion = () => {
     let newId = setTimeout(() => {
@@ -36,9 +37,23 @@ function StopWatchHooks() {
     setDate(new Date(0, 0, 0, 0, 0, 0, 0));
     stopTimer();
   };
+
+  useEffect(()=>clearTime, [isVisible]); //WllUnmount
+
   return (
     <div className={style.container}>
-      <section className={style.watchBlock}>
+      <label>
+        Visible
+        <input
+          type="checkbox"
+          name=""
+          checked={isVisible}
+          onChange={() => {
+            setIsVisible(!isVisible);
+          }}
+        />
+      </label>
+      {isVisible && <section className={style.watchBlock}>
         <div className={style.smallButtonContainer}>
           <button
             type="button"
@@ -63,7 +78,7 @@ function StopWatchHooks() {
             Stop
           </button>
         </div>
-      </section>
+      </section>}
     </div>
   );
 }
