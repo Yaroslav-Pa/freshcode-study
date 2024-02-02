@@ -54,3 +54,35 @@ useEffect(fun(){return a+b}, []);
 тож якщо при старті a=0 b=1 поверене 1, а має тепер бути 1, але ні, він цього не бачить, й бачить що а=0 все ще й так по кругу
 
 щоб це вилікувати потрібно у масив покласти a та b = useEffect(fun(){a+b},[a,b]);*/
+
+
+
+
+
+
+import { UserContext } from './contexts';
+<UserContext.Provider value={user}>
+  <Something></Something>
+  <Something2></Something2>
+  <Something3></Something3>
+</UserContext.Provider>
+
+
+const ContactsPage = () => {
+  // useContext приймає об'єкт контексту і повертає дані які у ньому знаходяться
+  // при зміні даних буде відбуватися ререндер автоматично
+  const user = useContext(UserContext);
+  return {
+    <p>{user}</p>
+  }
+}
+
+
+
+
+
+
+
+useCustome();
+// Користувацьким хуком є проста функція, що починається з use та може використовувати хуки у середені себе. 
+// *Ну й має повертати данні типу [data1, data2], але це не офіцал умова

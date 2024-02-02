@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import StopWatchHooks from './components/Hooks/StopWatchOnHooks';
 // import Hooks from './components/Hooks';
+import BlogLoader from './components/Hooks/CustomeHook/function';
 class App extends Component {
   render() {
     return (
       <>
-        {/* <Hooks/> */}
-        <StopWatchHooks/>
+        <BlogLoader/>
       </>
     );
   }
