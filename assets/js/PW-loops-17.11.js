@@ -92,13 +92,10 @@ const task2_d = () => {
 const task3 = (numbTo, numbOn) => {
   let answer = 1;
   for (let i = 0; i < Math.abs(numbOn); i++) { 
-    if (numbOn > 0){
-      answer *= numbTo;
-    }else{ //тут я не зрозумів що я робив, понаплутал усе що можна 
-      answer /= numbTo;
-    }
+    answer *= numbTo;
   }
-  return answer;
+  const result = numbOn > 0 ? answer : 1 / answer;
+  return result;
 };
 
 
