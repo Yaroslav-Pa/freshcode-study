@@ -12,17 +12,27 @@
 //   }
 // }
 
-function User(name, surname, isMan, numberOfMessages){
+function User(name, surname, isMan, numberOfMessages) {
   this.name = name;
   this.surname = surname;
   this.isMan = isMan;
   this.numberOfMessages = numberOfMessages;
-  this.printUser = function(){
-    console.log('Користувач '+this.name+' '+this.surname+' '+ (this.isMan? "чоловічої ": 'жіночої ')+'статі написав '+this.numberOfMessages+ ' повідомлень')
-  };
+  this.printUser = () =>
+    'Користувач ' +
+    this.name +
+    ' ' +
+    this.surname +
+    ' ' +
+    (this.isMan ? 'чоловічої ' : 'жіночої ') +
+    'статі написав ' +
+    this.numberOfMessages +
+    ' повідомлень';
+
   this.sendMessage = (text) => {
-    console.log('Користувач '+this.name+' '+this.surname+' написав "'+text+'"');
     this.numberOfMessages++;
+    return (
+      'Користувач ' + this.name + ' ' + this.surname + ' написав "' + text + '"'
+    );
   };
 }
 
