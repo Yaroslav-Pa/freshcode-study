@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import Cliker from './components/Cliker';
-import Todos from './components/ToDos';
+import ReducerTest from './components/HooksUpper';
 class App extends Component {
   render() {
     return (
       <>
-        <Cliker/>
-        <Todos/>
+        <ReducerTest/>
       </>
     );
   }
