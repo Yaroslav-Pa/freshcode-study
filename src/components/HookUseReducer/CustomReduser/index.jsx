@@ -80,7 +80,7 @@ export function useCustomReduser() {
     pushState({ type: 'variableValue', value: +value });
   };
 
-  const togglePositive = (isPositive) => {
+  const togglePositive = () => {
     pushState({
       type: 'togglePositive',
       value: {},
