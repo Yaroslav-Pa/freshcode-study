@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import ReducerTest from './components/HooksUpper';
+import ReducerHw from './components/HookUseReducer';
 class App extends Component {
   render() {
     return (
       <>
-        <ReducerTest/>
+        <ReducerHw/>
       </>
     );
   }
