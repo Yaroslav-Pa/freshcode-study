@@ -9,11 +9,10 @@ export function useCustomReduser() {
   };
 
   const [nowStateAll, pushState] = useReducer(redirectAllStates, initValues);
-  
 
-  
-  function redirectAllStates (state, action){
+  function redirectAllStates(state, action) {
     const { type, value } = action;
+    const { counter, variableValue, isPositive } = state;
     let newState = {};
     switch (type) {
       case 'coordinates': {
@@ -31,11 +30,9 @@ export function useCustomReduser() {
         return newState;
       }
       case 'counter': {
-        const {
-          value: { counter, adding, isPositive },
-        } = action;
-
-        const newCount = isPositive ? counter + adding : counter - adding;
+        const newCount = isPositive
+          ? counter + variableValue
+          : counter - variableValue;
 
         newState = {
           ...state,
@@ -46,14 +43,21 @@ export function useCustomReduser() {
       case 'togglePositive': {
         newState = {
           ...state,
-          isPositive: value,
+          isPositive: !isPositive,
+        };
+        return newState;
+      }
+      case 'drop':{
+        newState = {
+          ...state,
+          counter: initValues.counter,
         };
         return newState;
       }
       default:
         throw new RangeError('Wrong type of action was passed');
     }
-  };
+  }
 
   useEffect(() => {
     document.addEventListener('mousemove', mouseEvent);
@@ -64,28 +68,31 @@ export function useCustomReduser() {
 
   const mouseEvent = ({ clientX, clientY }) => {
     pushState({ type: 'coordinates', value: { x: clientX, y: clientY } });
-  };  
+  };
 
-  const counterDo = (counter, variableValue, isPositive) =>{
+  const counterDo = () => {
     pushState({
       type: 'counter',
-      value: {
-        counter,
-        adding: variableValue,
-        isPositive,
-      },
+      value: {},
     });
-  }
-  const selectDo = (value) =>{
+  };
+  const selectDo = (value) => {
     pushState({ type: 'variableValue', value: +value });
-  }
+  };
 
-  const togglePositive = (isPositive) =>{
+  const togglePositive = (isPositive) => {
     pushState({
       type: 'togglePositive',
-      value: !isPositive,
+      value: {},
     });
-  }
+  };
 
-  return [nowStateAll, counterDo, selectDo, togglePositive]
+  const dropCounter = () => {
+    pushState({
+      type: 'drop',
+      value: {},
+    });
+  };
+
+  return [nowStateAll, counterDo, selectDo, togglePositive, dropCounter];
 }

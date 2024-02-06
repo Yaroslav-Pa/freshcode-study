@@ -2,13 +2,14 @@ import './index.module.scss';
 import { useCustomReduser } from './CustomReduser';
 
 function ReducerHw() {
-  const [nowStateAll, counterDo, selectDo, togglePositive] = useCustomReduser();
+  const [nowStateAll, counterDo, selectDo, togglePositive, dropCounter] =
+    useCustomReduser();
   const { xy, counter, isPositive, variableValue } = nowStateAll;
 
   return (
     <div>
-      <article className='m-5 flex flex-col gap-2'>
-        <h1 className='font-bold'>Cool values</h1>
+      <article className="m-5 flex flex-col gap-2">
+        <h1 className="font-bold">Cool values</h1>
         <p>
           mouse coordinates: x:{xy.x}, y:{xy.y}
         </p>
@@ -26,20 +27,9 @@ function ReducerHw() {
           <option value={2}>2</option>
           <option value={3}>3</option>
         </select>
-        <button
-          onClick={() => {
-            counterDo(counter, variableValue, isPositive);
-          }}
-        >
-          Count {isPositive ? '+' : '-'}
-        </button>
-        <button
-          onClick={() => {
-            togglePositive(isPositive);
-          }}
-        >
-          Toggle add or remove
-        </button>
+        <button onClick={counterDo}>Count {isPositive ? '+' : '-'}</button>
+        <button onClick={togglePositive}>Toggle add or remove</button>
+        <button onClick={dropCounter}>Drop counter to start value</button>
       </div>
     </div>
   );
