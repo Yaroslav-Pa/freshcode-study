@@ -9,6 +9,9 @@ const [nowStateAll, pushState] = useReducer(redirectAllStates, initValues)
 2) (dispach у нього (pushState))
 3) (redirectAllStates))
 4) (inittialstate у нього (initValues))
+
+
+дуже уважно з redirectAllStates (state, action) стейт автоматично передається, а у action передається усе що було запхано через pushState({values:value}), це "усе" має бути в {}
 */
 
 const redirectAllStates = (state, action) =>{
