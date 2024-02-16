@@ -1,19 +1,34 @@
-const users = [{ id: 1 }, { id: 2 }];
+const User = require('../models/User')
 
-module.exports.getUsers = (request, response) => {
+
+module.exports.getUsers = async (request, response) => {
   console.log('users requested');
-
+  const users = await User.findAll();
   // response.end(JSON.stringify(users));
   response.send(users);
 }
+module.exports.findOne = async (request, response) => {
+  console.log('user requested');
+  const {id} = request.params;
+  const users = await User.findOne(+id);
+  response.send(users);
+}
+module.exports.deleteOne = async (request, response) => {
+  console.log('user delete');
+  const {id} = request.params;
+  const users = await User.delete(+id);
+  response.send(users);
+}
+module.exports.updateUser = async (req, res) => {
+  const {params: {userId}, body} = req;
 
-module.exports.createUser = (req, res, next) => {
-  const newUser = req.user;
+  const updatedUser = await User.update(+userId, body);
 
-  newUser.id = users.length;
-  newUser.createdAt = new Date();
+  res.send(updatedUser);
+}
 
-  users.push(newUser);
+module.exports.createUser = async (req, res, next) => {
+  const newUser = await User.create(req.user);
 
-  res.send(newUser);
+  res.send(users);
 }

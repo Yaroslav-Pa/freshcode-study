@@ -1,13 +1,20 @@
 const express = require('express');
 const { validateRegistrationMW } = require('./middlewares/user.mw');
-const { getUsers, createUser } = require('./controllers/userController');
+const { getUsers, createUser, findOne, deleteOne, updateUser } = require('./controllers/userController');
 
 // екземпляр експресівського серверу
 const app = express();
 
+// міддлвер для обробки JSON у запитах
+const bodyParserMiddleware = express.json();
+
 // app містить функції які відповідають всім методам HTTP запиту
 // ендпоінт (шлях, ручка) - певний шлях на сервері (/users) з певним HTTP методом
 app.get('/users', getUsers);
+app.get('/users/:id', findOne);
+app.delete('/users/:id', deleteOne);
+app.put('/users/:userId',bodyParserMiddleware, updateUser );
+app.post('/users', bodyParserMiddleware, validateRegistrationMW, createUser);
 
 app.get(
   '/test',
@@ -45,10 +52,8 @@ app.get(
 
 */
 
-// міддлвер для обробки JSON у запитах
-const bodyParserMiddleware = express.json();
 
-app.post('/users', bodyParserMiddleware, validateRegistrationMW, createUser);
+
 
 // будь-який GET запит
 app.get('*', (request, response) => {
