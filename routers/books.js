@@ -1,9 +1,21 @@
-const express = require('express')
-const router = express.Router()
+const express = require('express');
 
-router.use(express.json())
+const booksRouter = express.Router();
+const { validateBookCreateMW, validateBookUpdateMW } = require('../middlewares/book');
+const {
+  getBooks,
+  getOneBook,
+  createBook,
+  updateBook,
+  deleteBook,
+} = require('../controllers/booksController');
 
-router.get('/',)
-router.put('/:id',)
-router.post('/:id',)
-router.delete('/:id',)
+booksRouter.use(express.json());
+
+booksRouter.get('/', getBooks);
+booksRouter.get('/:id', getOneBook);
+booksRouter.post('/', validateBookCreateMW, createBook);
+booksRouter.put('/:id', validateBookUpdateMW, updateBook);
+booksRouter.delete('/:id', deleteBook);
+
+module.exports = booksRouter;
