@@ -1,8 +1,0 @@
-POST http://localhost:3000/users
-Content-Type: application/json
-
-{
-  "email": "",
-  "password": "12345admin",
-  "gender": "male"
-}
