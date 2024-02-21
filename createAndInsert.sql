@@ -3,7 +3,7 @@ CREATE TABLE books(
   name_of_book VARCHAR(300),
   author VARCHAR(300),
   descript VARCHAR(1000),
-  numb_of_page NUMERIC(15),
+  numb_of_page NUMERIC(5),
   cost NUMERIC(10,2),
   is_in_stock BOOLEAN
 );
