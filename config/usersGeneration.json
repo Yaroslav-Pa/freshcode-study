@@ -1,0 +1,11 @@
+{
+  "minBalance": 0,
+  "maxBalance": 5000,
+  "isFloatBalance": true,
+  "minHeight": 1.5,
+  "maxHeight": 2,
+  "minWeight": 1,
+  "maxWeight": 170,
+  "minComments": 0,
+  "maxComments": 100
+}
