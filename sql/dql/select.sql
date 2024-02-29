@@ -84,3 +84,5 @@ FROM users;
 -- GROUP BY = групувати за [полем]
 -- використовувати якщо потрібно вивести щось крім полів з агрегаторами
 SELECT MAX(height), is_male FROM users GROUP BY is_male;
+
+
