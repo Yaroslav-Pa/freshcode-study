@@ -1,0 +1,14 @@
+{
+  "minOrders": 1,
+  "maxOrders": 5,
+  "chanceToMakeOrder": 33,
+  "minProductsInOrder": 1,
+  "maxProductsInOrder": 10,
+  "minProductQuantity": 1,
+  "maxProductQuantity": 10,
+  "statuses": [
+    "accepted",
+    "processing",
+    "finished"
+  ]
+}

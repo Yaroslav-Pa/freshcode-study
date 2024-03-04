@@ -1,0 +1,14 @@
+{
+  "reviewChance": 25,
+  "minRating": 1,
+  "maxRating": 5,
+  "ratingThresholds": {
+    "maxNegative": 2.9,
+    "minPositive": 4
+  },
+  "descriptions": {
+    "positive": ["positive review", "very positive review", "nice review"],
+    "neutral": ["neutral review"],
+    "negative": ["negative review", "very negative review"]
+  }
+}

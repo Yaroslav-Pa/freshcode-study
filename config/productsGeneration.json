@@ -1,0 +1,44 @@
+{
+  "productAmount": 500,
+  "minPrice": 100,
+  "maxPrice": 69999,
+  "minQuantity": 1000,
+  "maxQuantity": 50000,
+  "names": [
+    "Product",
+    "Phone",
+    "Laptop",
+    "Book",
+    "Bike",
+    "Teapot",
+    "Superproduct"
+  ],
+  "descriptions": [
+    "Very original description",
+    "Bland description",
+    "Bla Bla Bla description",
+    "Lorem Ipsum description",
+    "This is product description",
+    "Padding for unique descriptions"
+  ],
+  "categories": [
+    "food",
+    "electronics",
+    "books",
+    "hobby",
+    "music",
+    "furniture",
+    "toys",
+    "other"
+  ],
+  "manufacturers": [
+    "Apple",
+    "Google",
+    "Rozetka",
+    "Some chineese firm",
+    "Samsung",
+    "Lorem Ipsumium",
+    "Original Company Name",
+    "NotFound LTD"
+  ]
+}
