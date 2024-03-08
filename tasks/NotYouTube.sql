@@ -11,10 +11,10 @@ DROP TABLE IF EXISTS access_list_to_users CASCADE;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
-  "name" VARCHAR(30) NOT NULL CHECK("name" != ''),
-  nickname VARCHAR(30) NOT NULL CHECK(nickname != ''),
-  email VARCHAR(40) NOT NULL CHECK(email != ''),
-  "password" VARCHAR(30) NOT NULL CHECK("password" != ''),
+  full_name VARCHAR(300) NOT NULL CHECK(full_name != ''),
+  nickname VARCHAR(30) NOT NULL UNIQUE CHECK(nickname != ''),
+  email VARCHAR(40) NOT NULL UNIQUE CHECK(email != ''),
+  "password" VARCHAR(30) NOT NULL CHECK("password" != '' AND length("password")>=8),
   birth_date DATE NOT NULL CHECK(birth_date > '1930-01-01' AND birth_date <= current_date )
 );
 
@@ -88,13 +88,13 @@ CREATE TABLE reactions_to_comments (
 
 
 
-INSERT INTO users (name,nickname,email,password,birth_date)
+INSERT INTO users (full_name,nickname,email,password,birth_date)
 VALUES
-  ('Ramona Mcpherson','Cameron Coleman','sed.est@google.couk',7205,'23-03-79'),
-  ('Charles Parsons','Howard Sherman','sed.nulla@google.org',7908,'02-03-81'),
-  ('Nicole Warner','Bernard Shepard','sagittis.lobortis@icloud.net',5336,'05-07-70'),
-  ('Zane Stuart','Knox Coffey','mollis.non@google.org',7142,'06-08-79'),
-  ('Rowan Hart','Craig Bush','dictum.ultricies@yahoo.net',7721,'26-01-74');
+  ('Ramona Mcpherson','Cameron Coleman','sed.est@google.couk',72072055,'23-03-79'),
+  ('Charles Parsons','Howard Sherman','sed.nulla@google.org',79072058,'02-03-81'),
+  ('Nicole Warner','Bernard Shepard','sagittis.lobortis@icloud.net',53372056,'05-07-70'),
+  ('Zane Stuart','Knox Coffey','mollis.non@google.org',71472052,'06-08-79'),
+  ('Rowan Hart','Craig Bush','dictum.ultricies@yahoo.net',77272051,'26-01-74');
 
 
 
