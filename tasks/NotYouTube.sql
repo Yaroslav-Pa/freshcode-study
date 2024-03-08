@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS comments CASCADE;
 DROP TABLE IF EXISTS reactions_to_comments CASCADE;
 DROP TABLE IF EXISTS reactions CASCADE;
+DROP TABLE IF EXISTS access_type CASCADE;
 DROP TABLE IF EXISTS reactions_to_video CASCADE;
 DROP TABLE IF EXISTS list CASCADE;
 DROP TABLE IF EXISTS video_to_list CASCADE;
@@ -34,10 +35,15 @@ CREATE TABLE access_list (
   "name" VARCHAR(30) NOT NULL DEFAULT 'List #'
 );
 
+CREATE TABLE access_type(
+  id SERIAL PRIMARY KEY,
+  "type_name" VARCHAR(50) NOT NULL CHECK("type_name" != '') 
+);
+
 CREATE TABLE list (
   id SERIAL PRIMARY KEY,
   creator_id INT NOT NULL REFERENCES users (id) ON DELETE CASCADE ON UPDATE CASCADE DEFERRABLE INITIALLY DEFERRED,
-  access_type VARCHAR(30) NOT NULL,
+  access_type_id INT NOT NULL REFERENCES access_type (id) ON DELETE CASCADE ON UPDATE CASCADE DEFERRABLE INITIALLY DEFERRED,
   access_list_id INT DEFAULT NULL REFERENCES access_list (id) ON DELETE CASCADE ON UPDATE CASCADE DEFERRABLE INITIALLY DEFERRED,
   "description" VARCHAR(300) NOT NULL DEFAULT 'No description'
 );
@@ -115,14 +121,20 @@ VALUES
   (3,'Proin dolor. Nulla'),
   (1,'ultrices a, auctor');
 
-
-INSERT INTO list (creator_id,access_type,access_list_id,description)
+INSERT INTO access_type (type_name)
 VALUES
-  (1,'aptent',3,'non magna. Nam ligula elit, pretium et, rutrum non, hendrerit id, ante. Nunc mauris sapien,'),
-  (3,'enim.',4,'lorem, vehicula et, rutrum eu, ultrices sit amet, risus. Donec nibh enim, gravida sit amet,'),
-  (1,'commodo',4,'aliquet diam. Sed diam lorem, auctor quis, tristique ac, eleifend vitae, erat. Vivamus nisi. Mauris'),
-  (3,'Mauris',3,'arcu iaculis enim, sit amet ornare lectus justo eu arcu. Morbi sit amet massa. Quisque'),
-  (1,'Vivamus',4,'Donec luctus aliquet odio. Etiam ligula tortor, dictum eu, placerat eget, venenatis a, magna. Lorem');
+  ('public'),
+  ('closed'),
+  ('private');
+
+
+INSERT INTO list (creator_id,access_type_id,access_list_id,description)
+VALUES
+  (1,3, NULL ,'non magna. Nam ligula elit, pretium et, rutrum non, hendrerit id, ante. Nunc mauris sapien,'),
+  (3,2,4,'lorem, vehicula et, rutrum eu, ultrices sit amet, risus. Donec nibh enim, gravida sit amet,'),
+  (1,2,4,'aliquet diam. Sed diam lorem, auctor quis, tristique ac, eleifend vitae, erat. Vivamus nisi. Mauris'),
+  (3,1,3,'arcu iaculis enim, sit amet ornare lectus justo eu arcu. Morbi sit amet massa. Quisque'),
+  (1,1,4,'Donec luctus aliquet odio. Etiam ligula tortor, dictum eu, placerat eget, venenatis a, magna. Lorem');
 
 INSERT INTO reactions (creator_id,isLike)
 VALUES
