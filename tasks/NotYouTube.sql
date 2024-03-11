@@ -25,8 +25,8 @@ CREATE TABLE video (
   "name" VARCHAR(30) NOT NULL CHECK("name" != ''),
   "description" VARCHAR(300) NOT NULL DEFAULT 'No description',
   upload_date DATE NOT NULL DEFAULT current_date,
-  likes NUMERIC(7) NOT NULL DEFAULT 0 CHECK (likes >= 0),
-  dislikes NUMERIC(7) NOT NULL DEFAULT 0 CHECK (dislikes >= 0)
+  -- likes NUMERIC(7) NOT NULL DEFAULT 0 CHECK (likes >= 0),
+  -- dislikes NUMERIC(7) NOT NULL DEFAULT 0 CHECK (dislikes >= 0)
 );
 
 CREATE TABLE access_list (
@@ -58,8 +58,8 @@ CREATE TABLE comments(
   creator_id INT NOT NULL REFERENCES users (id) ON DELETE CASCADE ON UPDATE CASCADE DEFERRABLE INITIALLY DEFERRED,
   video_id INT NOT NULL REFERENCES video (id) ON DELETE CASCADE ON UPDATE CASCADE DEFERRABLE INITIALLY DEFERRED,
   "text" VARCHAR(800) NOT NULL CHECK("text" != ''),
-  likes NUMERIC(7) NOT NULL DEFAULT 0 CHECK (likes >= 0),
-  dislikes NUMERIC(7) NOT NULL DEFAULT 0 CHECK (dislikes >= 0)
+  -- likes NUMERIC(7) NOT NULL DEFAULT 0 CHECK (likes >= 0),
+  -- dislikes NUMERIC(7) NOT NULL DEFAULT 0 CHECK (dislikes >= 0)
 );
 
 
