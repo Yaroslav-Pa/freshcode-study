@@ -50,7 +50,6 @@ CREATE TABLE list (
 
 CREATE TABLE reactions(
   id SERIAL PRIMARY KEY,
-  creator_id INT NOT NULL REFERENCES users (id) ON DELETE CASCADE ON UPDATE CASCADE DEFERRABLE INITIALLY DEFERRED,
   isLike BOOLEAN NOT NULL
 );
 
@@ -79,14 +78,16 @@ CREATE TABLE video_to_list (
 
 CREATE TABLE reactions_to_video (
   video_id INT NOT NULL REFERENCES video (id),
+  creator_id INT NOT NULL REFERENCES users (id) ON DELETE CASCADE ON UPDATE CASCADE DEFERRABLE INITIALLY DEFERRED,
   reactions_id INT NOT NULL REFERENCES reactions (id),
-  PRIMARY KEY (video_id, reactions_id)
+  PRIMARY KEY (video_id, creator_id)
 );
 
 CREATE TABLE reactions_to_comments (
-  reactions_id INT NOT NULL REFERENCES reactions (id),
   comments_id INT NOT NULL REFERENCES comments (id),
-  PRIMARY KEY (reactions_id, comments_id)
+  creator_id INT NOT NULL REFERENCES users (id) ON DELETE CASCADE ON UPDATE CASCADE DEFERRABLE INITIALLY DEFERRED,
+  reactions_id INT NOT NULL REFERENCES reactions (id),
+  PRIMARY KEY (comments_id, creator_id)
 );
 
 
@@ -136,13 +137,13 @@ VALUES
   (3,1,3,'arcu iaculis enim, sit amet ornare lectus justo eu arcu. Morbi sit amet massa. Quisque'),
   (1,1,4,'Donec luctus aliquet odio. Etiam ligula tortor, dictum eu, placerat eget, venenatis a, magna. Lorem');
 
-INSERT INTO reactions (creator_id,isLike)
+INSERT INTO reactions (isLike)
 VALUES
-  (5,'True'),
-  (5,'True'),
-  (5,'True'),
-  (2,'False'),
-  (2,'True');
+  ('True'),
+  ('True'),
+  ('True'),
+  ('False'),
+  ('True');
 
 
 INSERT INTO comments (creator_id,video_id,text)
@@ -173,19 +174,19 @@ VALUES
   (3,3);
 
 
-INSERT INTO reactions_to_video (video_id,reactions_id)
+INSERT INTO reactions_to_video (video_id,creator_id,reactions_id)
 VALUES
-  (4,4),
-  (3,3),
-  (2,1),
-  (4,1),
-  (2,2);
+  (4,1,4),
+  (3,2,3),
+  (2,3,1),
+  (4,4,1),
+  (2,2,2);
 
 
-INSERT INTO reactions_to_comments (reactions_id,comments_id)
+INSERT INTO reactions_to_comments (comments_id,creator_id,reactions_id)
 VALUES
-  (5,3),
-  (5,4),
-  (2,5),
-  (4,1),
-  (4,4);
+  (5,2,3),
+  (5,1,4),
+  (2,1,5),
+  (4,4,1),
+  (4,3,4);
