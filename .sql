@@ -1,0 +1,1 @@
+drop table video_to_list cascade

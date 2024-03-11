@@ -1,0 +1,2 @@
+Створення моделі:
+npx sequelize model:generate --name User --attributes firstName:string,lastName:string,email:string,password:text,isMale:boolean,birthday:dateonly,balance:decimal
