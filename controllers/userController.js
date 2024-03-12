@@ -16,7 +16,7 @@ module.exports.createUser = async (req, res, next) => {
       ]);
     */
 
-    res.send(user);
+    res.send({ data: user });
   } catch (error) {
     next(error);
   }
@@ -52,7 +52,7 @@ module.exports.getUser = async (req, res, next) => {
     //   }
     // });
 
-    res.send(user);
+    res.send({ data: user });
   } catch (error) {
     next(error);
   }
@@ -60,18 +60,23 @@ module.exports.getUser = async (req, res, next) => {
 
 module.exports.getUsers = async (req, res, next) => {
   try {
-    // отримання параментрів запиту(=query) (все після ?)
+    // параметри запиту урли (все після ?) знаходяться у query
     const {
-      pagination: { limit, offset }, pagination
+      pagination: { limit, offset },
+      pagination,
     } = req;
+
     /*
       SELECT * FROM users;
     */
-    const users = await User.findAll({ ...pagination});
+    // const users = await User.findAll();
 
     /*
-    
+      SELECT * FROM users LIMIT x OFFSET y;
     */
+    const users = await User.findAll({
+      ...pagination,
+    });
 
     /*
       SELECT firstName, lastName, email, balance FROM users;
@@ -119,7 +124,7 @@ module.exports.getUsers = async (req, res, next) => {
     //   },
     // });
 
-    res.send(users);
+    res.send({ data: users });
   } catch (error) {
     next(error);
   }
@@ -147,12 +152,14 @@ module.exports.updateUser = async (req, res, next) => {
     //   // returning: ['firstName', 'lastName']
     // });
 
-    // v2 через екземпляр + -2 запити
+    // v2 через екземпляр
     const user = await User.findByPk(userId);
 
-    const updatedUser = await user.update(body, { returning: true });
+    const updatedUser = await user.update(body, {
+      returning: true,
+    });
 
-    res.send(updatedUser);
+    res.send({ data: updatedUser });
   } catch (error) {
     next(error);
   }
@@ -164,25 +171,26 @@ module.exports.deleteUser = async (req, res, next) => {
       params: { userId },
     } = req;
 
+    /*
+      DELETE FROM users WHERE id = userId;
+    */
     // v1 видалення через модель
-    //
-    // /*
-    //   DELETE FROM users WHERE id = userId;
-    // */
     // await User.destroy({
     //   where: {
     //     id: userId,
     //   },
     // });
 
-    // v2
+    // v2 видалення конкретного екземпляру
     const deletedUser = await User.findByPk(userId);
+
     if (!deletedUser) {
       throw new Error('User not found');
     }
+
     await deletedUser.destroy();
 
-    res.send('user deleted');
+    res.send({ data: deletedUser });
   } catch (error) {
     next(error);
   }
