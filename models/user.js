@@ -1,6 +1,6 @@
 'use strict';
 const { Model } = require('sequelize');
-import { isAfter, addYears } from "date-fns";
+const { isAfter, addYears } = require( "date-fns");
 
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
