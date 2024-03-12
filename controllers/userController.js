@@ -37,9 +37,9 @@ module.exports.getUser = async (req, res, next) => {
 
     // пошук 1 запису по первинному ключу
     const user = await User.findByPk(userId, {
-        attributes : {
-        exclude: ['password']
-      }
+      attributes: {
+        exclude: ['password'],
+      },
     });
 
     // пошук 1 запису якій проходить перевірку
@@ -60,10 +60,14 @@ module.exports.getUser = async (req, res, next) => {
 
 module.exports.getUsers = async (req, res, next) => {
   try {
+    // отримання параментрів запиту(=query) (все після ?)
+    const {
+      pagination: { limit, offset }, pagination
+    } = req;
     /*
       SELECT * FROM users;
     */
-    const users = await User.findAll();
+    const users = await User.findAll({ ...pagination});
 
     /*
     
@@ -133,15 +137,20 @@ module.exports.updateUser = async (req, res, next) => {
     */
 
     // v1 через модель
-    const [updatedRows, [updatedUser]] = await User.update(body, {
-      where: {
-        id: userId,
-      },
-      // RETURNING *
-      returning: true,
-      // RETURNING first_name, last_name
-      // returning: ['firstName', 'lastName']
-    });
+    // const [updatedRows, [updatedUser]] = await User.update(body, {
+    //   where: {
+    //     id: userId,
+    //   },
+    //   // RETURNING *
+    //   returning: true,
+    //   // RETURNING first_name, last_name
+    //   // returning: ['firstName', 'lastName']
+    // });
+
+    // v2 через екземпляр + -2 запити
+    const user = await User.findByPk(userId);
+
+    const updatedUser = await user.update(body, { returning: true });
 
     res.send(updatedUser);
   } catch (error) {
@@ -155,14 +164,23 @@ module.exports.deleteUser = async (req, res, next) => {
       params: { userId },
     } = req;
 
-    /*
-      DELETE FROM users WHERE id = userId;
-    */
-    await User.destroy({
-      where: {
-        id: userId,
-      },
-    });
+    // v1 видалення через модель
+    //
+    // /*
+    //   DELETE FROM users WHERE id = userId;
+    // */
+    // await User.destroy({
+    //   where: {
+    //     id: userId,
+    //   },
+    // });
+
+    // v2
+    const deletedUser = await User.findByPk(userId);
+    if (!deletedUser) {
+      throw new Error('User not found');
+    }
+    await deletedUser.destroy();
 
     res.send('user deleted');
   } catch (error) {
