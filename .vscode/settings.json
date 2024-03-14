@@ -9,6 +9,15 @@
       "database": "mylessons",
       "username": "postgres",
       "password": "1"
+    },
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "pfe-2023-1-sequelize",
+      "database": "pfe-2023-1-sequelize",
+      "username": "postgres"
     }
   ]
 }

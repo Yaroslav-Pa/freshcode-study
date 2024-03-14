@@ -1,6 +1,6 @@
 'use strict';
 const { Model } = require('sequelize');
-const { isAfter, addYears } = require( "date-fns");
+const { isAfter, addYears } = require('date-fns');
 
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
@@ -13,9 +13,17 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
 
       User.hasMany(models.Todo, {
-        foreignKey : 'userId',
+        foreignKey: 'userId',
         onDelete: 'CASCADE',
-        onUpdate: 'CASCADE'
+        onUpdate: 'CASCADE',
+      });
+      User.belongsToMany(models.Chat, {
+        //назва зв'язувальної таблиці
+        through: 'users_to_chats',
+        //атрибут з зв'язувальної таблиці
+        foreignKey: 'userId',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
       });
     }
   }
@@ -31,8 +39,8 @@ module.exports = (sequelize, DataTypes) => {
         // вілідація моделлю поля
         validate: {
           notEmpty: true,
-          notNull: true
-        }
+          notNull: true,
+        },
       },
       lastName: {
         type: DataTypes.STRING(128),
@@ -40,8 +48,8 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         validate: {
           notEmpty: true,
-          notNull: true
-        }
+          notNull: true,
+        },
       },
       email: {
         type: DataTypes.STRING,
@@ -50,16 +58,16 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           notNull: true,
           notEmpty: true,
-          isEmail: true
-        }
+          isEmail: true,
+        },
       },
       password: {
         type: DataTypes.TEXT,
         allowNull: false,
         validate: {
           notEmpty: true,
-          notNull: true
-        }
+          notNull: true,
+        },
       },
       isMale: {
         type: DataTypes.BOOLEAN,
@@ -69,12 +77,12 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.DATEONLY,
         validate: {
           isDate: true,
-          isValidDate (value) {
-            if(isAfter(new Date(value), addYears(new Date(), -18))) {
-              throw new Error('Invalid birthday. User must be adult')
+          isValidDate(value) {
+            if (isAfter(new Date(value), addYears(new Date(), -18))) {
+              throw new Error('Invalid birthday. User must be adult');
             }
-          }
-        }
+          },
+        },
       },
       balance: {
         type: DataTypes.DECIMAL(9, 2),
@@ -83,8 +91,8 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           notNull: true,
           isNumeric: true,
-          min: 0
-        }
+          min: 0,
+        },
       },
     },
     // налаштування
