@@ -4,9 +4,9 @@ module.exports.createOrder = async (req, res, next) => {
   try {
     const {
       body,
-      params: { id },
+      params: { userId },
     } = req;
-    const user = await User.findByPk(id);
+    const user = await User.findByPk(userId);
     const order = await user.createOrder(body);
     res.send({ data: order });
   } catch (error) {next(error);}

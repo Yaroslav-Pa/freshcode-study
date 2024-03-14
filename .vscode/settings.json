@@ -9,6 +9,15 @@
       "database": "mylessons",
       "username": "postgres",
       "password": "1"
+    },
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "database": "user-order",
+      "username": "postgres",
+      "name": "user-order"
     }
   ]
 }

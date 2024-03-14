@@ -23,6 +23,22 @@ module.exports.createTodo = async (req, res, next) => {
 
 module.exports.getTodos = async (req, res, next) => {
   try {
+
+    const {
+      params: { userId },
+    } = req;
+
+    // без магічних методів
+    // const todos = await Todo.findAll({
+    //   where:{
+    //     userId
+    //   }
+    // })
+
+    const user = await User.findByPk(userId);
+    const todos = await user.getTodos()
+    
+    res.send({data: todos})
   } catch (error) {
     next(error);
   }
