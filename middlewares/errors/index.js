@@ -1,9 +1,6 @@
 module.exports = async (err, req, res, next) => {
-  req.send({
-    errors: [
-      {
-        message: err.message,
-      },
-    ],
-  });
-};
+
+  res.send({ errors : [{
+    message: err.message
+  }]});
+}

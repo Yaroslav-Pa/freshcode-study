@@ -1,0 +1,7 @@
+POST http://localhost:5000/users/1/todos
+Content-Type: application/json
+
+{
+  "description": "Magic todo",
+  "deadline": "2024-03-13"
+}
