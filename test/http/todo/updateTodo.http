@@ -1,0 +1,6 @@
+PUT http://localhost:5000/users/1/todos/1
+Content-Type: application/json
+
+{
+  "isDone": true
+}

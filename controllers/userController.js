@@ -16,7 +16,7 @@ module.exports.createUser = async (req, res, next) => {
       ]);
     */
 
-    res.send({ data: user });
+    res.status(201).send({ data: user });
   } catch (error) {
     next(error);
   }
@@ -50,7 +50,7 @@ module.exports.getUser = async (req, res, next) => {
     //   }
     // });
 
-    res.send({ data: user });
+    res.status(200).send({ data: user });
   } catch (error) {
     next(error);
   }
@@ -63,7 +63,6 @@ module.exports.getUsers = async (req, res, next) => {
       pagination: { limit, offset },
       pagination,
     } = req;
-    
 
     /*
       SELECT * FROM users;
@@ -123,7 +122,7 @@ module.exports.getUsers = async (req, res, next) => {
     //   },
     // });
 
-    res.send({ data: users });
+    res.status(200).send({ data: users });
   } catch (error) {
     next(error);
   }
@@ -132,6 +131,7 @@ module.exports.getUsers = async (req, res, next) => {
 module.exports.updateUser = async (req, res, next) => {
   try {
     const { body, user } = req;
+
     /*
       UPDATE users SET last_name = 'iusdfkhdsfbdsh' WHERE id = 1;
     */
@@ -154,7 +154,7 @@ module.exports.updateUser = async (req, res, next) => {
       returning: true,
     });
 
-    res.send({ data: updatedUser });
+    res.status(200).send({ data: updatedUser });
   } catch (error) {
     next(error);
   }
@@ -183,7 +183,7 @@ module.exports.deleteUser = async (req, res, next) => {
 
     await user.destroy();
 
-    res.send({ data: user });
+    res.status(200).send({ data: user });
   } catch (error) {
     next(error);
   }

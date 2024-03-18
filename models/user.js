@@ -17,10 +17,9 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
       });
+
       User.belongsToMany(models.Chat, {
-        //назва зв'язувальної таблиці
         through: 'users_to_chats',
-        //атрибут з зв'язувальної таблиці
         foreignKey: 'userId',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',

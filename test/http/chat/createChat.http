@@ -1,0 +1,8 @@
+POST http://localhost:5000/chats
+Content-Type: application/json
+
+{
+  "name": "Chat with user",
+  "description": "Lorem Ipsum",
+  "userId": 1
+}

@@ -1,7 +1,7 @@
 const userRouter = require('express').Router();
 const UserController = require('../controllers/userController');
 const paginationMW = require('../middlewares/pagination');
-const { findUser } = require('../middlewares/userMW');
+const { findUser } = require('../middlewares/usersMW');
 const todoRouter = require('./todoRouter');
 
 userRouter.post('/', UserController.createUser);

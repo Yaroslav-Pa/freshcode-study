@@ -9,10 +9,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate({ User }) {
       // define association here
+      
       Chat.belongsToMany(User, {
-        //назва зв'язувальної таблиці
+        // назва зв'язувальної таблиці
         through: 'users_to_chats',
-        //атрибут з зв'язувальної таблиці
+        // атрибут з ключа зв'зувальної таблиці, пов'язаний з цією моделлю
         foreignKey: 'chatId',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
@@ -24,14 +25,19 @@ module.exports = (sequelize, DataTypes) => {
       name: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: { notEmpty: true, notNull: true },
+        validate: {
+          notEmpty: true,
+          notNull: true,
+        },
       },
       description: {
         type: DataTypes.TEXT,
-        validate: { notEmpty: true },
+        validate: {
+          notEmpty: true,
+        },
       },
       imagePath: {
-        type: DataTypes.TEXT,
+        type: DataTypes.STRING,
         field: 'image_path',
       },
     },

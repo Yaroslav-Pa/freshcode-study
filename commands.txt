@@ -1,2 +1,8 @@
 Створення моделі:
 npx sequelize model:generate --name User --attributes firstName:string,lastName:string,email:string,password:text,isMale:boolean,birthday:dateonly,balance:decimal
+
+Додавання прав запуску файлу:
+chmod a+x ./start.sh
+
+Запуск файлу з консолі:
+./start.sh
