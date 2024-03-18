@@ -1,6 +1,0 @@
-PUT http://localhost:5000/users/1
-Content-Type: application/json
-
-{
-  "lastName": "TESTING"
-}

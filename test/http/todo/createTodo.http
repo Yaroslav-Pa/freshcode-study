@@ -1,7 +1,0 @@
-POST http://localhost:5000/users/6/todos
-Content-Type: application/json
-
-{
-  "description": "Other user todo",
-  "deadline": "2024-03-13"
-}
