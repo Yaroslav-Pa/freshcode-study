@@ -2,9 +2,11 @@
   "development": {
     "username": "postgres",
     "password": "1",
-    "database": "pfe-2023-1-sequelize",
+    "database": "Superhumans",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "migrationStorage":"json",
+    "seederStorage":"json"
   },
   "test": {},
   "production": {}

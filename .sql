@@ -1,1 +1,0 @@
-CREATE DATABASE "pfe-2023-1-sequelize"
