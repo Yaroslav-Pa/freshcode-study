@@ -1,4 +1,4 @@
-const { Chat, User } = require('../models');
+const { Chat, User } = require('../db/models');
 const { createChat } = require('../services/chat.service');
 
 module.exports.createChat = async (req, res, next) => {

@@ -1,0 +1,11 @@
+// модуль ноди пов'язаний зі шляхами у файловій системі
+const path = require('path');
+
+module.exports = {
+  // збирає рядки в абсолютний шлях
+  // ~/Documents/fc/2023/PFE-2023-1/lessons/pfe-2023-1-sequelize/config/database.json
+  'config': path.resolve(__dirname ,'configs', 'db.json'),
+  'models-path': path.resolve('db', 'models'),
+  'seeders-path': path.resolve('db', 'seeders'),
+  'migrations-path': path.resolve('db', 'migrations')
+};

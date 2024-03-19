@@ -1,5 +1,5 @@
 const createError  = require('http-errors');
-const { User } = require('../models');
+const { User } = require('../db/models');
 
 module.exports.findUser = async (req, res, next) => {
   try {
