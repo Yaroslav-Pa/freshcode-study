@@ -188,3 +188,13 @@ module.exports.deleteUser = async (req, res, next) => {
     next(error);
   }
 };
+
+module.exports.addPicture = async (req, res, next) => {
+  try {
+    const { body, user } = req;
+
+    res.status(200).send({ data: body });
+  } catch (error) {
+    next(error);
+  }
+};

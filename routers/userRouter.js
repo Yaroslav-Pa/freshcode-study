@@ -11,6 +11,7 @@ userRouter.get('/:userId', findUser, UserController.getUser);
 userRouter.put('/:userId', findUser, UserController.updateUser);
 userRouter.delete('/:userId', findUser, UserController.deleteUser);
 
+userRouter.post('/:userId/pictures', findUser, UserController.addPicture);
 userRouter.use('/:userId/todos', findUser, todoRouter);
 
 module.exports = userRouter;
