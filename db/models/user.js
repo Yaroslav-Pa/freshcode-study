@@ -93,6 +93,13 @@ module.exports = (sequelize, DataTypes) => {
           min: 0,
         },
       },
+      picturePath: {
+        type: DataTypes.TEXT,
+        field: 'picture_path',
+        validate: {
+          notEmpty: true,
+        },
+      },
     },
     // налаштування
     {
