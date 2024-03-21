@@ -191,9 +191,28 @@ module.exports.deleteUser = async (req, res, next) => {
 
 module.exports.addPicture = async (req, res, next) => {
   try {
-    const { body, user } = req;
+    const { body, user, file } = req;
 
-    res.status(200).send({ data: body });
+    /*
+    
+      "file": {
+            "fieldname": "picture",
+            "originalname": "cat.webp",
+            "encoding": "7bit",
+            "mimetype": "image/webp",
+            "destination": "/home/work/Documents/fc/2023/PFE-2023-1/lessons/pfe-2023-1-sequelize/public/images",
+            "filename": "1710873878656-cat.webp",
+            "path": "/home/work/Documents/fc/2023/PFE-2023-1/lessons/pfe-2023-1-sequelize/public/images/1710873878656-cat.webp",
+            "size": 592494
+        }
+    */
+
+    const updatedUser = await user.update(
+      { picturePath: file.filename },
+      { returning: true }
+    );
+
+    res.status(200).send({ data: updatedUser });
   } catch (error) {
     next(error);
   }

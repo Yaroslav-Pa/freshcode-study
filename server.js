@@ -6,6 +6,7 @@ const config = require('./configs/server.json');
 const app = express();
 
 app.use(express.json());
+app.use(express.static('public'));
 app.use(router);
 
 app.use(basicErrorHandler);
@@ -13,6 +14,6 @@ app.use(basicErrorHandler);
 const PORT = config.PORT;
 const HOST = config.HOST;
 
-app.listen(PORT, HOST, () => {
-  console.log(`Server started on port ${HOST}:${PORT}`);
+app.listen(PORT,HOST,  () => {
+  console.log(`Server started on ${HOST}:${PORT}`);
 });
