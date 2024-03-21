@@ -18,6 +18,15 @@
       "name": "pfe-2023-1-sequelize",
       "database": "pfe-2023-1-sequelize",
       "username": "postgres"
+    },
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "Superhumans",
+      "database": "Superhumans",
+      "username": "postgres"
     }
   ]
 }
