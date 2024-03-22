@@ -16,14 +16,14 @@ module.exports = {
       {
         image_Id: 1,
         superhuman_Id: 1,
-        update_at: new Date(),
-        create_at: new Date(),
+        updated_at: new Date(),
+        created_at: new Date(),
       },
       {
         image_Id: 2,
         superhuman_Id: 2,
-        update_at: new Date(),
-        create_at: new Date(),
+        updated_at: new Date(),
+        created_at: new Date(),
       },
     ]);
   },

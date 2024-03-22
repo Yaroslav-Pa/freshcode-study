@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       powerName: {
         type: DataTypes.STRING(128),
         field: 'power_name',
+        allowNull:false,
         validate: {
           notEmpty: true,
           notNull: true,
@@ -31,6 +32,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
+      underscored: true,
       tableName: 'superpowers',
       modelName: 'Superpower',
     }

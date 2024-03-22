@@ -21,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       imageSrc: {
         field: 'image_src',
+        allowNull:false,
         validate: {
           notEmpty: true,
           notNull: true,
@@ -30,6 +31,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
+      underscored: true,
       tableName: 'images',
       modelName: 'Image',
     }

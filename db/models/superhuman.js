@@ -47,6 +47,7 @@ module.exports = (sequelize, DataTypes) => {
       catchPhrase: {
         type: DataTypes.STRING(128),
         field: 'catch_phrase',
+        allowNull:false,
         validate: {
           notEmpty: true,
           notNull: true,
@@ -55,6 +56,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
+      underscored: true,
       tableName: 'superhumans',
       modelName: 'Superhuman',
     }
