@@ -42,7 +42,6 @@ module.exports = (sequelize, DataTypes) => {
         field: 'origin_story',
         validate: {
           notEmpty: true,
-          notNull: true,
         },
       },
       catchPhrase: {

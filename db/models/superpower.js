@@ -26,7 +26,6 @@ module.exports = (sequelize, DataTypes) => {
         field: 'power_description',
         validate: {
           notEmpty: true,
-          notNull: true,
         },
       },
     },

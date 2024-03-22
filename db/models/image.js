@@ -1,7 +1,5 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Image extends Model {
     /**
@@ -13,18 +11,28 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Image.belongsToMany(models.Superhuman, {
         through: 'superhumans_to_images',
-        foreignKey:'imageId',
+        foreignKey: 'imageId',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
       });
     }
   }
-  Image.init({
-    imageSrc: DataTypes.STRING
-  }, {
-    sequelize,
-    tableName:"images",
-    modelName: 'Image',
-  });
+  Image.init(
+    {
+      imageSrc: {
+        field: 'image_src',
+        validate: {
+          notEmpty: true,
+          notNull: true,
+        },
+        type: DataTypes.STRING,
+      },
+    },
+    {
+      sequelize,
+      tableName: 'images',
+      modelName: 'Image',
+    }
+  );
   return Image;
 };
