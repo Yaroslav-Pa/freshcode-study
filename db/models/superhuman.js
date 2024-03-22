@@ -9,6 +9,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Superhuman.hasMany(models.Superpower, {
+        foreignKey: 'superhumanId',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+      });
       Superhuman.belongsToMany(models.Image, {
         through: 'superhumans_to_images',
         foreignKey: 'superhumanId',
@@ -47,7 +52,7 @@ module.exports = (sequelize, DataTypes) => {
       catchPhrase: {
         type: DataTypes.STRING(128),
         field: 'catch_phrase',
-        allowNull:false,
+        allowNull: false,
         validate: {
           notEmpty: true,
           notNull: true,

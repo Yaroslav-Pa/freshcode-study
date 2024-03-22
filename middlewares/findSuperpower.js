@@ -6,6 +6,7 @@ module.exports.findSuperpowerMW = async (req, res, next) => {
     const {
       params: { superpowerId },
     } = req;
+
     const superpower = await Superpower.findByPk(superpowerId);
 
     if (!superpower) {

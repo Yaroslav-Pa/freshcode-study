@@ -1,16 +1,12 @@
 const express = require('express');
-const router = require('./routers');
-// const basicErrorHandler = require('./middlewares/errors');
+const http = require('http');
+const app = require('./app')
 
-const app = express();
+const server = http.createServer(app);
 
-app.use(express.json());
-app.use(router);
-
-// app.use(basicErrorHandler);
 
 const PORT = 5000;
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
 });
