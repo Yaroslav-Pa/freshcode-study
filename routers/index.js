@@ -1,6 +1,8 @@
-const superRouter = require('./superhumans');
+const superhumanRouter = require('./superhumans');
+const superpowerRouter = require('./superpowers');
 const router = require('express').Router();
 
-router.use('/superhumans', superRouter);
+router.use('/superhumans', superhumanRouter);
+router.use('/superpowers', superpowerRouter);
 
 module.exports = router;
