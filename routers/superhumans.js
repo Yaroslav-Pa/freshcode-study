@@ -26,7 +26,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 superhumanRouter.get('/', SuperhumansController.getSuperhumans);
-superhumanRouter.put('/', SuperhumansController.createSuperhuman);
+superhumanRouter.put('/', upload.single('picture'), SuperhumansController.createSuperhuman);
 superhumanRouter.get(
   '/:superhumanId',
   findSuperhumanMW,

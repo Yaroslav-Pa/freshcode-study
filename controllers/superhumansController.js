@@ -31,9 +31,31 @@ module.exports.getSuperhuman = async (req, res, next) => {
 
 module.exports.createSuperhuman = async (req, res, next) => {
   try {
-    const { body } = req;
-    const superhuman = await Superhuman.create(body);
-    res.status(201).send({ data: superhuman });
+    const {
+      body: { powerName, powerDescription, ...superhumanData },
+      file,
+    } = req;
+    const superhuman = await Superhuman.create(superhumanData);
+    let superpower, image;
+    if (powerName || powerDescription) {
+      superpower = await superhuman.createSuperpower({
+        powerName,
+        powerDescription,
+      });
+    }
+    if (file) {
+      image = await superhuman.createImage({
+        imageSrc: file.filename,
+      });
+    }
+
+    const newSuperhuman = {
+      ...superhumanData,
+      Superpowers:superpower,
+      Images:image,
+    };
+
+    res.status(201).send({ data: newSuperhuman });
   } catch (error) {
     next(error);
   }
