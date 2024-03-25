@@ -1,14 +1,16 @@
-const { Superhuman } = require('../db/models');
-const createError  = require('http-errors');
+const { Superhuman, Superpower, Image } = require('../db/models');
+const createError = require('http-errors');
 
 module.exports.findSuperhumanMW = async (req, res, next) => {
   try {
     const {
       params: { superhumanId },
     } = req;
-    const superhuman = await Superhuman.findByPk(superhumanId);
-    
-    if(!superhuman) {
+    const superhuman = await Superhuman.findByPk(superhumanId, {
+      include: [Superpower, Image],
+    });
+
+    if (!superhuman) {
       const error = createError(404, 'Superhuman not found');
       throw error;
     }

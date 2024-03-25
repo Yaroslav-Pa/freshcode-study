@@ -12,7 +12,7 @@ module.exports = {
     await queryInterface.createTable('superhumans_to_images', {
       superhumanId: {
         type: Sequelize.INTEGER,
-        field: 'superhuman_Id',
+        field: 'superhuman_id',
         allowNull: false,
         references: {
           model: 'superhumans',
@@ -24,7 +24,8 @@ module.exports = {
       },
       imageId: {
         type: Sequelize.INTEGER,
-        field: 'image_Id',
+        field: 'image_id',
+        allowNull: false,
         references: {
           model: 'images',
           key: 'id',

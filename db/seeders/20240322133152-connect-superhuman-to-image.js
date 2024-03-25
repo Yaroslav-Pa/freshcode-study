@@ -14,14 +14,14 @@ module.exports = {
      */
     await queryInterface.bulkInsert('superhumans_to_images', [
       {
-        image_Id: 1,
-        superhuman_Id: 1,
+        image_id: 1,
+        superhuman_id: 1,
         updated_at: new Date(),
         created_at: new Date(),
       },
       {
-        image_Id: 2,
-        superhuman_Id: 2,
+        image_id: 2,
+        superhuman_id: 2,
         updated_at: new Date(),
         created_at: new Date(),
       },
