@@ -1,9 +1,8 @@
 const { Superhuman, Superpower, Image } = require('../db/models');
-
 module.exports.getSuperhumans = async (req, res, next) => {
   try {
     const superhumans = await Superhuman.findAll({
-      include: [Superpower, Image],
+      include: [Superpower, { model: Image, through: { attributes: [] } }],
     });
     res.status(200).send({ data: superhumans });
   } catch (error) {
@@ -49,5 +48,28 @@ module.exports.deleteSuperhuman = async (req, res, next) => {
     res.status(200).send({ data: superhuman });
   } catch (error) {
     next(error);
+  }
+};
+
+module.exports.addPicture = async (req, res, next) => {
+  try {
+    const { superhuman, file } = req;
+
+    await superhuman.createImage({
+      imageSrc: file.filename,
+    });
+
+    res.status(200).send({ data: superhuman });
+  } catch (error) {
+    next(error.message);
+  }
+};
+module.exports.getPictures = async (req, res, next) => {
+  try {
+    const { superhuman } = req;
+    const pictures = await superhuman.getImages();
+    res.status(200).send({ data: pictures });
+  } catch (error) {
+    next(error.message);
   }
 };

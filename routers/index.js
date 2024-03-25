@@ -1,4 +1,5 @@
 const superhumanRouter = require('./superhumans');
+const SuperhumansController = require('../controllers/superhumansController');
 const SuperpowerController = require('../controllers/superpowersController');
 const router = require('express').Router();
 
