@@ -2,7 +2,17 @@ const { Superhuman, Superpower, Image } = require('../db/models');
 module.exports.getSuperhumans = async (req, res, next) => {
   try {
     const superhumans = await Superhuman.findAll({
-      include: [Superpower, { model: Image, through: { attributes: [] } }],
+      include: [
+        {
+          model: Superpower,
+          attributes: { exclude: ['updatedAt', 'createdAt', 'superhumanId'] },
+        },
+        {
+          model: Image,
+          through: { attributes: [] },
+          attributes: { exclude: ['updatedAt', 'createdAt'] },
+        },
+      ],
     });
     res.status(200).send({ data: superhumans });
   } catch (error) {

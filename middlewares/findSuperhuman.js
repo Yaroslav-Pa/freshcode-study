@@ -7,7 +7,17 @@ module.exports.findSuperhumanMW = async (req, res, next) => {
       params: { superhumanId },
     } = req;
     const superhuman = await Superhuman.findByPk(superhumanId, {
-      include: [Superpower, { model: Image, through: { attributes: [] } }],
+      include: [
+        {
+          model: Superpower,
+          attributes: { exclude: ['updatedAt', 'createdAt', 'superhumanId'] },
+        },
+        {
+          model: Image,
+          through: { attributes: [] },
+          attributes: { exclude: ['updatedAt', 'createdAt'] },
+        },
+      ],
     });
 
     if (!superhuman) {
