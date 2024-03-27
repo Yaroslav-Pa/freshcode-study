@@ -1,8 +1,9 @@
 const path = require('path');
 const fs = require('fs');
 const multer = require('multer');
+const CONSTANTS = require('../../constants');
 
-const imagesPath = path.resolve(__dirname, '..', '..', 'public', 'images');
+const imagesPath = path.resolve(CONSTANTS.PUBLIC_FILE_PATH, 'images');
 
 if (!fs.existsSync(imagesPath)) {
   fs.mkdirSync(imagesPath, {
