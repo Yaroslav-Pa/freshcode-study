@@ -1,32 +1,15 @@
-const path = require('path');
-const fs = require('fs');
 const superhumanRouter = require('express').Router();
 const superpowerRouter = require('./superpowers');
 const { findSuperhumanMW } = require('../middlewares/findSuperhuman');
 const SuperhumansController = require('../controllers/superhumansController');
-const multer = require('multer');
-
-const imagesPath = path.resolve(__dirname, '..', 'public', 'images');
-
-if (!fs.existsSync(imagesPath)) {
-  fs.mkdirSync(imagesPath, {
-    recursive: true,
-  });
-}
-
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, imagesPath);
-  },
-  filename: function (req, file, cb) {
-    cb(null, `${Date.now()}-${file.originalname}`);
-  },
-});
-
-const upload = multer({ storage });
+const imageUpload = require('../utils/fileUtils/images');
 
 superhumanRouter.get('/', SuperhumansController.getSuperhumans);
-superhumanRouter.put('/', upload.single('picture'), SuperhumansController.createSuperhuman);
+superhumanRouter.put(
+  '/',
+  imageUpload.single('picture'),
+  SuperhumansController.createSuperhuman
+);
 superhumanRouter.get(
   '/:superhumanId',
   findSuperhumanMW,
@@ -50,7 +33,7 @@ superhumanRouter.get(
 );
 superhumanRouter.put(
   '/:superhumanId/picture',
-  upload.single('picture'),
+  imageUpload.single('picture'),
   findSuperhumanMW,
   SuperhumansController.addPicture
 );
