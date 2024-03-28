@@ -1,7 +1,6 @@
 const superpowerRouter = require('express').Router();
-const { findSuperhumanMW } = require('../middlewares/findSuperhuman');
-const { findSuperpowerMW } = require('../middlewares/findSuperpower');
 const SuperpowerController = require('../controllers/superpowersController');
+const { validateCreationSuperpowerMW, validateEditSuperpowerMW } = require('../middlewares/validate');
 
 superpowerRouter.get(
   '/',
@@ -9,6 +8,7 @@ superpowerRouter.get(
 );
 superpowerRouter.put(
   '/',
+  validateCreationSuperpowerMW,
   SuperpowerController.createSuperpower
 );
 superpowerRouter.get(
@@ -21,6 +21,7 @@ superpowerRouter.delete(
 );
 superpowerRouter.put(
   '/:superpowerId',
+  validateEditSuperpowerMW,
   SuperpowerController.updateSuperpower
 );
 

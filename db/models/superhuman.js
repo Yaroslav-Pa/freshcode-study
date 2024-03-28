@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
   Superhuman.init(
     {
       nickname: {
-        type: DataTypes.STRING(128),
+        type: DataTypes.STRING(100),
         field: 'nickname',
         allowNull: false,
         validate: {
@@ -34,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
       realName: {
-        type: DataTypes.STRING(128),
+        type: DataTypes.STRING(100),
         field: 'real_name',
         allowNull: false,
         validate: {

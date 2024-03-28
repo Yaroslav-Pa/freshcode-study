@@ -3,11 +3,16 @@ const superpowerRouter = require('./superpowers');
 const { findSuperhumanMW } = require('../middlewares/findSuperhuman');
 const SuperhumansController = require('../controllers/superhumansController');
 const imageUpload = require('../utils/fileUtils/images');
+const {
+  validateCreationSuperhumanMW,
+  validateEditSuperhumanMW,
+} = require('../middlewares/validate');
 
 superhumanRouter.get('/', SuperhumansController.getSuperhumans);
 superhumanRouter.put(
   '/',
   imageUpload.single('picture'),
+  validateCreationSuperhumanMW,
   SuperhumansController.createSuperhuman
 );
 superhumanRouter.get(
@@ -18,6 +23,7 @@ superhumanRouter.get(
 superhumanRouter.put(
   '/:superhumanId',
   findSuperhumanMW,
+  validateEditSuperhumanMW,
   SuperhumansController.updateSuperhuman
 );
 superhumanRouter.delete(

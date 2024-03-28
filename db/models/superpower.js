@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
   Superpower.init(
     {
       powerName: {
-        type: DataTypes.STRING(128),
+        type: DataTypes.STRING(100),
         field: 'power_name',
         allowNull:false,
         validate: {
@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
       powerDescription: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         field: 'power_description',
         validate: {
           notEmpty: true,
