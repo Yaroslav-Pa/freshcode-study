@@ -129,3 +129,46 @@ db.inventory.find({
 db.users.find({
   email: { $exists:true }
 });
+
+
+
+
+
+// ! delete {Delete}
+
+// * db.users.deleteOne(<querry>);
+// * db.users.deleteMany(<querry>);
+// ці не повертають що видаляють
+
+// * querry - selection filter
+
+
+// ? one
+// ! видалення за ID
+db.users.deleteOne({
+  _id:new ObjectId('6605840cebbcd1ab06a46ad8')
+});
+
+// ? many
+// видалить усе
+db.users.deleteMany({});
+
+// ? видалити колекцію
+db.inventory.drop()
+
+
+
+
+// ! Update {Update}
+
+// * db.collection.updateOne(<filter>, <update>, <options>)
+// * db.collection.updateMany(<filter>, <update>, <options>)
+// * db.collection.replaceOne(<filter>, <update>, <options>)
+// ці не повертають що змінили
+
+// ? <update> operators 
+// https://www.mongodb.com/docs/manual/reference/operator/update/
+
+
+// ? updateMany + updateOne (замість усіх змінить перший)
+db.inventory.updateMany({status: 'A'}, {$set: {status: 'Accepeted', "size.uom": 'scm'} });
